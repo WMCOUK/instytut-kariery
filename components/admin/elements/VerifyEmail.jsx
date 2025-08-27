@@ -1,8 +1,5 @@
-
-
+// components/admin/elements/VerifyEmail.jsx
 import prisma from '@/utils/prismadb'
-
-
 
 const VerifyEmail = async ({ searchParams }) => {
 	if (searchParams.token) {
@@ -21,8 +18,8 @@ const VerifyEmail = async ({ searchParams }) => {
 			},
 			data: {
 				emailVerified: true,
-				emailVerificationToken: null
-			}
+				emailVerificationToken: null,
+			},
 		})
 
 		return (

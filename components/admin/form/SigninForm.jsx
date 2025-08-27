@@ -13,7 +13,7 @@ import { useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
 import { toast } from "sonner"
 import * as yup from "yup"
-import DemoCredential from "../elements/DemoCredential"
+// import DemoCredential from "../elements/DemoCredential"
 
 import currentUserClient from "@/utils/currentUserClient"
 // Define validation schema
@@ -166,7 +166,7 @@ export default function SigninForm() {
 					Signup
 				</Link>
 			</p>
-			<DemoCredential setData={setData} form={form} />
+			{/* <DemoCredential setData={setData} form={form} /> */}
 		</div>
 	)
 }
