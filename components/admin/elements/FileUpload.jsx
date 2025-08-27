@@ -25,7 +25,7 @@ const FileUpload = ({ onChange, value, onValidate }) => {
 	return (
 		<CldUploadWidget
 			onSuccess={handleFileUpload}
-			uploadPreset="jobtree"
+			uploadPreset="instytut-kariery"
 			options={{
 				maxFiles: 1,
 				resourceType: "raw",

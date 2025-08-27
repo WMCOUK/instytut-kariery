@@ -11,7 +11,7 @@ export async function GET(request) {
 		const maxResults = 32 // 20 per page
 
 		const url = new URL(`https://api.cloudinary.com/v1_1/${cloudName}/resources/image/upload`)
-		url.searchParams.append("prefix", "jobtree/")
+		url.searchParams.append("prefix", "instytut-kariery/")
 		url.searchParams.append("max_results", maxResults)
 		url.searchParams.append("direction", "desc") // newest first
 		url.searchParams.append("sort_by", "created_at") // 👈 force sort by latest uploaded

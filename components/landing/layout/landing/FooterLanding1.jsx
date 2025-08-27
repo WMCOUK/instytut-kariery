@@ -138,7 +138,7 @@ export default function FooterLanding1() {
 						</div>
 
 						<div className="text-left md:text-right">
-							<p className="text-sm text-muted-foreground mb-3">© {currentYear} jobtree. All rights reserved.</p>
+							<p className="text-sm text-muted-foreground mb-3">© {currentYear} {brandName}. All rights reserved.</p>
 							<div className="flex space-x-6">
 								{["Privacy", "Terms", "Cookies"].map((item, i) => (
 									<Link

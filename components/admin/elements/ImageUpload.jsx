@@ -17,7 +17,7 @@ const ImageUpload = ({ onChange, value, showReuse = true, imgHeight, imgWidth })
 	const [nextCursor, setNextCursor] = useState(null)
 	const [prevCursors, setPrevCursors] = useState([null])
 
-	const uploadPreset = "jobtree"
+	const uploadPreset = "instytut-kariery"
 
 	const fetchImages = useCallback(async (cursor = null, isPrev = false) => {
 		setIsFetching(true)
@@ -102,7 +102,7 @@ const ImageUpload = ({ onChange, value, showReuse = true, imgHeight, imgWidth })
 			<CldUploadWidget
 				onSuccess={handleImageUpload}
 				uploadPreset={uploadPreset}
-				options={{ maxFiles: 1, folder: "jobtree" }}
+				options={{ maxFiles: 1, folder: "instytut-kariery" }}
 			>
 				{({ open }) => (
 					<div
