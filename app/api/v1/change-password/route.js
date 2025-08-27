@@ -39,7 +39,7 @@ export async function POST(request) {
 		})
 
 		await resend.emails.send({
-			from: `Acme <admin@prexius.com>`,
+			from: `Acme <admin@instytutkariery.pl>`,
 			to: user.email,
 			subject: 'Password changed successfully',
 			react: PasswordChangeSuccessfulTemplate(),

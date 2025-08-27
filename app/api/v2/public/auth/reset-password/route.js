@@ -34,7 +34,7 @@ export async function POST(request) {
 	})
 
 	await resend.emails.send({
-		from: `Acme <admin@prexius.com>`,
+		from: `Acme <admin@instytutkariery.pl>`,
 		to: email,
 		subject: 'Reset your password',
 		react: ResetPasswordEmailTemplate({ email, resetPasswordToken }),

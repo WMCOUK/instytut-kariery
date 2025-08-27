@@ -48,7 +48,7 @@ export async function POST(request) {
 	})
 
 	await resend.emails.send({
-		from: `Acme <admin@prexius.com>`,
+		from: `Acme <admin@instytutkariery.pl>`,
 		to: email,
 		subject: "Hello world",
 		react: VerifyEmailEmailTemplate({ email, emailVerificationToken }),
