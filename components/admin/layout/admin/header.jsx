@@ -1,7 +1,7 @@
 "use client"
 
 import HeaderAuthBtn from "@/components/admin/elements/HeaderAuthBtn"
-import LanguageDropdown from "@/components/admin/elements/LanguageDropdown"
+// import LanguageDropdown from "@/components/admin/elements/LanguageDropdown"
 import { ThemeSwitcherBtn } from "@/components/admin/elements/ThemeSwitcherBtn"
 import { Input } from "@/components/ui/input"
 import { Menu, Search } from "lucide-react"

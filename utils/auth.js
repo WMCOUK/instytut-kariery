@@ -6,73 +6,9 @@ import CredentialsProvider from "next-auth/providers/credentials"
 import GithubProvider from "next-auth/providers/github"
 import GoogleProvider from "next-auth/providers/google"
 
-// Fetch full user with all relational data
-const fetchUserWithAllData = async (email) => {
-	if (!email) return null
-
-	return prisma.user.findUnique({
-		where: { email },
-		include: {
-			post: true,
-			recruiter: true,
-			jobLocation: true,
-			jobIndustry: true,
-			jobPosition: true,
-			jobExperience: true,
-			jobWorkMode: true,
-			jobType: true,
-			job: true,
-			rating: true,
-			personal: true,
-			preference: true,
-			candidate: true,
-		},
-	})
-}
-
-// Slimmed-down user mapping for session
-const mapUserData = (user) => {
-	if (!user) return {}
-
-	return {
-		id: user.id,
-		isRole: user.isRole,
-		onboard: user.onboard,
-		userName: user.userName,
-		picture: user.image,
-		stripeCustomerId: user.stripeCustomerId,
-		isSubscription: user.isSubscription,
-		subscriptionID: user.subscriptionID,
-		subPriceId: user.subPriceId,
-
-		// Include all relations
-		post: user.post,
-		recruiter: user.recruiter,
-		jobLocation: user.jobLocation,
-		jobIndustry: user.jobIndustry,
-		jobPosition: user.jobPosition,
-		jobExperience: user.jobExperience,
-		jobWorkMode: user.jobWorkMode,
-		jobType: user.jobType,
-		job: user.job,
-		rating: user.rating,
-		personal: user.personal,
-		preference: user.preference,
-		candidate: user.candidate,
-
-		// Computed role flags
-		isAdmin: user.isRole === "ADMIN",
-		isModerator: user.isRole === "MODERATOR",
-		isRoleUser: user.isRole === "USER",
-		isOnboardUser: user.onboard === "USER",
-		isRecruiter: user.onboard === "RECRUITER",
-		isCandidate: user.onboard === "CANDIDATE",
-	}
-}
-
 export const authOptions = {
 	adapter: PrismaAdapter(prisma),
-	session: { strategy: "jwt" }, // keep JWT
+	session: { strategy: "jwt" },
 	providers: [
 		GithubProvider({
 			clientId: process.env.GITHUB_ID,
@@ -84,24 +20,19 @@ export const authOptions = {
 		}),
 		CredentialsProvider({
 			name: "credentials",
-			credentials: {
-				email: { label: "Email", type: "text" },
-				password: { label: "Password", type: "password" },
-			},
+			credentials: { email: {}, password: {} },
 			async authorize(credentials) {
-				if (!credentials?.email || !credentials?.password) {
-					throw new Error("Please enter an email and password")
-				}
+				const { email, password } = credentials || {}
+				if (!email || !password) throw new Error("Missing email or password")
 
-				const user = await fetchUserWithAllData(credentials.email)
-				if (!user || !user.hashedPassword) {
-					throw new Error("No user found")
-				}
+				const user = await prisma.user.findUnique({
+					where: { email },
+					select: { id: true, email: true, hashedPassword: true, isRole: true, onboard: true },
+				})
+				if (!user || !user.hashedPassword) throw new Error("No user found")
 
-				const isValid = await bcrypt.compare(credentials.password, user.hashedPassword)
-				if (!isValid) {
-					throw new Error("Incorrect password")
-				}
+				const isValid = await bcrypt.compare(password, user.hashedPassword)
+				if (!isValid) throw new Error("Incorrect password")
 
 				return user
 			},
@@ -109,34 +40,51 @@ export const authOptions = {
 	],
 	callbacks: {
 		async jwt({ token, user }) {
-			// 🔐 Only store minimal data in the cookie token
 			if (user) {
 				token.id = user.id
-				token.email = user.email
+				token.role = user.isRole
+				token.onboard = user.onboard
+
+				// Optional fields if present
+				token.userName = user.userName || null
+				token.email = user.email || null
+				token.image = user.image || null
+				token.stripeCustomerId = user.stripeCustomerId || null
+				token.isSubscription = user.isSubscription || false
+				token.subscriptionID = user.subscriptionID || null
+				token.subPriceId = user.subPriceId || null
 			}
 			return token
 		},
 
 		async session({ session, token }) {
-			// 🧠 Fetch full user data (relational) here to avoid bloating the JWT cookie
-			if (!token?.email) return session
+			session.user = {
+				id: token.id,
+				role: token.role,
+				onboard: token.onboard,
+				userName: token.userName,
+				email: token.email,
+				picture: token.image,
+				stripeCustomerId: token.stripeCustomerId,
+				isSubscription: token.isSubscription,
+				subscriptionID: token.subscriptionID,
+				subPriceId: token.subPriceId,
 
-			const freshUser = await fetchUserWithAllData(token.email)
-			return {
-				...session,
-				user: {
-					...session.user,
-					...mapUserData(freshUser),
-				},
+				// Computed flags
+				isAdmin: token.role === "ADMIN",
+				isModerator: token.role === "MODERATOR",
+				isRoleUser: token.role === "USER",
+				isOnboardUser: token.onboard === "USER",
+				isRecruiter: token.onboard === "RECRUITER",
+				isCandidate: token.onboard === "CANDIDATE",
 			}
+			return session
 		},
 	},
+
 	secret: process.env.NEXTAUTH_SECRET,
 	debug: process.env.NODE_ENV === "development",
-	pages: {
-		signIn: "/signin",
-	},
+	pages: { signIn: "/signin" },
 }
 
-// Export helper for server-side auth
 export const getAuthSession = () => getServerSession(authOptions)

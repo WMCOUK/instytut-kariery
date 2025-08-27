@@ -2,35 +2,22 @@
 
 import { useSession } from "next-auth/react"
 
-export default function CurrentUserClient() {
+export default function useCurrentUser() {
 	const { data: session, status } = useSession()
 
-	// Handle loading state
-	if (status === "loading") {
-		return null // Or return a loading indicator if preferred
+	if (status === "loading" || status === "unauthenticated" || !session?.user?.email) {
+		return {} // return empty object if not ready
 	}
 
-	// Handle unauthenticated state
-	if (status === "unauthenticated" || !session?.user?.email) {
-		return null
+	const user = session.user
+
+	return {
+		...user,
+		isAdmin: user.isRole === "ADMIN",
+		isModerator: user.isRole === "MODERATOR",
+		isRoleUser: user.isRole === "USER",
+		isOnboardUser: user.onboard === "USER",
+		isRecruiter: user.onboard === "RECRUITER",
+		isCandidate: user.onboard === "CANDIDATE",
 	}
-
-	// All Prisma relations are now available in session.user
-	// This includes: post, recruiter, jobLocation, jobIndustry, jobPosition,
-	// jobExperience, jobWorkMode, jobType, job, rating, personal, preference, candidate
-	const currentUser = {
-		...session.user,
-
-		// These properties are now already included in the session from our auth.js update,
-		// but we'll keep them here for backward compatibility and clarity
-		isAdmin: session.user.isRole === "ADMIN",
-		isModerator: session.user.isRole === "MODERATOR",
-		isRoleUser: session.user.isRole === "USER",
-		isOnboardUser: session.user.onboard === "USER",
-		isRecruiter: session.user.onboard === "RECRUITER",
-		isCandidate: session.user.onboard === "CANDIDATE",
-	}
-
-	return currentUser
 }
-

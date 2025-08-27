@@ -23,9 +23,11 @@ export default function HeaderAuthBtn() {
 	return (
 		<>
 			{!user ? (
-				<Button className="px-4 block" title="Sign in">
-					<Link href="/signin">Sign in</Link>
-				</Button>
+				<Link href="/signin">
+					<Button className="px-4 block" title="Sign in">
+						Sign in
+					</Button>
+				</Link>
 			) : (
 				<DropdownMenu>
 					<DropdownMenuTrigger asChild>
