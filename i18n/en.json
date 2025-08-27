@@ -1,0 +1,52 @@
+{
+    "landing": {
+        "hero1": {
+            "handIconAlt": "Hand icon",
+            "jobOffers": "Job Opportunities",
+            "greeting": "Hello! Welcome to Nubi",
+            "title": "Simple and cost-effective",
+            "titleHighlight": "Career solutions",
+            "description": "Every month, over 3.5 million job seekers visit our platform, submitting more than 150,000 applications daily in pursuit of their ideal roles.",
+            "popularSearches": "Trending Searches",
+            "searchTerms": "UX Designer,Full-Stack Developer,Cloud,Android,Python,Lead,Architect",
+            "backgroundPatternAlt": "Background pattern",
+            "heroImageAlt": "Hero image",
+            "avatarAlt": "Avatar {number}"
+        },
+        "hero2": {
+            "handIconAlt": "Hand icon",
+            "greeting": "Hi there! We’re Nubi",
+            "title": "Powerful and budget-friendly",
+            "titleHighlight": "Job opportunities",
+            "description": "More than 3.5 million job seekers trust our site each month, generating over 150,000 applications every day to connect with their next career move.",
+            "popularSearches": "Trending Searches",
+            "searchTerms": "UX Designer,Full-Stack Developer,Cloud,Android,Python,Lead,Architect",
+            "backgroundPatternAlt": "Background pattern",
+            "heroImageAlt": "Hero image",
+            "avatarAlt": "Avatar {number}"
+        },
+        "hero3": {
+            "backgroundAlt": "Background",
+            "title": "Explore top-tier",
+            "titleContinued": "tech innovators",
+            "description": "Uncover Your Ideal Career Path and Secure the Perfect Job Opportunity",
+            "popularSearches": "Trending Searches",
+            "searchTerms": "UX Designer,Full-Stack Developer,Cloud,Android,Python,Lead,Architect"
+        },
+        "hero4": {
+            "backgroundPatternAlt": "Background pattern",
+            "title": "Launch the #1 Platform for",
+            "titleContinued": "Hiring or Landing Your Next Role",
+            "description": "Uncover Your Ideal Career Path and Secure the Perfect Job Opportunity",
+            "popularSearches": "Trending Searches",
+            "searchTerms": "UX Designer,Full-Stack Developer,Cloud,Android,Python,Lead,Architect"
+        },
+        "hero5": {
+            "title": "Kickstart the #1 Recruitment for",
+            "titleContinued": "Hiring or Your Next Career Step",
+            "description": "Uncover Your Ideal Career Path and Secure the Perfect Job Opportunity",
+            "popularSearches": "Trending Searches",
+            "searchTerms": "UX Designer,Full-Stack Developer,Cloud,Android,Python,Lead,Architect"
+        }
+    }
+}

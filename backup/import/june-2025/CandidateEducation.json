@@ -1,0 +1,48 @@
+[
+  {
+    "_id": {
+      "$oid": "67a789c07f06185aeb52304e"
+    },
+    "createdAt": {
+      "$date": "2025-02-08T16:43:44.290Z"
+    },
+    "description": "",
+    "endDate": {
+      "$date": "2025-02-03T18:00:00.000Z"
+    },
+    "isCurrentStudy": false,
+    "slug": "school",
+    "startDate": {
+      "$date": "2024-02-24T18:00:00.000Z"
+    },
+    "title": "School",
+    "updatedAt": {
+      "$date": "2025-03-03T02:01:49.452Z"
+    },
+    "userId": {
+      "$oid": "67024657e31ceb06da0958ec"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67a9b3de14c545e3dda803cd"
+    },
+    "createdAt": {
+      "$date": "2025-02-10T08:07:58.477Z"
+    },
+    "description": "",
+    "endDate": null,
+    "isCurrentStudy": true,
+    "slug": "college",
+    "startDate": {
+      "$date": "2024-03-02T18:00:00.000Z"
+    },
+    "title": "College",
+    "updatedAt": {
+      "$date": "2025-02-10T08:19:55.228Z"
+    },
+    "userId": {
+      "$oid": "67024657e31ceb06da0958ec"
+    }
+  }
+]

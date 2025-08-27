@@ -1,0 +1,257 @@
+[
+  {
+    "_id": {
+      "$oid": "67440ab5959d8a994dd55b33"
+    },
+    "createdAt": {
+      "$date": "2024-11-25T05:27:17.424Z"
+    },
+    "icon": "San Jose",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1735229003/vodcast/yvaxru579cuwuhr2houm.jpg",
+    "slug": "san-jose",
+    "title": "San Jose",
+    "updatedAt": {
+      "$date": "2024-12-26T16:04:49.029Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "676d489922a1614d9f8ced6d"
+    },
+    "createdAt": {
+      "$date": "2024-12-26T12:14:17.329Z"
+    },
+    "icon": "No",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1735215252/vodcast/ye0tngogve0xkneqc6lu.jpg",
+    "slug": "seattle",
+    "title": "Seattle",
+    "updatedAt": {
+      "$date": "2024-12-26T12:14:17.329Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67440abf959d8a994dd55b34"
+    },
+    "createdAt": {
+      "$date": "2024-11-25T05:27:27.125Z"
+    },
+    "icon": "Raleigh, Nort",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1735229131/vodcast/pwkka4jgc5xbbegdyhdj.jpg",
+    "slug": "raleigh-nort",
+    "title": "Raleigh, Nort",
+    "updatedAt": {
+      "$date": "2024-12-26T16:05:34.529Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "676d7f1c22a1614d9f8ced76"
+    },
+    "createdAt": {
+      "$date": "2024-12-26T16:06:52.958Z"
+    },
+    "icon": "Los Angeles",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1735229210/vodcast/x7i86w6npa5g4vvkvywk.jpg",
+    "slug": "los-angeles",
+    "title": "Los Angeles",
+    "updatedAt": {
+      "$date": "2024-12-26T16:06:52.958Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "676d7f9022a1614d9f8ced79"
+    },
+    "createdAt": {
+      "$date": "2024-12-26T16:08:48.212Z"
+    },
+    "icon": "Atlanta",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1735229325/vodcast/qfvn8nv86jay5mgiiqie.jpg",
+    "slug": "atlanta",
+    "title": "Atlanta",
+    "updatedAt": {
+      "$date": "2024-12-26T16:08:48.212Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "676d7f0622a1614d9f8ced75"
+    },
+    "createdAt": {
+      "$date": "2024-12-26T16:06:30.250Z"
+    },
+    "icon": "Denver",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1735229186/vodcast/pbgz4xqxpbeqizzqdfq7.jpg",
+    "slug": "denver",
+    "title": "Denver",
+    "updatedAt": {
+      "$date": "2024-12-26T16:06:30.250Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "676d8c4c6a793532ad66b20e"
+    },
+    "createdAt": {
+      "$date": "2024-12-26T17:03:08.579Z"
+    },
+    "icon": "Chicago",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1735232584/vodcast/ae5wm24yrl9kbicxtfht.jpg",
+    "slug": "chicago",
+    "title": "Chicago",
+    "updatedAt": {
+      "$date": "2024-12-26T17:03:08.579Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67440aac959d8a994dd55b32"
+    },
+    "createdAt": {
+      "$date": "2024-11-25T05:27:08.589Z"
+    },
+    "icon": "Boston-icon",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1735228937/vodcast/lsbdavyj7xrh2hqlnmrk.jpg",
+    "slug": "boston",
+    "title": "Boston",
+    "updatedAt": {
+      "$date": "2024-12-26T16:04:49.029Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67440aa2959d8a994dd55b31"
+    },
+    "createdAt": {
+      "$date": "2024-11-25T05:26:58.343Z"
+    },
+    "icon": "new-york-icon",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1735215315/vodcast/lxm0dgd1sptxwzqwfzby.jpg",
+    "slug": "new-york",
+    "title": "New York",
+    "updatedAt": {
+      "$date": "2024-12-26T12:15:17.553Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "676d48b922a1614d9f8ced6e"
+    },
+    "createdAt": {
+      "$date": "2024-12-26T12:14:49.922Z"
+    },
+    "icon": "No",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1735215287/vodcast/awkqfvx62eykrxeed1pj.jpg",
+    "slug": "austin",
+    "title": "Austin",
+    "updatedAt": {
+      "$date": "2024-12-26T12:14:49.922Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "676d487222a1614d9f8ced6c"
+    },
+    "createdAt": {
+      "$date": "2024-12-26T12:13:38.033Z"
+    },
+    "icon": "no",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1735215213/vodcast/smam5mouu0pctohjcdxa.jpg",
+    "slug": "san-francisco",
+    "title": "San Francisco",
+    "updatedAt": {
+      "$date": "2024-12-26T12:13:38.033Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "676d7ee722a1614d9f8ced74"
+    },
+    "createdAt": {
+      "$date": "2024-12-26T16:05:59.583Z"
+    },
+    "icon": "Washington",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1735229155/vodcast/wglp5qdwaemufii0hxfs.jpg",
+    "slug": "washington",
+    "title": "Washington",
+    "updatedAt": {
+      "$date": "2024-12-26T16:05:59.583Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "676d8c4c6a793532ad66b20f"
+    },
+    "createdAt": {
+      "$date": "2024-12-26T17:03:08.580Z"
+    },
+    "icon": "Berlin",
+    "image": "https://fakeimg.pl/600x400",
+    "slug": "berlin",
+    "title": "Berlin",
+    "updatedAt": {
+      "$date": "2024-12-26T17:03:08.580Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "676d8c4c6a793532ad66b210"
+    },
+    "createdAt": {
+      "$date": "2024-12-26T17:03:08.581Z"
+    },
+    "icon": "London",
+    "image": "https://fakeimg.pl/600x400",
+    "slug": "london",
+    "title": "London",
+    "updatedAt": {
+      "$date": "2024-12-26T17:03:08.581Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "676d8c4c6a793532ad66b211"
+    },
+    "createdAt": {
+      "$date": "2024-12-26T17:03:08.582Z"
+    },
+    "icon": "Houston",
+    "image": "https://fakeimg.pl/600x400",
+    "slug": "houston",
+    "title": "Houston",
+    "updatedAt": {
+      "$date": "2024-12-26T17:03:08.582Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "676d8c4c6a793532ad66b213"
+    },
+    "createdAt": {
+      "$date": "2024-12-26T17:03:08.584Z"
+    },
+    "icon": "Munich",
+    "image": "https://fakeimg.pl/600x400",
+    "slug": "munich",
+    "title": "Munich",
+    "updatedAt": {
+      "$date": "2025-01-24T16:54:44.790Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "676d8c4c6a793532ad66b212"
+    },
+    "createdAt": {
+      "$date": "2024-12-26T17:03:08.583Z"
+    },
+    "icon": "Amsterdam",
+    "image": "https://fakeimg.pl/600x400",
+    "slug": "amsterdam",
+    "title": "Amsterdam",
+    "updatedAt": {
+      "$date": "2024-12-26T17:03:08.583Z"
+    }
+  }
+]

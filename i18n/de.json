@@ -1,0 +1,52 @@
+{
+  "landing": {
+    "hero1": {
+      "handIconAlt": "Handsymbol",
+      "jobOffers": "Stellenangebote",
+      "greeting": "Hallo! Wir sind Nubi",
+      "title": "Effektive und erschwingliche",
+      "titleHighlight": "Arbeitslösungen",
+      "description": "Jeden Monat wenden sich mehr als 3 Millionen Arbeitssuchende bei ihrer Jobsuche an unsere Website und stellen täglich über 140.000 Bewerbungen.",
+      "popularSearches": "Beliebte Suchen",
+      "searchTerms": "Designer,Entwickler,Web,IOS,PHP,Senior,Ingenieur",
+      "backgroundPatternAlt": "Hintergrundmuster",
+      "heroImageAlt": "Heldenbild",
+      "avatarAlt": "Avatar {number}"
+    },
+    "hero2": {
+      "handIconAlt": "Handsymbol",
+      "greeting": "Hallo! Wir sind Nubi",
+      "title": "Effektive und erschwingliche",
+      "titleHighlight": "Joblösungen",
+      "description": "Jeden Monat wenden sich mehr als 3 Millionen Arbeitssuchende an unsere Website auf der Suche nach Arbeit und stellen täglich über 140.000 Bewerbungen.",
+      "popularSearches": "Beliebte Suchen",
+      "searchTerms": "Designer,Developer,Web,IOS,PHP,Senior,Engineer",
+      "backgroundPatternAlt": "Hintergrundmuster",
+      "heroImageAlt": "Heldenbild",
+      "avatarAlt": "Avatar {number}"
+    },
+    "hero3": {
+      "backgroundAlt": "Hintergrund",
+      "title": "Starten Sie die Nr. 1 Jobbörse für",
+      "titleContinued": "Einstellung oder Ihren nächsten Job",
+      "description": "Entdecken Sie Ihre Traumkarriere und finden Sie den perfekten Job",
+      "popularSearches": "Beliebte Suchen",
+      "searchTerms": "Designer,Entwickler,Web,IOS,PHP,Senior,Ingenieur"
+    },
+    "hero4": {
+      "backgroundPatternAlt": "Hintergrundmuster",
+      "title": "Starten Sie die Nr. 1 Jobbörse für",
+      "titleContinued": "Einstellung oder Ihren nächsten Job",
+      "description": "Entdecken Sie Ihre Traumkarriere und finden Sie den perfekten Job",
+      "popularSearches": "Beliebte Suchen",
+      "searchTerms": "Designer,Entwickler,Web,IOS,PHP,Senior,Ingenieur"
+    },
+    "hero5": {
+      "title": "Starten Sie die Nr. 1 Jobbörse für",
+      "titleContinued": "Einstellung oder Ihren nächsten Job",
+      "description": "Entdecken Sie Ihre Traumkarriere und finden Sie den perfekten Job",
+      "popularSearches": "Beliebte Suchen",
+      "searchTerms": "Designer,Entwickler,Web,IOS,PHP,Senior,Ingenieur"
+    }
+  }
+}

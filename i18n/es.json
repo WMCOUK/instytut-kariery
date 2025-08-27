@@ -1,0 +1,52 @@
+{
+  "landing": {
+    "hero1": {
+      "handIconAlt": "Icono de mano",
+      "jobOffers": "Ofertas de trabajo",
+      "greeting": "¡Hola! Somos Nubi",
+      "title": "Soluciones laborales",
+      "titleHighlight": "efectivas y asequibles",
+      "description": "Cada mes, más de 3 millones de buscadores de empleo acuden a nuestro sitio web en su búsqueda de trabajo, realizando más de 140,000 solicitudes cada día.",
+      "popularSearches": "Búsquedas populares",
+      "searchTerms": "Diseñador,Desarrollador,Web,IOS,PHP,Senior,Ingeniero",
+      "backgroundPatternAlt": "Patrón de fondo",
+      "heroImageAlt": "Imagen principal",
+      "avatarAlt": "Avatar {number}"
+    },
+    "hero2": {
+      "handIconAlt": "Icono de mano",
+      "greeting": "¡Hola! Somos Nubi",
+      "title": "Soluciones laborales",
+      "titleHighlight": "efectivas y asequibles",
+      "description": "Cada mes, más de 3 millones de buscadores de empleo acuden a nuestro sitio web en busca de trabajo, realizando más de 140.000 solicitudes cada día.",
+      "popularSearches": "Búsquedas populares",
+      "searchTerms": "Diseñador,Desarrollador,Web,IOS,PHP,Senior,Ingeniero",
+      "backgroundPatternAlt": "Patrón de fondo",
+      "heroImageAlt": "Imagen principal",
+      "avatarAlt": "Avatar {number}"
+    },
+    "hero3": {
+      "backgroundAlt": "Fondo",
+      "title": "Comienza con la bolsa de trabajo #1 para",
+      "titleContinued": "contratar o encontrar tu próximo empleo",
+      "description": "Descubre tu carrera soñada y encuentra el trabajo perfecto",
+      "popularSearches": "Búsquedas populares",
+      "searchTerms": "Diseñador,Desarrollador,Web,IOS,PHP,Senior,Ingeniero"
+    },
+    "hero4": {
+      "backgroundPatternAlt": "Patrón de fondo",
+      "title": "Comienza con la bolsa de trabajo #1 para",
+      "titleContinued": "contratar o encontrar tu próximo empleo",
+      "description": "Descubre tu carrera soñada y encuentra el trabajo perfecto",
+      "popularSearches": "Búsquedas populares",
+      "searchTerms": "Diseñador,Desarrollador,Web,IOS,PHP,Senior,Ingeniero"
+    },
+    "hero5": {
+      "title": "Comienza con la bolsa de trabajo #1 para",
+      "titleContinued": "contratar o encontrar tu próximo empleo",
+      "description": "Descubre tu carrera soñada y encuentra el trabajo perfecto",
+      "popularSearches": "Búsquedas populares",
+      "searchTerms": "Diseñador,Desarrollador,Web,IOS,PHP,Senior,Ingeniero"
+    }
+  }
+}

@@ -1,0 +1,54 @@
+[
+  {
+    "id": "73bcadcb-456a-4fe6-8382-5fed5010ea66",
+    "title": "Master of Computer Science",
+    "slug": "master-of-computer-science",
+    "description": "Specialized in Artificial Intelligence and Machine Learning. Completed thesis on 'Neural Networks for Natural Language Processing' with distinction.",
+    "startDate": "2018-09-19T18:00:00.000Z",
+    "endDate": "2020-06-29T18:00:00.000Z",
+    "isCurrentStudy": false,
+    "updatedAt": "2025-08-08T02:06:43.927Z",
+    "createdAt": "2025-08-08T02:06:43.927Z",
+    "userId": "67ecb199841d28207df9d5b5",
+    "instituteName": "Stanford University"
+  },
+  {
+    "id": "a9761ead-9e79-4b38-af43-5635191f3d5b",
+    "title": "Professional Certification in UX Design",
+    "slug": "professional-certification-in-ux-design",
+    "description": "Comprehensive program covering user research, wireframing, prototyping, and usability testing. Completed capstone project designing a mobile application for healthcare.",
+    "startDate": "2020-12-31T18:00:00.000Z",
+    "endDate": "2021-07-30T18:00:00.000Z",
+    "isCurrentStudy": false,
+    "updatedAt": "2025-08-08T02:16:56.434Z",
+    "createdAt": "2025-08-08T02:16:56.434Z",
+    "userId": "67ecb199841d28207df9d5b5",
+    "instituteName": "Google"
+  },
+  {
+    "id": "da2ec8fb-097f-4ed2-8fb2-f586b8efbd14",
+    "title": "Advanced Data Science Specialization",
+    "slug": "advanced-data-science-specialization",
+    "description": "Currently pursuing advanced certification in data science and analytics. Learning statistical analysis, data visualization, and predictive modeling techniques.",
+    "startDate": "2022-02-28T18:00:00.000Z",
+    "endDate": null,
+    "isCurrentStudy": true,
+    "updatedAt": "2025-08-08T02:17:36.133Z",
+    "createdAt": "2025-08-08T02:17:36.133Z",
+    "userId": "67ecb199841d28207df9d5b5",
+    "instituteName": "IBM"
+  },
+  {
+    "id": "f2725e6e-66fc-4696-a341-bc6eeaa3592c",
+    "title": "Bachelor of Science in Computer Engineering",
+    "slug": "bachelor-of-science-in-computer-engineering",
+    "description": "Graduated with honors. Participated in multiple hackathons and research projects. Served as president of the Computer Science Student Association.",
+    "startDate": "2014-08-31T18:00:00.000Z",
+    "endDate": "2018-05-30T18:00:00.000Z",
+    "isCurrentStudy": false,
+    "updatedAt": "2025-08-08T02:21:33.038Z",
+    "createdAt": "2025-08-08T02:10:16.058Z",
+    "userId": "67ecb199841d28207df9d5b5",
+    "instituteName": "Massachusetts Institute of Technology"
+  }
+]

@@ -1,0 +1,284 @@
+[
+  {
+    "_id": {
+      "$oid": "67b6dde180373adbcf505f77"
+    },
+    "appliedAt": {
+      "$date": "2025-02-20T07:46:41.140Z"
+    },
+    "candidateCvSlug": "dfhtfh",
+    "candidateId": {
+      "$oid": "67026b1c6a07b1f73bff355f"
+    },
+    "coverLetter": "test",
+    "createdAt": {
+      "$date": "2025-02-20T07:46:41.160Z"
+    },
+    "jobSlug": "climate-risk-analyst",
+    "status": "Applied",
+    "updatedAt": {
+      "$date": "2025-02-20T07:46:41.160Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67b6df3249a6e2503d83c3f0"
+    },
+    "appliedAt": {
+      "$date": "2025-02-20T07:52:17.747Z"
+    },
+    "candidateCvSlug": "fgvfgh",
+    "candidateId": {
+      "$oid": "67026b1c6a07b1f73bff355f"
+    },
+    "coverLetter": "test",
+    "createdAt": {
+      "$date": "2025-02-20T07:52:17.775Z"
+    },
+    "jobSlug": "climate-risk-analyst",
+    "status": "Applied",
+    "updatedAt": {
+      "$date": "2025-02-20T07:52:17.775Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67b6e19b7d49e3eeae58f8fb"
+    },
+    "appliedAt": {
+      "$date": "2025-02-20T08:02:34.709Z"
+    },
+    "candidateCvSlug": "fgvfgh",
+    "candidateId": {
+      "$oid": "67026b1c6a07b1f73bff355f"
+    },
+    "coverLetter": "test",
+    "createdAt": {
+      "$date": "2025-02-20T08:02:34.726Z"
+    },
+    "cvFileUrl": "",
+    "jobSlug": "climate-risk-analyst",
+    "status": "pending",
+    "updatedAt": {
+      "$date": "2025-02-20T08:02:34.726Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67b6e23f7d49e3eeae58f901"
+    },
+    "appliedAt": {
+      "$date": "2025-02-20T08:05:18.487Z"
+    },
+    "candidateCvSlug": "fgvfgh",
+    "candidateId": {
+      "$oid": "67026b1c6a07b1f73bff355f"
+    },
+    "coverLetter": "fgfdbb",
+    "createdAt": {
+      "$date": "2025-02-20T08:05:18.590Z"
+    },
+    "cvFileUrl": "https://res.cloudinary.com/imsaifun/raw/upload/v1739172810/jobtree/acrravcxlhqrvvjzdhyp.pdf",
+    "jobSlug": "climate-risk-analyst",
+    "status": "pending",
+    "updatedAt": {
+      "$date": "2025-02-20T08:05:18.590Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67b6e825c5f03625b1155b67"
+    },
+    "appliedAt": {
+      "$date": "2025-02-20T08:30:29.052Z"
+    },
+    "candidateCvSlug": "fgvfgh",
+    "candidateId": {
+      "$oid": "67026b1c6a07b1f73bff355f"
+    },
+    "coverLetter": "dfgsdgd",
+    "createdAt": {
+      "$date": "2025-02-20T08:30:29.188Z"
+    },
+    "cvFileUrl": "https://res.cloudinary.com/imsaifun/raw/upload/v1739172810/jobtree/acrravcxlhqrvvjzdhyp.pdf",
+    "jobSlug": "climate-risk-analyst",
+    "status": "pending",
+    "submitted": "true",
+    "updatedAt": {
+      "$date": "2025-02-20T08:30:29.188Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67b6e8a7c5f03625b1155b6a"
+    },
+    "appliedAt": {
+      "$date": "2025-02-20T08:32:39.647Z"
+    },
+    "candidateCvSlug": "fgvfgh",
+    "candidateId": {
+      "$oid": "67026b1c6a07b1f73bff355f"
+    },
+    "coverLetter": " htfhfg",
+    "createdAt": {
+      "$date": "2025-02-20T08:32:39.648Z"
+    },
+    "cvFileUrl": "https://res.cloudinary.com/imsaifun/raw/upload/v1739172810/jobtree/acrravcxlhqrvvjzdhyp.pdf",
+    "jobSlug": "climate-risk-analyst",
+    "recruiterId": {
+      "$oid": "675ee76b1eeacf6637dd7aaf"
+    },
+    "status": "reject",
+    "submitted": "true",
+    "updatedAt": {
+      "$date": "2025-02-21T09:29:39.873Z"
+    },
+    "userId": {
+      "$oid": "67024657e31ceb06da0958ec"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67b6e8bbc5f03625b1155b6b"
+    },
+    "appliedAt": {
+      "$date": "2025-02-20T08:32:59.165Z"
+    },
+    "candidateCvSlug": "dfhtfh",
+    "candidateId": {
+      "$oid": "67026b1c6a07b1f73bff355f"
+    },
+    "coverLetter": "fhtfyj",
+    "createdAt": {
+      "$date": "2025-02-20T08:32:59.167Z"
+    },
+    "cvFileUrl": "https://res.cloudinary.com/imsaifun/raw/upload/v1739124912/jobtree/grv5vjrjfawxzw15wvyv.pdf",
+    "jobSlug": "climate-risk-analyst",
+    "status": "pending",
+    "submitted": "true",
+    "updatedAt": {
+      "$date": "2025-02-20T08:32:59.167Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67b72dbcc5f03625b1155b6c"
+    },
+    "appliedAt": {
+      "$date": "2025-02-20T13:27:24.249Z"
+    },
+    "candidateCvSlug": "fhtfh",
+    "candidateId": {
+      "$oid": "67026b1c6a07b1f73bff355f"
+    },
+    "coverLetter": "ooo",
+    "createdAt": {
+      "$date": "2025-02-20T13:27:24.251Z"
+    },
+    "cvFileUrl": "https://res.cloudinary.com/imsaifun/raw/upload/v1739174442/jobtree/rsoqwzogl59vdvtcv8ax.pdf",
+    "jobSlug": "climate-risk-analyst",
+    "recruiterId": {
+      "$oid": "675ee76b1eeacf6637dd7ab0"
+    },
+    "status": "pending",
+    "submitted": "true",
+    "updatedAt": {
+      "$date": "2025-02-21T09:26:17.765Z"
+    },
+    "userId": {
+      "$oid": "67024657e31ceb06da0958ec"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67b7417cc5f03625b1155ba5"
+    },
+    "appliedAt": {
+      "$date": "2025-02-20T14:51:39.738Z"
+    },
+    "candidateCvSlug": "fhtfh",
+    "candidateId": {
+      "$oid": "6705e7733299a9f704069184"
+    },
+    "coverLetter": "kyfktyiky",
+    "createdAt": {
+      "$date": "2025-02-20T14:51:39.754Z"
+    },
+    "cvFileUrl": "https://res.cloudinary.com/imsaifun/raw/upload/v1739174442/jobtree/rsoqwzogl59vdvtcv8ax.pdf",
+    "jobSlug": "augmented-reality-ux-designer",
+    "status": "pending",
+    "submitted": "true",
+    "updatedAt": {
+      "$date": "2025-02-20T14:51:39.754Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67b7421dc5f03625b1155bac"
+    },
+    "appliedAt": {
+      "$date": "2025-02-20T14:54:21.108Z"
+    },
+    "candidateCvSlug": "fgvfgh",
+    "candidateId": {
+      "$oid": "677bc80ccc50ae0423ec8c22"
+    },
+    "coverLetter": "rgdrg",
+    "createdAt": {
+      "$date": "2025-02-20T14:54:21.122Z"
+    },
+    "cvFileUrl": "https://res.cloudinary.com/imsaifun/raw/upload/v1739172810/jobtree/acrravcxlhqrvvjzdhyp.pdf",
+    "jobSlug": "ethical-ai-consultant",
+    "status": "pending",
+    "submitted": "true",
+    "updatedAt": {
+      "$date": "2025-02-20T14:54:21.122Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67b76bcf2b54d785b01650f5"
+    },
+    "appliedAt": {
+      "$date": "2025-02-20T17:52:14.580Z"
+    },
+    "candidateCvSlug": "fgvfgh",
+    "candidateId": {
+      "$oid": "67024657e31ceb06da0958ec"
+    },
+    "coverLetter": "bftfjhf",
+    "createdAt": {
+      "$date": "2025-02-20T17:52:14.643Z"
+    },
+    "cvFileUrl": "https://res.cloudinary.com/imsaifun/raw/upload/v1739172810/jobtree/acrravcxlhqrvvjzdhyp.pdf",
+    "jobSlug": null,
+    "status": "pending",
+    "submitted": "true",
+    "updatedAt": {
+      "$date": "2025-02-20T17:52:14.643Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67b968d18cf2dd099dc8e226"
+    },
+    "appliedAt": {
+      "$date": "2025-02-22T06:04:01.287Z"
+    },
+    "candidateCvSlug": "fgvfgh",
+    "candidateId": {
+      "$oid": "67024657e31ceb06da0958ec"
+    },
+    "coverLetter": "yyf",
+    "createdAt": {
+      "$date": "2025-02-22T06:04:01.324Z"
+    },
+    "cvFileUrl": "https://res.cloudinary.com/imsaifun/raw/upload/v1739172810/jobtree/acrravcxlhqrvvjzdhyp.pdf",
+    "jobSlug": null,
+    "status": "pending",
+    "submitted": "true",
+    "updatedAt": {
+      "$date": "2025-02-22T06:04:01.324Z"
+    }
+  }
+]

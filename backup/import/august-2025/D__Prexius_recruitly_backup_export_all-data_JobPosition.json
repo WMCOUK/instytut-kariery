@@ -1,0 +1,32 @@
+[
+  {
+    "id": "67440cd6959d8a994dd55b3c",
+    "title": "Senior",
+    "slug": "senior",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1735113073/vodcast/vtb2lqe4t67gm2jxhzej.png",
+    "icon": "senior-icon",
+    "userId": null,
+    "createdAt": "2024-11-24T23:36:22.078Z",
+    "updatedAt": "2024-12-25T01:51:15.855Z"
+  },
+  {
+    "id": "67440ce0959d8a994dd55b3d",
+    "title": "Junior",
+    "slug": "junior",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1735113086/vodcast/ysmamceih3mvqlasupks.png",
+    "icon": "junior-icon",
+    "userId": null,
+    "createdAt": "2024-11-24T23:36:32.841Z",
+    "updatedAt": "2024-12-25T01:51:28.200Z"
+  },
+  {
+    "id": "67440ce9959d8a994dd55b3e",
+    "title": "Fresher",
+    "slug": "fresher",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1735113097/vodcast/trttjcks7tozi855tyos.png",
+    "icon": "fresher-icon",
+    "userId": null,
+    "createdAt": "2024-11-24T23:36:41.372Z",
+    "updatedAt": "2024-12-25T01:51:39.317Z"
+  }
+]

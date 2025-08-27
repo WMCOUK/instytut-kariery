@@ -1,0 +1,23 @@
+[
+  {
+    "_id": {
+      "$oid": "67b04b8b9b8acde694df4415"
+    },
+    "createdAt": {
+      "$date": "2025-02-15T08:08:43.185Z"
+    },
+    "isProfilePublic": true,
+    "isResumePublic": true,
+    "notifyOnExpire": true,
+    "notifyOnJobAlert": true,
+    "notifyOnRejected": true,
+    "notifyOnSaved": true,
+    "notifyOnShortlist": true,
+    "updatedAt": {
+      "$date": "2025-02-22T17:27:46.373Z"
+    },
+    "userId": {
+      "$oid": "67024657e31ceb06da0958ec"
+    }
+  }
+]

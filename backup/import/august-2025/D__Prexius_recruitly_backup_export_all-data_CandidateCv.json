@@ -1,0 +1,22 @@
+[
+  {
+    "id": "7aafcbdd-6e1a-433b-a19e-c7e5178a25b1",
+    "title": "cv1",
+    "slug": "cv1",
+    "fileUrl": "https://res.cloudinary.com/imsaifun/raw/upload/v1753891849/jobtree/ywo0ugm4s57nlkcgvia1.pdf",
+    "fileSize": 199888,
+    "updatedAt": "2025-08-08T00:33:37.371Z",
+    "createdAt": "2025-07-30T10:11:03.172Z",
+    "userId": "67ecb1f2841d28207df9d5ba"
+  },
+  {
+    "id": "a4df5fea-96ad-48dd-8625-eea889a74958",
+    "title": "Cv2",
+    "slug": "cv2",
+    "fileUrl": "https://res.cloudinary.com/imsaifun/raw/upload/v1754641483/jobtree/y7spnmyxraynaobcbq1w.docx",
+    "fileSize": 96636,
+    "updatedAt": "2025-08-08T02:25:15.008Z",
+    "createdAt": "2025-08-08T02:25:15.008Z",
+    "userId": "67ecb199841d28207df9d5b5"
+  }
+]

@@ -1,0 +1,509 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider  = "postgresql"
+    url       = env("DATABASE_URL")
+    directUrl = env("DIRECT_URL")
+}
+
+model User {
+    id                       String                @id @default(uuid())
+    userName                 String?
+    email                    String?               @unique
+    hashedPassword           String?
+    isRole                   String                @default("USER")
+    onboard                  String                @default("USER")
+    stripeCustomerId         String?               @unique
+    isSubscription           Boolean               @default(false)
+    subPriceId               String?
+    sponPriceId              String?
+    isBanned                 Boolean               @default(false)
+    subscriptionID           String?
+    resetPasswordToken       String?               @unique
+    resetPasswordTokenExpiry DateTime?
+    emailVerified            Boolean?              @default(false)
+    emailVerificationToken   String?               @unique
+    createdAt                DateTime              @default(now())
+    updatedAt                DateTime              @updatedAt
+    account                  Account[]
+    application              Application[]
+    blogCategory             BlogCategory[]
+    candidate                Candidate?
+    candidateCv              CandidateCv[]
+    candidateEducation       CandidateEducation[]
+    candidateExperience      CandidateExperience[]
+    candidateSkill           CandidateSkill[]
+    comment                  Comment[]
+    favouriteJob             FavouriteJob[]
+    job                      Job[]
+    jobBenefit               JobBenefit[]
+    jobDate                  JobDate[]
+    jobExperience            JobExperience[]
+    jobIndustry              JobIndustry[]
+    jobLocation              JobLocation[]
+    jobPosition              JobPosition[]
+    jobType                  JobType[]
+    jobWorkMode              JobWorkMode[]
+    newsletter               Newsletter[]
+    personal                 Personal?
+    post                     Post[]
+    preference               Preference?
+    rating                   Rating[]
+    recruiter                Recruiter[]
+    socialLink               SocialLink[]
+}
+
+model Account {
+    id                String   @id @default(uuid())
+    userId            String
+    type              String
+    provider          String
+    providerAccountId String
+    refresh_token     String?
+    access_token      String?
+    expires_at        Int?
+    token_type        String?
+    scope             String?
+    id_token          String?
+    session_state     String?
+    createdAt         DateTime @default(now())
+    updatedAt         DateTime @updatedAt
+    user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+    @@unique([provider, providerAccountId])
+}
+
+model Personal {
+    id          String    @id @default(uuid())
+    name        String?
+    image       String?
+    coverPhoto  String?
+    designation String?
+    description String?
+    bio         String?
+    address     String?
+    phone       String?
+    state       String?
+    city        String?
+    country     String?
+    gender      String?
+    dateOfBirth DateTime?
+    postalCode  String?
+    website     String?
+    latitude    Float?
+    longitude   Float?
+    seoMeta     String?
+    userId      String?   @unique
+    user        User?     @relation(fields: [userId], references: [id])
+}
+
+model BlogCategory {
+    id     String  @id @default(uuid())
+    title  String
+    slug   String  @unique
+    img    String?
+    userId String?
+    user   User?   @relation(fields: [userId], references: [id])
+    posts  Post[]
+}
+
+model Post {
+    id           String       @id @default(uuid())
+    createdAt    DateTime     @default(now())
+    updatedAt    DateTime     @updatedAt
+    title        String?
+    slug         String       @unique
+    description  String?
+    subTitle     String?
+    img          String?
+    videoId      String?
+    tags         String[]
+    isFeatured   Boolean      @default(false)
+    views        Int          @default(0)
+    userId       String?
+    catSlug      String
+    comment      Comment[]
+    blogCategory BlogCategory @relation(fields: [catSlug], references: [slug])
+    user         User?        @relation(fields: [userId], references: [id])
+}
+
+model Comment {
+    id          String   @id @default(uuid())
+    createdAt   DateTime @default(now())
+    description String
+    postSlug    String
+    userId      String
+    post        Post     @relation(fields: [postSlug], references: [slug])
+    user        User     @relation(fields: [userId], references: [id])
+}
+
+model JobIndustry {
+    id        String      @id @default(uuid())
+    title     String
+    slug      String      @unique
+    image     String?
+    icon      String?
+    userId    String?
+    createdAt DateTime    @default(now())
+    updatedAt DateTime    @updatedAt
+    job       Job[]
+    user      User?       @relation(fields: [userId], references: [id])
+    Recruiter Recruiter[]
+
+    @@unique([slug, title])
+}
+
+model Job {
+    id                String         @id @default(uuid())
+    title             String?
+    slug              String         @unique
+    image             String?
+    description       String?
+    content           String?
+    numberOfPositions Int            @default(1)
+    minSalary         Int            @default(0)
+    maxSalary         Int            @default(0)
+    salaryRange       String         @default("")
+    currency          String         @default("usd")
+    applyUrl          String?
+    isFeatured        Boolean        @default(false)
+    isFavourite       Boolean        @default(false)
+    isFreelance       Boolean        @default(false)
+    isSponsored       Boolean        @default(false)
+    skills            String[]
+    benefit           String[]
+    startDate         DateTime       @default(now())
+    closingDate       DateTime?
+    maxApplicants     Int            @default(1000)
+    status            String         @default("draft")
+    moderation        String         @default("pending")
+    views             Int            @default(0)
+    latitude          Float?
+    longitude         Float?
+    userId            String?
+    recruiterSlug     String?
+    jobIndustrySlug   String?
+    jobTypeSlug       String?
+    jobExperienceSlug String?
+    jobWorkModeSlug   String?
+    jobLocationSlug   String?
+    jobPositionSlug   String?
+    averageRating     Float          @default(0)
+    ratingCount       Int            @default(0)
+    createdAt         DateTime       @default(now())
+    updatedAt         DateTime       @updatedAt
+    jobBenefitSlug    String?
+    application       Application[]
+    favouriteJob      FavouriteJob[]
+    jobBenefit        JobBenefit?    @relation(fields: [jobBenefitSlug], references: [slug])
+    jobExperience     JobExperience? @relation(fields: [jobExperienceSlug], references: [slug])
+    jobIndustry       JobIndustry?   @relation(fields: [jobIndustrySlug], references: [slug])
+    jobLocation       JobLocation?   @relation(fields: [jobLocationSlug], references: [slug])
+    jobPosition       JobPosition?   @relation(fields: [jobPositionSlug], references: [slug])
+    jobType           JobType?       @relation(fields: [jobTypeSlug], references: [slug])
+    jobWorkMode       JobWorkMode?   @relation(fields: [jobWorkModeSlug], references: [slug])
+    recruiter         Recruiter?     @relation(fields: [recruiterSlug], references: [slug])
+    user              User?          @relation(fields: [userId], references: [id])
+}
+
+model Recruiter {
+    id                String        @id @default(uuid())
+    title             String?
+    slug              String        @unique
+    email             String?
+    image             String?
+    coverPhoto        String?
+    jobIndustrySlug   String?
+    description       String?
+    content           String?
+    taxId             String?
+    phone             String?
+    website           String?
+    yearFounded       Int?
+    numberOfEmployees Int?
+    country           String?
+    state             String?
+    address           String?
+    city              String?
+    latitude          Float?
+    longitude         Float?
+    postalCode        String?
+    seoMeta           String?
+    averageRating     Float         @default(0)
+    ratingCount       Int           @default(0)
+    views             Int           @default(0)
+    userId            String?
+    createdAt         DateTime      @default(now())
+    updatedAt         DateTime      @updatedAt
+    application       Application[]
+    job               Job[]
+    jobIndustry       JobIndustry?  @relation(fields: [jobIndustrySlug], references: [slug])
+    user              User?         @relation(fields: [userId], references: [id])
+    socialLink        SocialLink[]
+    rating            Rating[]
+}
+
+model JobType {
+    id        String   @id @default(uuid())
+    title     String
+    slug      String   @unique
+    image     String?
+    icon      String?
+    userId    String?
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    job       Job[]
+    user      User?    @relation(fields: [userId], references: [id])
+}
+
+model JobExperience {
+    id        String   @id @default(uuid())
+    title     String
+    slug      String   @unique
+    image     String?
+    icon      String?
+    userId    String?
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    job       Job[]
+    user      User?    @relation(fields: [userId], references: [id])
+}
+
+model JobDate {
+    id        String   @id @default(uuid())
+    title     String
+    slug      String   @unique
+    image     String?
+    icon      String?
+    userId    String?
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    user      User?    @relation(fields: [userId], references: [id])
+}
+
+model JobWorkMode {
+    id        String   @id @default(uuid())
+    title     String
+    slug      String   @unique
+    image     String?
+    icon      String?
+    userId    String?
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    job       Job[]
+    user      User?    @relation(fields: [userId], references: [id])
+}
+
+model JobLocation {
+    id        String   @id @default(uuid())
+    title     String
+    slug      String   @unique
+    image     String?
+    icon      String?
+    userId    String?
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    job       Job[]
+    user      User?    @relation(fields: [userId], references: [id])
+}
+
+model JobBenefit {
+    id        String   @id @default(uuid())
+    title     String
+    slug      String   @unique
+    image     String?
+    icon      String?
+    checked   Boolean  @default(false)
+    userId    String?
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    job       Job[]
+    user      User?    @relation(fields: [userId], references: [id])
+}
+
+model JobPosition {
+    id        String   @id @default(uuid())
+    title     String
+    slug      String   @unique
+    image     String?
+    icon      String?
+    userId    String?
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    job       Job[]
+    user      User?    @relation(fields: [userId], references: [id])
+}
+
+model Test {
+    id              String   @id @default(uuid())
+    coverLetter     String?
+    cvFileUrl       String?
+    candidateCvSlug String?
+    jobSlug         String?
+    candidateId     String?
+    status          String?  @default("pending")
+    submitted       String?  @default("false")
+    views           Int      @default(0)
+    createdAt       DateTime @default(now())
+    updatedAt       DateTime @updatedAt
+}
+
+model Candidate {
+    id               String       @id @default(uuid())
+    credits          Int          @default(0)
+    publish          Boolean      @default(false)
+    availableForHire Boolean      @default(false)
+    publicProfile    Boolean      @default(false)
+    hideCv           Boolean      @default(false)
+    isFeatured       Boolean      @default(false)
+    createdAt        DateTime     @default(now())
+    updatedAt        DateTime     @updatedAt
+    userId           String?      @unique
+    candidateCvSlug  String?
+    // application      Application[]
+    candidateCv      CandidateCv? @relation(fields: [candidateCvSlug], references: [slug])
+    user             User?        @relation(fields: [userId], references: [id])
+}
+
+model Application {
+    id              String       @id @default(uuid())
+    coverLetter     String?
+    cvFileUrl       String?
+    candidateCvSlug String?
+    jobSlug         String?
+    candidateId     String?
+    status          String?      @default("pending")
+    submitted       String?      @default("false")
+    views           Int          @default(0)
+    createdAt       DateTime     @default(now())
+    updatedAt       DateTime     @updatedAt
+    recruiterSlug   String?
+    userId          String?
+    appliedAt       DateTime?    @default(now())
+    candidateCv     CandidateCv? @relation(fields: [candidateCvSlug], references: [slug])
+    // candidate       Candidate?   @relation(fields: [candidateId], references: [id])
+    job             Job?         @relation(fields: [jobSlug], references: [slug])
+    recruiter       Recruiter?   @relation(fields: [recruiterSlug], references: [slug])
+    user            User?        @relation(fields: [userId], references: [id])
+}
+
+model CandidateSkill {
+    id         String    @id @default(uuid())
+    title      String?
+    slug       String?   @unique
+    percentage Int?
+    updatedAt  DateTime? @updatedAt
+    createdAt  DateTime? @default(now())
+    userId     String?
+    user       User?     @relation(fields: [userId], references: [id])
+}
+
+model CandidateExperience {
+    id           String    @id @default(uuid())
+    title        String?
+    slug         String?   @unique
+    companyName  String?
+    description  String?
+    joinDate     DateTime?
+    leaveDate    DateTime?
+    isCurrentJob Boolean?  @default(false)
+    updatedAt    DateTime? @updatedAt
+    createdAt    DateTime? @default(now())
+    userId       String?
+    user         User?     @relation(fields: [userId], references: [id])
+}
+
+model CandidateEducation {
+    id             String    @id @default(uuid())
+    title          String?
+    slug           String?   @unique
+    instituteName  String?
+    description    String?
+    startDate      DateTime?
+    endDate        DateTime?
+    isCurrentStudy Boolean?  @default(false)
+    updatedAt      DateTime? @updatedAt
+    createdAt      DateTime? @default(now())
+    userId         String?
+    user           User?     @relation(fields: [userId], references: [id])
+}
+
+model CandidateCv {
+    id          String        @id @default(uuid())
+    title       String?
+    slug        String        @unique
+    fileUrl     String?
+    fileSize    Float?
+    updatedAt   DateTime?     @updatedAt
+    createdAt   DateTime?     @default(now())
+    userId      String?
+    application Application[]
+    candidate   Candidate[]
+    user        User?         @relation(fields: [userId], references: [id])
+}
+
+model SocialLink {
+    id            String     @id @default(uuid())
+    title         String?
+    slug          String?    @unique
+    url           String?
+    userId        String?
+    recruiterSlug String?
+    updatedAt     DateTime?  @updatedAt
+    createdAt     DateTime?  @default(now())
+    recruiter     Recruiter? @relation(fields: [recruiterSlug], references: [slug])
+    user          User?      @relation(fields: [userId], references: [id])
+}
+
+model Preference {
+    id                String   @id @default(uuid())
+    userId            String?  @unique
+    notifyOnShortlist Boolean  @default(true)
+    notifyOnExpire    Boolean  @default(true)
+    notifyOnJobAlert  Boolean  @default(true)
+    notifyOnSaved     Boolean  @default(true)
+    notifyOnRejected  Boolean  @default(true)
+    isProfilePublic   Boolean  @default(true)
+    isResumePublic    Boolean  @default(false)
+    createdAt         DateTime @default(now())
+    updatedAt         DateTime @updatedAt
+    user              User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model FavouriteJob {
+    id        String   @id @default(uuid())
+    userId    String
+    jobSlug   String
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    job       Job?     @relation(fields: [jobSlug], references: [slug])
+    user      User?    @relation(fields: [userId], references: [id])
+
+    @@unique([userId, jobSlug])
+}
+
+model Newsletter {
+    id        String   @id @default(uuid())
+    email     String?  @unique
+    subscribe Boolean  @default(false)
+    userId    String?
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    user      User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Rating {
+    id            String   @id @default(cuid())
+    rating        Float // Make rating required
+    content       String? // Optional review text content
+    verified      Boolean  @default(false) // Optional verified flag, default false
+    recruiterSlug String?
+    userId        String
+    createdAt     DateTime @default(now())
+    updatedAt     DateTime @updatedAt
+
+    user      User       @relation(fields: [userId], references: [id])
+    recruiter Recruiter? @relation(fields: [recruiterSlug], references: [slug])
+}

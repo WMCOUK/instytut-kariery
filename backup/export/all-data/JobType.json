@@ -1,0 +1,77 @@
+[
+  {
+    "_id": {
+      "$oid": "6744005d959d8a994dd55b20"
+    },
+    "createdAt": {
+      "$date": "2024-11-25T04:43:09.565Z"
+    },
+    "icon": "part-time-icon",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1735104533/vodcast/sdaoumhpfcdr93pspc42.png",
+    "slug": "part-time",
+    "title": "Part Time",
+    "updatedAt": {
+      "$date": "2024-12-25T05:28:54.223Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67440071959d8a994dd55b21"
+    },
+    "createdAt": {
+      "$date": "2024-11-25T04:43:29.468Z"
+    },
+    "icon": "remote-icon",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1735104544/vodcast/klo9bm7hrgqwo13oaocb.png",
+    "slug": "remote",
+    "title": "Remote",
+    "updatedAt": {
+      "$date": "2024-12-25T05:29:05.893Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "676b9b5de8e6a5e8aff1d7dc"
+    },
+    "createdAt": {
+      "$date": "2024-12-25T05:42:53.082Z"
+    },
+    "icon": "Contract",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1735105371/vodcast/synk07eykzgiqah461q4.png",
+    "slug": "contract",
+    "title": "Contract",
+    "updatedAt": {
+      "$date": "2024-12-25T05:42:53.082Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "676185d4164e18005c6584b5"
+    },
+    "createdAt": {
+      "$date": "2024-12-17T14:08:20.360Z"
+    },
+    "icon": "freelance-icon",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1735105426/vodcast/mkvtpoxg8t0xuk5h7sci.png",
+    "slug": "freelancer",
+    "title": "Freelancer",
+    "updatedAt": {
+      "$date": "2024-12-25T05:43:48.065Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67440056959d8a994dd55b1f"
+    },
+    "createdAt": {
+      "$date": "2024-11-25T04:43:01.797Z"
+    },
+    "icon": "full-time-icon",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1735104519/vodcast/id6fllmjc7duhc3bojvr.png",
+    "slug": "full-time",
+    "title": "Full Time",
+    "updatedAt": {
+      "$date": "2024-12-25T05:28:40.992Z"
+    }
+  }
+]

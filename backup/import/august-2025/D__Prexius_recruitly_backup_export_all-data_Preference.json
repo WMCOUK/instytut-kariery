@@ -1,0 +1,28 @@
+[
+  {
+    "id": "af7d093e-efe8-41c9-9407-2f6bd7e60b31",
+    "userId": "67ecb199841d28207df9d5b5",
+    "notifyOnShortlist": false,
+    "notifyOnExpire": false,
+    "notifyOnJobAlert": false,
+    "notifyOnSaved": true,
+    "notifyOnRejected": true,
+    "isProfilePublic": true,
+    "isResumePublic": false,
+    "createdAt": "2025-08-10T04:15:09.528Z",
+    "updatedAt": "2025-08-10T04:15:09.528Z"
+  },
+  {
+    "id": "b2fbbe70-419a-4df3-a5aa-7e82935a90a8",
+    "userId": "67024657e31ceb06da0958ec",
+    "notifyOnShortlist": true,
+    "notifyOnExpire": true,
+    "notifyOnJobAlert": true,
+    "notifyOnSaved": true,
+    "notifyOnRejected": true,
+    "isProfilePublic": true,
+    "isResumePublic": true,
+    "createdAt": "2025-08-17T09:22:16.310Z",
+    "updatedAt": "2025-08-17T09:22:16.310Z"
+  }
+]

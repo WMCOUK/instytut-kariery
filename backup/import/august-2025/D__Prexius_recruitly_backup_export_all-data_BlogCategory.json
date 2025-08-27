@@ -1,0 +1,30 @@
+[
+  {
+    "id": "670298c5dc137fccd37c1879",
+    "title": "Sports",
+    "slug": "sports",
+    "img": "https://res.cloudinary.com/imsaifun/image/upload/v1728223426/vodcast/tyhcq7wjtxfxlmxmsrqd.jpg",
+    "userId": null
+  },
+  {
+    "id": "6766ba47538038c6709d47a8",
+    "title": "Business",
+    "slug": "business",
+    "img": "https://res.cloudinary.com/imsaifun/image/upload/v1734785605/vodcast/ypupgphaoq4khn23gtny.png",
+    "userId": null
+  },
+  {
+    "id": "672cb584b9f7e268ea68f05a",
+    "title": "Education",
+    "slug": "education",
+    "img": "https://res.cloudinary.com/imsaifun/image/upload/v1730983299/vodcast/yg7ecvh4gzwhepa0bbot.png",
+    "userId": null
+  },
+  {
+    "id": "67428e6ddb6f16a07ef4b539",
+    "title": "Technology",
+    "slug": "technology",
+    "img": "https://res.cloudinary.com/imsaifun/image/upload/v1732415084/vodcast/i4og28cqe3smqbytandv.jpg",
+    "userId": null
+  }
+]

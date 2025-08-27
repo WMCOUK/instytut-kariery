@@ -1,0 +1,112 @@
+[
+  {
+    "id": "67440e1a959d8a994dd55b48",
+    "title": "Tuition assistance",
+    "slug": "tuition-assistance",
+    "image": "tuition-assistance-image",
+    "icon": "tuition-assistance-icon",
+    "checked": false,
+    "userId": null,
+    "createdAt": "2024-11-24T23:41:46.995Z",
+    "updatedAt": "2024-11-24T23:41:46.995Z"
+  },
+  {
+    "id": "67440e23959d8a994dd55b49",
+    "title": "Disability insurance",
+    "slug": "disability-insurance",
+    "image": "disability-insurance-image",
+    "icon": "disability-insurance-icon",
+    "checked": false,
+    "userId": null,
+    "createdAt": "2024-11-24T23:41:55.419Z",
+    "updatedAt": "2024-11-24T23:41:55.419Z"
+  },
+  {
+    "id": "67440e12959d8a994dd55b47",
+    "title": "Student loan assistance",
+    "slug": "student-loan-assistance",
+    "image": "student-loan-assistance-image",
+    "icon": "student-loan-assistance-icon",
+    "checked": false,
+    "userId": null,
+    "createdAt": "2024-11-24T23:41:38.028Z",
+    "updatedAt": "2024-11-24T23:41:38.028Z"
+  },
+  {
+    "id": "67440df7959d8a994dd55b44",
+    "title": "Paid maternity leave",
+    "slug": "paid-maternity-leave",
+    "image": "paid-maternity-leave-image",
+    "icon": "paid-maternity-leave-icon",
+    "checked": false,
+    "userId": null,
+    "createdAt": "2024-11-24T23:41:11.166Z",
+    "updatedAt": "2024-11-24T23:41:11.166Z"
+  },
+  {
+    "id": "67440e09959d8a994dd55b46",
+    "title": "Commuter benefits",
+    "slug": "commuter-benefits",
+    "image": "commuter-benefits-image",
+    "icon": "commuter-benefits-icon",
+    "checked": false,
+    "userId": null,
+    "createdAt": "2024-11-24T23:41:29.228Z",
+    "updatedAt": "2024-11-24T23:41:29.228Z"
+  },
+  {
+    "id": "67440dbf959d8a994dd55b40",
+    "title": "Medical insurance",
+    "slug": "medical-insurance",
+    "image": "medical-insurance-image",
+    "icon": "medical-insurance-icon",
+    "checked": false,
+    "userId": null,
+    "createdAt": "2024-11-24T23:40:14.464Z",
+    "updatedAt": "2024-11-24T23:40:14.464Z"
+  },
+  {
+    "id": "67440dff959d8a994dd55b45",
+    "title": "Paid paternity leave",
+    "slug": "paid-paternity-leave",
+    "image": "paid-paternity-leave-image",
+    "icon": "paid-paternity-leave-icon",
+    "checked": false,
+    "userId": null,
+    "createdAt": "2024-11-24T23:41:19.704Z",
+    "updatedAt": "2024-11-24T23:41:19.704Z"
+  },
+  {
+    "id": "67440dca959d8a994dd55b41",
+    "title": "Vision insurance",
+    "slug": "vision-insurance",
+    "image": "vision-insurance-image",
+    "icon": "vision-insurance-icon",
+    "checked": false,
+    "userId": null,
+    "createdAt": "2024-11-24T23:40:26.624Z",
+    "updatedAt": "2024-11-24T23:40:26.624Z"
+  },
+  {
+    "id": "67440ded959d8a994dd55b43",
+    "title": "Pension plan",
+    "slug": "pension-plan",
+    "image": "pension-plan-image",
+    "icon": "pension-plan-icon",
+    "checked": false,
+    "userId": null,
+    "createdAt": "2024-11-24T23:41:01.459Z",
+    "updatedAt": "2024-11-24T23:41:01.459Z"
+  },
+  {
+    "id": "67440de1959d8a994dd55b42",
+    "title": "Dental insurance",
+    "slug": "dental-insurance",
+    "image": "dental-insurance-image",
+    "icon": "dental-insurance-icon",
+    "checked": false,
+    "userId": null,
+    "createdAt": "2024-11-24T23:40:49.105Z",
+    "updatedAt": "2024-11-24T23:40:49.105Z"
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "_id": {
+      "$oid": "67b080686c18faeb0c5b98e7"
+    },
+    "availableForHire": true,
+    "createdAt": {
+      "$date": "2025-02-15T11:54:16.203Z"
+    },
+    "credits": 0,
+    "hideCv": true,
+    "isFeatured": true,
+    "publicProfile": true,
+    "publish": true,
+    "updatedAt": {
+      "$date": "2025-02-22T17:25:33.311Z"
+    },
+    "userId": {
+      "$oid": "67024657e31ceb06da0958ec"
+    }
+  }
+]

@@ -1,0 +1,274 @@
+[
+  {
+    "_id": {
+      "$oid": "67ecaffc841d28207df9d5aa"
+    },
+    "createdAt": {
+      "$date": "2025-04-02T03:33:16.002Z"
+    },
+    "email": "admin@sminties.com",
+    "emailVerificationToken": "-g9r_mWIypVxyhQkFxjmYs14UwptNciZET1Wd848DDw",
+    "emailVerified": false,
+    "hashedPassword": "$2b$10$Fbkm3fNJ9CM0xfKEZAMscewq0jucvaV3i1m.VCH9mp.fXH7J1tWwu",
+    "isBanned": false,
+    "isRole": "ADMIN",
+    "isSubscription": false,
+    "onboard": "ADMIN",
+    "updatedAt": {
+      "$date": "2025-04-04T19:14:07.794Z"
+    },
+    "stripeCustomerId": "cus_S4OTdygqBOu1jt"
+  },
+  {
+    "_id": {
+      "$oid": "67ecb199841d28207df9d5b5"
+    },
+    "createdAt": {
+      "$date": "2025-04-02T03:40:09.107Z"
+    },
+    "email": "candidate@sminties.com",
+    "emailVerificationToken": "Dkf32mNztbq-J-rruFarLGmqUCB8l7wla1pZ0RVxl6k",
+    "emailVerified": false,
+    "hashedPassword": "$2b$10$p5emOmwkrEQ5TXcSov0F5OPoc652SQtzqV4.P/oUtx8i6iOz9vTEa",
+    "isBanned": false,
+    "isRole": "USER",
+    "isSubscription": false,
+    "onboard": "CANDIDATE",
+    "updatedAt": {
+      "$date": "2025-04-02T06:49:53.536Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67ecb1b8841d28207df9d5b6"
+    },
+    "createdAt": {
+      "$date": "2025-04-02T03:40:40.546Z"
+    },
+    "email": "candidate1@sminties.com",
+    "emailVerificationToken": "ctd__poHDP44Liy2QekRBFF0IXazAJOJ1m5kYe7llzk",
+    "emailVerified": false,
+    "hashedPassword": "$2b$10$EWn.H/Me6MMSOkF9WAHd2ef.p2IPk2eu4gdEnwZfEQm7vPrXQ5wWq",
+    "isBanned": false,
+    "isRole": "USER",
+    "isSubscription": false,
+    "onboard": "CANDIDATE",
+    "updatedAt": {
+      "$date": "2025-04-02T06:49:53.536Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67ecb1cb841d28207df9d5b7"
+    },
+    "createdAt": {
+      "$date": "2025-04-02T03:40:59.829Z"
+    },
+    "email": "candidate2@sminties.com",
+    "emailVerificationToken": "Tbti34JQcfmh6ieXr19XKSzM-Gsf4eFwLnqc46-DCiM",
+    "emailVerified": false,
+    "hashedPassword": "$2b$10$.3X1MaJCz3tU5h9tUfAQYuE5unu6zxc6Ok4qcqc515dB.bA2u5ojG",
+    "isBanned": false,
+    "isRole": "USER",
+    "isSubscription": false,
+    "onboard": "CANDIDATE",
+    "updatedAt": {
+      "$date": "2025-04-02T06:49:53.536Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67ecb1d8841d28207df9d5b8"
+    },
+    "createdAt": {
+      "$date": "2025-04-02T03:41:12.801Z"
+    },
+    "email": "candidate3@sminties.com",
+    "emailVerificationToken": "dNX2N_8sWL3BejUyPkLFCOVnPeryv4OTS9UBkgfsFDA",
+    "emailVerified": false,
+    "hashedPassword": "$2b$10$Pt37DmuygKUG3G/L4f2/EOCZ2PXCKvR0XagHEdymD.V9pq6pmNuD6",
+    "isBanned": false,
+    "isRole": "USER",
+    "isSubscription": false,
+    "onboard": "CANDIDATE",
+    "updatedAt": {
+      "$date": "2025-04-02T06:49:53.536Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67ecb1e6841d28207df9d5b9"
+    },
+    "createdAt": {
+      "$date": "2025-04-02T03:41:26.811Z"
+    },
+    "email": "candidate4@sminties.com",
+    "emailVerificationToken": "4CUDVxpPUscdCA7nqWFUXDBH4KGekD3vbTZLxvGn9h0",
+    "emailVerified": false,
+    "hashedPassword": "$2b$10$SELtYUps06m0pVjGCrcrt.vXNmAauabfwhAdRRvDUz1ak4G/kwmaa",
+    "isBanned": false,
+    "isRole": "USER",
+    "isSubscription": false,
+    "onboard": "CANDIDATE",
+    "updatedAt": {
+      "$date": "2025-04-02T06:49:53.536Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67ecb1f2841d28207df9d5ba"
+    },
+    "createdAt": {
+      "$date": "2025-04-02T03:41:38.218Z"
+    },
+    "email": "candidate5@sminties.com",
+    "emailVerificationToken": "9fw9ntEMs1HHQk8RwSo7Hs20V3XSHt6v0DCd-j_4PK4",
+    "emailVerified": false,
+    "hashedPassword": "$2b$10$RWe7j8AUvlLOxhSKEQQOZ.3Uhdbkfd4OUoT5/t49OxEykF1n9HwGS",
+    "isBanned": false,
+    "isRole": "USER",
+    "isSubscription": false,
+    "onboard": "CANDIDATE",
+    "updatedAt": {
+      "$date": "2025-04-02T06:49:53.536Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67ecb20d841d28207df9d5bb"
+    },
+    "createdAt": {
+      "$date": "2025-04-02T03:42:05.450Z"
+    },
+    "email": "recruiter@sminties.com",
+    "emailVerificationToken": "jakSfKKTsed5t8Cksuowt_K-Ju-ejKQ-40zrHeqqmbM",
+    "emailVerified": false,
+    "hashedPassword": "$2b$10$EiCCxkj7mTnn3Hd6zlgT5ujqk76EVsE6Ef/mQUBoogJDaUk8HI9b.",
+    "isBanned": false,
+    "isRole": "USER",
+    "isSubscription": false,
+    "onboard": "RECRUITER",
+    "updatedAt": {
+      "$date": "2025-04-09T20:31:32.426Z"
+    },
+    "stripeCustomerId": "cus_S6HrAOgExeyLft"
+  },
+  {
+    "_id": {
+      "$oid": "67ecb21d841d28207df9d5bc"
+    },
+    "createdAt": {
+      "$date": "2025-04-02T03:42:21.696Z"
+    },
+    "email": "recruiter1@sminties.com",
+    "emailVerificationToken": "CTLDqZG-rjdRot5KsIACWPMIOTK97-dk8NAMBLoeKMo",
+    "emailVerified": false,
+    "hashedPassword": "$2b$10$qRz4ulcKXJjZt9sZxSQ4oeZkjRKwpRjpVljJ6SpSCuExAFCMIqE/e",
+    "isBanned": false,
+    "isRole": "USER",
+    "isSubscription": false,
+    "onboard": "RECRUITER",
+    "updatedAt": {
+      "$date": "2025-04-02T06:49:53.536Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67ecb264841d28207df9d5bd"
+    },
+    "createdAt": {
+      "$date": "2025-04-02T03:43:32.042Z"
+    },
+    "email": "recruiter2@sminties.com",
+    "emailVerificationToken": "8Grb0A_lbcPuJTp_Z6BPZf9uOaNC_cy4roX-Bvy_z2I",
+    "emailVerified": false,
+    "hashedPassword": "$2b$10$qSnID7UMSRJhVyOt4X5BnuwUWF3u8BrKJDPq0acNVqQZEVVXbub1m",
+    "isBanned": false,
+    "isRole": "USER",
+    "isSubscription": false,
+    "onboard": "RECRUITER",
+    "updatedAt": {
+      "$date": "2025-04-02T06:49:53.536Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67ecb279841d28207df9d5be"
+    },
+    "createdAt": {
+      "$date": "2025-04-02T03:43:53.157Z"
+    },
+    "email": "recruiter3@sminties.com",
+    "emailVerificationToken": "YKpCzylJvckTWfF-6k-71oamA3nd_iJo4uAiLLHEsYI",
+    "emailVerified": false,
+    "hashedPassword": "$2b$10$tMXrvi6dAnEB/jBV22Zkv.4MIOUUNehJw7MFsYSCmFpfXIQGG2s4C",
+    "isBanned": false,
+    "isRole": "USER",
+    "isSubscription": false,
+    "onboard": "RECRUITER",
+    "updatedAt": {
+      "$date": "2025-04-02T06:49:53.536Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67ecb28d841d28207df9d5bf"
+    },
+    "createdAt": {
+      "$date": "2025-04-02T03:44:13.936Z"
+    },
+    "email": "recruiter4@sminties.com",
+    "emailVerificationToken": "t2F0DVLHja6mUVtAj1Lf2gYyrzRMBBuHRKWFM7Jqe1s",
+    "emailVerified": false,
+    "hashedPassword": "$2b$10$hkHWl4yi.ywgrvwCABCR8OEbdIM7V4ZTZczUqAuBZ6lglDT0pruD2",
+    "isBanned": false,
+    "isRole": "USER",
+    "isSubscription": false,
+    "onboard": "RECRUITER",
+    "updatedAt": {
+      "$date": "2025-04-02T06:49:53.536Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67ecb29f841d28207df9d5c0"
+    },
+    "createdAt": {
+      "$date": "2025-04-02T03:44:31.643Z"
+    },
+    "email": "recruiter5@sminties.com",
+    "emailVerificationToken": "shE8EbkzwnmOHJXtndqMtKZn3WponNuZ4ZMfD7mOt3A",
+    "emailVerified": false,
+    "hashedPassword": "$2b$10$U7Qr9wagiMAjTIGucTmlfuCf6ac4uoak.ymEu.JbS8pqIqoKQck9S",
+    "isBanned": false,
+    "isRole": "USER",
+    "isSubscription": false,
+    "onboard": "RECRUITER",
+    "updatedAt": {
+      "$date": "2025-04-02T06:49:53.536Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67f29e5eccf1e6b869868b1a"
+    },
+    "email": "freddy@yopmail.com",
+    "hashedPassword": "$2b$10$4xzSMOQxBQ8sYp4Cri1j4e7BzU1Q94zP2YKZV271Ly3r0OHbtekv.",
+    "isRole": "USER",
+    "onboard": "CANDIDATE",
+    "isSubscription": false,
+    "isBanned": false,
+    "emailVerified": false,
+    "createdAt": {
+      "$date": "2025-04-06T15:31:42.185Z"
+    },
+    "updatedAt": {
+      "$date": "2025-04-06T15:33:51.918Z"
+    },
+    "emailVerificationToken": "rnMJ_ynXfk21Ix-KOqTkAoqV1EkLK-QGbz-gAVPTJ24",
+    "resetPasswordToken": "RZd9Li_L4cM9oOGiO1dYSZd-O5b4hCtBdg3QV7X4DBk",
+    "resetPasswordTokenExpiry": {
+      "$date": "2025-04-07T15:33:51.917Z"
+    }
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "_id": {
+      "$oid": "67440cd6959d8a994dd55b3c"
+    },
+    "createdAt": {
+      "$date": "2024-11-25T05:36:22.078Z"
+    },
+    "icon": "senior-icon",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1735113073/vodcast/vtb2lqe4t67gm2jxhzej.png",
+    "slug": "senior",
+    "title": "Senior",
+    "updatedAt": {
+      "$date": "2024-12-25T07:51:15.855Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67440ce0959d8a994dd55b3d"
+    },
+    "createdAt": {
+      "$date": "2024-11-25T05:36:32.841Z"
+    },
+    "icon": "junior-icon",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1735113086/vodcast/ysmamceih3mvqlasupks.png",
+    "slug": "junior",
+    "title": "Junior",
+    "updatedAt": {
+      "$date": "2024-12-25T07:51:28.200Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67440ce9959d8a994dd55b3e"
+    },
+    "createdAt": {
+      "$date": "2024-11-25T05:36:41.372Z"
+    },
+    "icon": "fresher-icon",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1735113097/vodcast/trttjcks7tozi855tyos.png",
+    "slug": "fresher",
+    "title": "Fresher",
+    "updatedAt": {
+      "$date": "2024-12-25T07:51:39.317Z"
+    }
+  }
+]

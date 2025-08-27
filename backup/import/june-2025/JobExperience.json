@@ -1,0 +1,56 @@
+[
+  {
+    "id": "6744018b959d8a994dd55b26",
+    "createdAt": "2024-11-25T04:48:11.722Z",
+    "icon": "entry-level-icon",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1735107642/vodcast/edxtaeaebi0p4wbcqzj4.png",
+    "slug": "entry-level",
+    "title": "Entry Level",
+    "updatedAt": "2024-12-25T06:20:44.218Z"
+  },
+  {
+    "id": "6744019a959d8a994dd55b28",
+    "createdAt": "2024-11-25T04:48:26.735Z",
+    "icon": "mid-level-icon",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1735107669/vodcast/mmrbm77sgjgtenhlyndv.png",
+    "slug": "mid-level",
+    "title": "Mid Level",
+    "updatedAt": "2024-12-25T06:21:10.954Z"
+  },
+  {
+    "id": "67440184959d8a994dd55b25",
+    "createdAt": "2024-11-25T04:48:03.983Z",
+    "icon": "internship-icon",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1735107630/vodcast/wiotgbdwflqkn77hvm2i.png",
+    "slug": "internship",
+    "title": "Internship",
+    "updatedAt": "2024-12-25T06:20:31.766Z"
+  },
+  {
+    "id": "67440193959d8a994dd55b27",
+    "createdAt": "2024-11-25T04:48:19.763Z",
+    "icon": "associate-icon",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1735107654/vodcast/zgoobfpjuhwlndcvlbrh.png",
+    "slug": "associate",
+    "title": "Associate",
+    "updatedAt": "2024-12-25T06:20:56.037Z"
+  },
+  {
+    "id": "676185d8164e18005c6584b8",
+    "createdAt": "2024-12-17T14:08:23.910Z",
+    "icon": "executive-icon",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1735107695/vodcast/nb6d4keihxbsyva0rni5.png",
+    "slug": "executive",
+    "title": "Executive",
+    "updatedAt": "2024-12-25T06:21:37.138Z"
+  },
+  {
+    "id": "674401c6959d8a994dd55b29",
+    "createdAt": "2024-11-25T04:49:10.894Z",
+    "icon": "director-icon",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1735107682/vodcast/x5bpsbdpjffefvgjh1ef.png",
+    "slug": "director",
+    "title": "Director",
+    "updatedAt": "2024-12-25T06:21:24.288Z"
+  }
+]

@@ -1,0 +1,303 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+	:root {
+
+		--background: 0.00 0.00% 100.00%;
+		--foreground: 217.89 61.29% 6.08%;
+
+		--primary: 217.22 91.22% 59.80%;
+		--primary-foreground: 214.74 90.48% 95.88%;
+
+		--card: 210.00 100.00% 99.22%;
+		--card-foreground: 217.89 61.29% 6.08%;
+
+		--popover: 210.00 100.00% 99.22%;
+		--popover-foreground: 217.89 61.29% 6.08%;
+
+		--secondary: 218.57 93.33% 94.12%;
+		--secondary-foreground: 0.00 0.00% 0.00%;
+
+		--muted: 214.74 90.48% 95.88%;
+		--muted-foreground: 0.00 0.00% 40.00%;
+
+		--accent: 214.74 90.48% 95.88%;
+		--accent-foreground: 216.43 60.87% 9.02%;
+
+		--destructive: 0.00 84.24% 60.20%;
+		--destructive-foreground: 210.00 40.00% 98.04%;
+
+		--border: 218.57 25.00% 89.02%;
+
+		--input: 216.52 25.84% 82.55%;
+
+		--ring: 217.22 91.22% 59.80%;
+
+		--chart-1: 217.22 91.22% 59.80%;
+		--chart-2: 216.98 90.86% 65.69%;
+		--chart-3: 217.19 90.98% 73.92%;
+		--chart-4: 217.28 91.15% 77.84%;
+		--chart-5: 217.14 91.30% 81.96%;
+
+		--sidebar: 210.00 100.00% 99.22%;
+		--sidebar-foreground: 217.89 61.29% 6.08%;
+		--sidebar-primary: 217.22 91.22% 59.80%;
+		--sidebar-primary-foreground: 214.74 90.48% 95.88%;
+		--sidebar-accent: 217.22 91.22% 59.80%;
+		--sidebar-accent-foreground: 214.74 90.48% 95.88%;
+		--sidebar-border: 217.30 90.24% 91.96%;
+		--sidebar-ring: 217.22 91.22% 59.80%;
+
+		--radius: 0.5rem;
+
+	}
+
+	.dark {
+
+		--background: 0.00 0.00% 0.00%;
+		--foreground: 218.57 93.33% 94.12%;
+
+		--primary: 217.22 91.22% 59.80%;
+		--primary-foreground: 214.74 90.48% 95.88%;
+
+		--card: 214.29 22.58% 6.08%;
+		--card-foreground: 218.57 93.33% 94.12%;
+
+		--popover: 225.00 11.11% 7.06%;
+		--popover-foreground: 218.57 93.33% 94.12%;
+
+		--secondary: 216.92 60.75% 20.98%;
+		--secondary-foreground: 0.00 0.00% 100.00%;
+
+		--muted: 0.00 0.00% 9.80%;
+		--muted-foreground: 0.00 0.00% 50.20%;
+
+		--accent: 216.92 60.75% 20.98%;
+		--accent-foreground: 218.57 93.33% 94.12%;
+
+		--destructive: 0.00 84.24% 60.20%;
+		--destructive-foreground: 210.00 40.00% 98.04%;
+
+		--border: 218.18 12.09% 17.84%;
+
+		--input: 217.89 17.76% 20.98%;
+
+		--ring: 217.22 91.22% 59.80%;
+
+		--chart-1: 217.22 91.22% 59.80%;
+		--chart-2: 216.98 63.35% 50.78%;
+		--chart-3: 216.89 61.62% 38.82%;
+		--chart-4: 216.70 61.68% 32.75%;
+		--chart-5: 217.86 60.87% 27.06%;
+
+		--sidebar: 225.00 11.11% 7.06%;
+		--sidebar-foreground: 218.57 93.33% 94.12%;
+		--sidebar-primary: 217.22 91.22% 59.80%;
+		--sidebar-primary-foreground: 214.74 90.48% 95.88%;
+		--sidebar-accent: 217.22 91.22% 59.80%;
+		--sidebar-accent-foreground: 214.74 90.48% 95.88%;
+		--sidebar-border: 217.30 60.66% 11.96%;
+		--sidebar-ring: 217.22 91.22% 59.80%;
+
+		--radius: 0.5rem;
+
+	}
+}
+
+
+@layer base {
+	* {
+		@apply border-border;
+	}
+
+	body {
+		@apply bg-background text-foreground;
+	}
+}
+
+html,
+body {
+	@apply w-full h-full;
+}
+
+/* #__next {
+	@apply w-full h-full;
+} */
+
+/* .container {
+	@apply mx-auto px-8
+} */
+
+.section-padding {
+	@apply py-12 sm:py-16 lg:py-24;
+}
+
+.editor {
+	h1 {
+		@apply text-4xl font-medium;
+	}
+
+	h2 {
+		@apply text-3xl font-medium;
+	}
+
+	h3 {
+		@apply text-2xl font-medium;
+	}
+
+	h4 {
+		@apply text-xl font-medium;
+	}
+}
+
+li {
+	list-style: none;
+}
+
+*::-webkit-scrollbar {
+	width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+	background: #ddd;
+	border-radius: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+	background-color: var(--secondary);
+	border-radius: 14px;
+	border: 5px solid #555;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background-color: #555;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+.lazy-image {
+	opacity: 0;
+	transition: opacity 0.3s ease-in-out;
+}
+
+.lazy-image.loaded {
+	opacity: 1;
+	animation: fadeIn 0.5s ease-in-out;
+}
+
+
+@layer utilities {
+	.animate-float-slow {
+		animation: float 8s ease-in-out infinite;
+	}
+
+	.animate-float-slow-reverse {
+		animation: float 10s ease-in-out infinite reverse;
+	}
+
+	.animate-float-medium {
+		animation: float 6s ease-in-out infinite;
+	}
+
+	.animate-float-medium-reverse {
+		animation: float 7s ease-in-out infinite reverse;
+	}
+
+	.animate-float-fast {
+		animation: float 4s ease-in-out infinite;
+	}
+
+	.animate-pulse-slow {
+		animation: pulse 4s ease-in-out infinite;
+	}
+
+	.animate-fade-in {
+		animation: fadeIn 0.8s ease-out forwards;
+	}
+}
+
+@keyframes float {
+	0% {
+		transform: translateY(0px);
+	}
+
+	50% {
+		transform: translateY(-20px);
+	}
+
+	100% {
+		transform: translateY(0px);
+	}
+}
+
+@keyframes pulse {
+
+	0%,
+	100% {
+		opacity: 0.7;
+	}
+
+	50% {
+		opacity: 0.3;
+	}
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes shimmer {
+	100% {
+		transform: translateX(100%);
+	}
+}
+
+/* Particle animation */
+.particle {
+	animation: moveUpDown linear infinite;
+	opacity: 0;
+	animation-fill-mode: forwards;
+}
+
+@keyframes moveUpDown {
+	0% {
+		transform: translateY(100px);
+		opacity: 0;
+	}
+
+	10% {
+		opacity: 1;
+	}
+
+	90% {
+		opacity: 1;
+	}
+
+	100% {
+		transform: translateY(-100vh);
+		opacity: 0;
+	}
+}

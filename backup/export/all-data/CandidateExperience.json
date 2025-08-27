@@ -1,0 +1,21 @@
+[
+  {
+    "_id": {
+      "$oid": "67a7762b722322b5793a0158"
+    },
+    "description": "cfbcvb",
+    "isCurrentJob": true,
+    "joinDate": {
+      "$date": "2025-01-28T00:00:00.000Z"
+    },
+    "leaveDate": null,
+    "slug": "gvdxvbxfc",
+    "title": "gvdxvbxfc",
+    "updatedAt": {
+      "$date": "2025-02-21T08:48:04.376Z"
+    },
+    "userId": {
+      "$oid": "67024657e31ceb06da0958ec"
+    }
+  }
+]

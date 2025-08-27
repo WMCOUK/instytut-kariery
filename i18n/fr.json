@@ -1,0 +1,52 @@
+{
+  "landing": {
+    "hero1": {
+      "handIconAlt": "Icône de main",
+      "jobOffers": "Offres d'emploi",
+      "greeting": "Salut ! Nous sommes Nubi",
+      "title": "Solutions d'emploi",
+      "titleHighlight": "efficaces et abordables",
+      "description": "Chaque mois, plus de 3 millions de chercheurs d'emploi se tournent vers notre site web dans leur recherche de travail, faisant plus de 140 000 candidatures chaque jour.",
+      "popularSearches": "Recherches populaires",
+      "searchTerms": "Designer,Développeur,Web,IOS,PHP,Senior,Ingénieur",
+      "backgroundPatternAlt": "Motif de fond",
+      "heroImageAlt": "Image héros",
+      "avatarAlt": "Avatar {number}"
+    },
+    "hero2": {
+      "handIconAlt": "Icône de main",
+      "greeting": "Salut ! Nous sommes Nubi",
+      "title": "Solutions d'emploi",
+      "titleHighlight": "efficaces et abordables",
+      "description": "Chaque mois, plus de 3 millions de chercheurs d'emploi se tournent vers notre site web dans leur recherche de travail, faisant plus de 140 000 candidatures chaque jour.",
+      "popularSearches": "Recherches populaires",
+      "searchTerms": "Designer,Développeur,Web,IOS,PHP,Senior,Ingénieur",
+      "backgroundPatternAlt": "Motif de fond",
+      "heroImageAlt": "Image héro",
+      "avatarAlt": "Avatar {number}"
+    },
+    "hero3": {
+      "backgroundAlt": "Arrière-plan",
+      "title": "Commencez avec le site d'emploi n°1 pour",
+      "titleContinued": "embaucher ou trouver votre prochain emploi",
+      "description": "Découvrez votre carrière de rêve et trouvez le job parfait",
+      "popularSearches": "Recherches populaires",
+      "searchTerms": "Designer,Développeur,Web,IOS,PHP,Senior,Ingénieur"
+    },
+    "hero4": {
+      "backgroundPatternAlt": "Motif de fond",
+      "title": "Commencez avec le site d'emploi n°1 pour",
+      "titleContinued": "embaucher ou trouver votre prochain emploi",
+      "description": "Découvrez votre carrière de rêve et trouvez le job parfait",
+      "popularSearches": "Recherches populaires",
+      "searchTerms": "Designer,Développeur,Web,IOS,PHP,Senior,Ingénieur"
+    },
+    "hero5": {
+      "title": "Commencez avec le site d'emploi n°1 pour",
+      "titleContinued": "embaucher ou trouver votre prochain emploi",
+      "description": "Découvrez votre carrière de rêve et trouvez le job parfait",
+      "popularSearches": "Recherches populaires",
+      "searchTerms": "Designer,Développeur,Web,IOS,PHP,Senior,Ingénieur"
+    }
+  }
+}

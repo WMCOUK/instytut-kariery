@@ -1,0 +1,90 @@
+[
+  {
+    "_id": {
+      "$oid": "67b18988f17a365957dccb9d"
+    },
+    "createdAt": {
+      "$date": "2025-02-16T06:45:28.561Z"
+    },
+    "jobSlug": "synthetic-biology-engineer",
+    "updatedAt": {
+      "$date": "2025-02-16T06:45:28.561Z"
+    },
+    "userId": null
+  },
+  {
+    "_id": {
+      "$oid": "67bbffa906106774b927286e"
+    },
+    "createdAt": {
+      "$date": "2025-02-24T05:12:09.882Z"
+    },
+    "jobSlug": "content-strategist",
+    "updatedAt": {
+      "$date": "2025-02-24T05:12:09.882Z"
+    },
+    "userId": {
+      "$oid": "67024657e31ceb06da0958ec"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67bda214219cad65c230ea3a"
+    },
+    "createdAt": {
+      "$date": "2025-02-25T10:57:24.473Z"
+    },
+    "jobSlug": "synthetic-biology-engineer",
+    "updatedAt": {
+      "$date": "2025-02-25T10:57:24.473Z"
+    },
+    "userId": {
+      "$oid": "67024657e31ceb06da0958ec"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67bda214219cad65c230ea3b"
+    },
+    "createdAt": {
+      "$date": "2025-02-25T10:57:24.937Z"
+    },
+    "jobSlug": null,
+    "updatedAt": {
+      "$date": "2025-02-25T10:57:24.937Z"
+    },
+    "userId": {
+      "$oid": "67024657e31ceb06da0958ec"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "680a22f903c4d19d365fc532"
+    },
+    "userId": {
+      "$oid": "67ecb199841d28207df9d5b5"
+    },
+    "jobSlug": "synthetic-biology-engineer",
+    "createdAt": {
+      "$date": "2025-04-24T11:39:37.688Z"
+    },
+    "updatedAt": {
+      "$date": "2025-04-24T11:39:37.688Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "680b3f84b5a25c820cde0c1c"
+    },
+    "userId": {
+      "$oid": "67ecb199841d28207df9d5b5"
+    },
+    "jobSlug": "augmented-reality-ux-designer",
+    "createdAt": {
+      "$date": "2025-04-25T07:53:40.849Z"
+    },
+    "updatedAt": {
+      "$date": "2025-04-25T07:53:40.849Z"
+    }
+  }
+]

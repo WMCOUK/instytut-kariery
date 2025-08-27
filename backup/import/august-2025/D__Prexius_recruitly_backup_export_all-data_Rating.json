@@ -1,0 +1,42 @@
+[
+  {
+    "id": "cme0tiibb0001u1x00tgefrst",
+    "rating": 3,
+    "userId": "67ecb199841d28207df9d5b5",
+    "createdAt": "2025-08-06T21:08:55.223Z",
+    "updatedAt": "2025-08-06T22:09:58.032Z",
+    "recruiterSlug": "biotech",
+    "verified": false,
+    "content": ""
+  },
+  {
+    "id": "cme0w2j9w0001u1hot8hb105y",
+    "rating": 1,
+    "userId": "67024657e31ceb06da0958ec",
+    "createdAt": "2025-08-06T22:20:28.821Z",
+    "updatedAt": "2025-08-06T22:24:50.035Z",
+    "recruiterSlug": "innovatepro",
+    "verified": false,
+    "content": ""
+  },
+  {
+    "id": "cme0xf47m0001u18s5xz12ipt",
+    "rating": 3,
+    "userId": "67024657e31ceb06da0958ec",
+    "createdAt": "2025-08-06T22:58:15.442Z",
+    "updatedAt": "2025-08-06T23:14:43.586Z",
+    "recruiterSlug": "biotech",
+    "verified": false,
+    "content": ""
+  },
+  {
+    "id": "cme0yau4j0003u18spvwyrwp8",
+    "rating": 5,
+    "userId": "67024657e31ceb06da0958ec",
+    "createdAt": "2025-08-06T23:22:55.363Z",
+    "updatedAt": "2025-08-07T00:11:01.014Z",
+    "recruiterSlug": "ecosmart",
+    "verified": false,
+    "content": "yyy"
+  }
+]

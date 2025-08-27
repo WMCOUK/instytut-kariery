@@ -1,0 +1,152 @@
+[
+  {
+    "_id": {
+      "$oid": "67440e1a959d8a994dd55b48"
+    },
+    "createdAt": {
+      "$date": "2024-11-25T05:41:46.995Z"
+    },
+    "icon": "tuition-assistance-icon",
+    "image": "tuition-assistance-image",
+    "slug": "tuition-assistance",
+    "title": "Tuition assistance",
+    "updatedAt": {
+      "$date": "2024-11-25T05:41:46.995Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67440e23959d8a994dd55b49"
+    },
+    "createdAt": {
+      "$date": "2024-11-25T05:41:55.419Z"
+    },
+    "icon": "disability-insurance-icon",
+    "image": "disability-insurance-image",
+    "slug": "disability-insurance",
+    "title": "Disability insurance",
+    "updatedAt": {
+      "$date": "2024-11-25T05:41:55.419Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67440e12959d8a994dd55b47"
+    },
+    "createdAt": {
+      "$date": "2024-11-25T05:41:38.028Z"
+    },
+    "icon": "student-loan-assistance-icon",
+    "image": "student-loan-assistance-image",
+    "slug": "student-loan-assistance",
+    "title": "Student loan assistance",
+    "updatedAt": {
+      "$date": "2024-11-25T05:41:38.028Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67440df7959d8a994dd55b44"
+    },
+    "createdAt": {
+      "$date": "2024-11-25T05:41:11.166Z"
+    },
+    "icon": "paid-maternity-leave-icon",
+    "image": "paid-maternity-leave-image",
+    "slug": "paid-maternity-leave",
+    "title": "Paid maternity leave",
+    "updatedAt": {
+      "$date": "2024-11-25T05:41:11.166Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67440e09959d8a994dd55b46"
+    },
+    "createdAt": {
+      "$date": "2024-11-25T05:41:29.228Z"
+    },
+    "icon": "commuter-benefits-icon",
+    "image": "commuter-benefits-image",
+    "slug": "commuter-benefits",
+    "title": "Commuter benefits",
+    "updatedAt": {
+      "$date": "2024-11-25T05:41:29.228Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67440dbf959d8a994dd55b40"
+    },
+    "createdAt": {
+      "$date": "2024-11-25T05:40:14.464Z"
+    },
+    "icon": "medical-insurance-icon",
+    "image": "medical-insurance-image",
+    "slug": "medical-insurance",
+    "title": "Medical insurance",
+    "updatedAt": {
+      "$date": "2024-11-25T05:40:14.464Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67440dff959d8a994dd55b45"
+    },
+    "createdAt": {
+      "$date": "2024-11-25T05:41:19.704Z"
+    },
+    "icon": "paid-paternity-leave-icon",
+    "image": "paid-paternity-leave-image",
+    "slug": "paid-paternity-leave",
+    "title": "Paid paternity leave",
+    "updatedAt": {
+      "$date": "2024-11-25T05:41:19.704Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67440dca959d8a994dd55b41"
+    },
+    "createdAt": {
+      "$date": "2024-11-25T05:40:26.624Z"
+    },
+    "icon": "vision-insurance-icon",
+    "image": "vision-insurance-image",
+    "slug": "vision-insurance",
+    "title": "Vision insurance",
+    "updatedAt": {
+      "$date": "2024-11-25T05:40:26.624Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67440ded959d8a994dd55b43"
+    },
+    "createdAt": {
+      "$date": "2024-11-25T05:41:01.459Z"
+    },
+    "icon": "pension-plan-icon",
+    "image": "pension-plan-image",
+    "slug": "pension-plan",
+    "title": "Pension plan",
+    "updatedAt": {
+      "$date": "2024-11-25T05:41:01.459Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67440de1959d8a994dd55b42"
+    },
+    "createdAt": {
+      "$date": "2024-11-25T05:40:49.105Z"
+    },
+    "icon": "dental-insurance-icon",
+    "image": "dental-insurance-image",
+    "slug": "dental-insurance",
+    "title": "Dental insurance",
+    "updatedAt": {
+      "$date": "2024-11-25T05:40:49.105Z"
+    }
+  }
+]

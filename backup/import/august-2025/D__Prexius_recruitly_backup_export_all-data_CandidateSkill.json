@@ -1,0 +1,38 @@
+[
+  {
+    "id": "f0e757bd-bea8-42d9-a825-1a4690c76ea3",
+    "title": "JavaScript",
+    "slug": "javascript",
+    "percentage": 80,
+    "updatedAt": "2025-08-08T00:45:43.385Z",
+    "createdAt": "2025-08-08T00:45:43.385Z",
+    "userId": "67ecb199841d28207df9d5b5"
+  },
+  {
+    "id": "9922585f-ded4-4a62-868e-169933d97b91",
+    "title": "React",
+    "slug": "react",
+    "percentage": 90,
+    "updatedAt": "2025-08-08T00:46:47.277Z",
+    "createdAt": "2025-08-08T00:41:03.289Z",
+    "userId": "67ecb199841d28207df9d5b5"
+  },
+  {
+    "id": "6c91942e-014f-4ac2-8709-1a79d62672d8",
+    "title": "HTML",
+    "slug": "html",
+    "percentage": 95,
+    "updatedAt": "2025-08-08T00:46:47.277Z",
+    "createdAt": "2025-08-07T22:12:15.390Z",
+    "userId": "67ecb199841d28207df9d5b5"
+  },
+  {
+    "id": "111af839-eb36-4028-a157-143f9dc1ade8",
+    "title": "CSS",
+    "slug": "css",
+    "percentage": 90,
+    "updatedAt": "2025-08-08T00:46:47.277Z",
+    "createdAt": "2025-08-08T00:37:06.720Z",
+    "userId": "67ecb199841d28207df9d5b5"
+  }
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "id": "6744018b959d8a994dd55b26",
+    "title": "Entry Level",
+    "slug": "entry-level",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1735107642/vodcast/edxtaeaebi0p4wbcqzj4.png",
+    "icon": "entry-level-icon",
+    "userId": null,
+    "createdAt": "2024-11-24T22:48:11.722Z",
+    "updatedAt": "2024-12-25T00:20:44.218Z"
+  },
+  {
+    "id": "6744019a959d8a994dd55b28",
+    "title": "Mid Level",
+    "slug": "mid-level",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1735107669/vodcast/mmrbm77sgjgtenhlyndv.png",
+    "icon": "mid-level-icon",
+    "userId": null,
+    "createdAt": "2024-11-24T22:48:26.735Z",
+    "updatedAt": "2024-12-25T00:21:10.954Z"
+  },
+  {
+    "id": "67440184959d8a994dd55b25",
+    "title": "Internship",
+    "slug": "internship",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1735107630/vodcast/wiotgbdwflqkn77hvm2i.png",
+    "icon": "internship-icon",
+    "userId": null,
+    "createdAt": "2024-11-24T22:48:03.983Z",
+    "updatedAt": "2024-12-25T00:20:31.766Z"
+  },
+  {
+    "id": "67440193959d8a994dd55b27",
+    "title": "Associate",
+    "slug": "associate",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1735107654/vodcast/zgoobfpjuhwlndcvlbrh.png",
+    "icon": "associate-icon",
+    "userId": null,
+    "createdAt": "2024-11-24T22:48:19.763Z",
+    "updatedAt": "2024-12-25T00:20:56.037Z"
+  },
+  {
+    "id": "674401c6959d8a994dd55b29",
+    "title": "Director",
+    "slug": "director",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1735107682/vodcast/x5bpsbdpjffefvgjh1ef.png",
+    "icon": "director-icon",
+    "userId": null,
+    "createdAt": "2024-11-24T22:49:10.894Z",
+    "updatedAt": "2024-12-25T00:21:24.288Z"
+  },
+  {
+    "id": "c1057fec-b573-4ff4-bb20-7408a9f8de3b",
+    "title": "Executive",
+    "slug": "executive",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1754810829/jobtree/prvo8hw8aewruien3rld.png",
+    "icon": "Executive",
+    "userId": null,
+    "createdAt": "2025-08-10T01:27:10.585Z",
+    "updatedAt": "2025-08-10T01:27:10.585Z"
+  },
+  {
+    "id": "dc1f72b7-19c1-4fb1-9cb2-3d4a53cefec9",
+    "title": "test",
+    "slug": "test",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1754904621/jobtree/rezioxwmaezlpzfautxu.png",
+    "icon": "test",
+    "userId": null,
+    "createdAt": "2025-08-11T03:30:23.698Z",
+    "updatedAt": "2025-08-11T03:30:23.698Z"
+  }
+]

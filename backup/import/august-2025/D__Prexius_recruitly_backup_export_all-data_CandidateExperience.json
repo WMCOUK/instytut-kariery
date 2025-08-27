@@ -1,0 +1,54 @@
+[
+  {
+    "id": "94f77591-3a4d-490c-b4bf-f0211b1d953e",
+    "title": "Senior Frontend Developer",
+    "slug": "senior-frontend-developer",
+    "description": "Leading the frontend development team in building responsive and accessible web applications. Implementing modern React patterns and optimizing performance across multiple projects.",
+    "joinDate": "2021-05-31T18:00:00.000Z",
+    "leaveDate": null,
+    "isCurrentJob": true,
+    "updatedAt": "2025-08-08T01:00:44.185Z",
+    "createdAt": "2025-08-08T01:00:44.185Z",
+    "userId": "67ecb199841d28207df9d5b5",
+    "companyName": "Tech Innovations Inc"
+  },
+  {
+    "id": "a540e1d5-0eb7-4ed7-bc98-0158947ee9cc",
+    "title": "UI/UX Designer",
+    "slug": "uiux-designer",
+    "description": "Created user-centered designs for web and mobile applications. Conducted user research and usability testing to improve product experiences.",
+    "joinDate": "2016-07-31T18:00:00.000Z",
+    "leaveDate": "2018-02-27T18:00:00.000Z",
+    "isCurrentJob": false,
+    "updatedAt": "2025-08-08T01:03:49.203Z",
+    "createdAt": "2025-08-08T01:03:49.203Z",
+    "userId": "67ecb199841d28207df9d5b5",
+    "companyName": "Creative Agency"
+  },
+  {
+    "id": "7f01b442-9358-47ab-b7c2-e2ed3b96e062",
+    "title": "Junior Web Developer",
+    "slug": "junior-web-developer",
+    "description": "Built responsive websites for small businesses using HTML, CSS, and JavaScript. Assisted in implementing SEO best practices and performance optimizations.",
+    "joinDate": "2014-10-31T18:00:00.000Z",
+    "leaveDate": "2016-07-30T18:00:00.000Z",
+    "isCurrentJob": false,
+    "updatedAt": "2025-08-08T01:05:51.818Z",
+    "createdAt": "2025-08-08T01:05:51.818Z",
+    "userId": "67ecb199841d28207df9d5b5",
+    "companyName": "StartUp Hub"
+  },
+  {
+    "id": "abc6fa76-85cf-4fdb-8377-b080abb87f9c",
+    "title": "Frontend Developer",
+    "slug": "frontend-developer",
+    "description": "Developed and maintained client websites using React, Next.js and TypeScript. Collaborated with designers to implement pixel-perfect UI components and improved site performance by 40%.",
+    "joinDate": "2018-04-30T18:00:00.000Z",
+    "leaveDate": "2021-05-30T18:00:00.000Z",
+    "isCurrentJob": false,
+    "updatedAt": "2025-08-08T02:03:56.689Z",
+    "createdAt": "2025-08-08T01:02:53.205Z",
+    "userId": "67ecb199841d28207df9d5b5",
+    "companyName": "Digital Solutions Ltd"
+  }
+]

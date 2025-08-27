@@ -1,0 +1,50 @@
+[
+  {
+    "_id": {
+      "$oid": "67aad7c702ffff38aac363a1"
+    },
+    "createdAt": {
+      "$date": "2025-02-11T04:53:27.343Z"
+    },
+    "jobSlug": "climate-risk-analyst",
+    "rating": 2,
+    "updatedAt": {
+      "$date": "2025-02-11T06:44:03.368Z"
+    },
+    "userId": {
+      "$oid": "67024657e31ceb06da0958ec"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67bdf09e219cad65c230eae6"
+    },
+    "createdAt": {
+      "$date": "2025-02-25T16:32:30.980Z"
+    },
+    "jobSlug": null,
+    "rating": 4,
+    "updatedAt": {
+      "$date": "2025-02-25T16:32:30.980Z"
+    },
+    "userId": {
+      "$oid": "67024657e31ceb06da0958ec"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67f293e03ca3d2662d78be4a"
+    },
+    "rating": 5,
+    "userId": {
+      "$oid": "67ecaffc841d28207df9d5aa"
+    },
+    "jobSlug": "synthetic-biology-engineer",
+    "createdAt": {
+      "$date": "2025-04-06T14:46:56.509Z"
+    },
+    "updatedAt": {
+      "$date": "2025-04-17T07:34:03.933Z"
+    }
+  }
+]

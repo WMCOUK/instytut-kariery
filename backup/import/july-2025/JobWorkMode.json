@@ -1,0 +1,29 @@
+[
+  {
+    "id": "67440bd7959d8a994dd55b3a",
+    "createdAt": "2024-11-25T05:32:07.197Z",
+    "icon": "hybrid-icon",
+    "image": "hybrid-image",
+    "slug": "hybrid",
+    "title": "Hybrid",
+    "updatedAt": "2024-11-25T05:32:07.197Z"
+  },
+  {
+    "id": "67440bcc959d8a994dd55b39",
+    "createdAt": "2024-11-25T05:31:56.772Z",
+    "icon": "remote-icon",
+    "image": "remote-image",
+    "slug": "remote",
+    "title": "Remote",
+    "updatedAt": "2024-11-25T05:31:56.772Z"
+  },
+  {
+    "id": "67440bc1959d8a994dd55b38",
+    "createdAt": "2024-11-25T05:31:45.852Z",
+    "icon": "on-site-icon",
+    "image": "on-site-image",
+    "slug": "on-site",
+    "title": "On site",
+    "updatedAt": "2024-11-25T05:31:45.852Z"
+  }
+]

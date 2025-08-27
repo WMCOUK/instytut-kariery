@@ -1,0 +1,35 @@
+[
+  {
+    "_id": {
+      "$oid": "67a99f6804be922c8ee37a61"
+    },
+    "percentage": 95,
+    "slug": "html",
+    "title": "HTML"
+  },
+  {
+    "_id": {
+      "$oid": "67a99f7604be922c8ee37a62"
+    },
+    "percentage": 92,
+    "slug": "css",
+    "title": "CSS"
+  },
+  {
+    "_id": {
+      "$oid": "67a9b2d614c545e3dda803c8"
+    },
+    "createdAt": {
+      "$date": "2025-02-10T08:03:33.616Z"
+    },
+    "percentage": 90,
+    "slug": "react",
+    "title": "React",
+    "updatedAt": {
+      "$date": "2025-02-10T08:03:47.861Z"
+    },
+    "userId": {
+      "$oid": "67024657e31ceb06da0958ec"
+    }
+  }
+]

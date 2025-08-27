@@ -1,0 +1,152 @@
+[
+  {
+    "_id": {
+      "$oid": "6766d382bb097558d0f020f1"
+    },
+    "createdAt": {
+      "$date": "2024-12-21T14:41:06.074Z"
+    },
+    "icon": "Columns ",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1734792064/vodcast/u70qaqx6agu6fr5vqajq.png",
+    "slug": "project-manager",
+    "title": "Project Manager",
+    "updatedAt": {
+      "$date": "2024-12-21T14:41:06.074Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "676ace27436faef87ceff521"
+    },
+    "createdAt": {
+      "$date": "2024-12-24T15:07:19.514Z"
+    },
+    "icon": "Edit ",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1735052836/vodcast/l5vkrnprcqmywgo9ssil.png",
+    "slug": "content-writer",
+    "title": "Content Writer",
+    "updatedAt": {
+      "$date": "2024-12-24T17:14:37.192Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6766d316bb097558d0f020ed"
+    },
+    "createdAt": {
+      "$date": "2024-12-21T14:39:18.452Z"
+    },
+    "icon": "BarChart ",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1734791956/vodcast/mn8gcocbiccqaptiirdh.png",
+    "slug": "data-scientist",
+    "title": "Data Scientist",
+    "updatedAt": {
+      "$date": "2024-12-21T14:39:18.452Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6766d3c5bb097558d0f020f4"
+    },
+    "createdAt": {
+      "$date": "2024-12-21T14:42:13.690Z"
+    },
+    "icon": "Users ",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1734792131/vodcast/x4t4z3zhqi5erotdamfi.png",
+    "slug": "human-resources",
+    "title": "Human Resources",
+    "updatedAt": {
+      "$date": "2024-12-21T14:42:13.690Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6766d36dbb097558d0f020f0"
+    },
+    "createdAt": {
+      "$date": "2024-12-21T14:40:45.401Z"
+    },
+    "icon": "Paintbrush ",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1734792043/vodcast/hp2n5fyatdjntpzftwet.png",
+    "slug": "graphic-designer",
+    "title": "Graphic Designer",
+    "updatedAt": {
+      "$date": "2024-12-21T14:40:45.401Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6766d3e3bb097558d0f020f5"
+    },
+    "createdAt": {
+      "$date": "2024-12-21T14:42:43.617Z"
+    },
+    "icon": "ShoppingBag ",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1734792160/vodcast/p9gnyu74rnk6abzxwubn.png",
+    "slug": "sales-representative",
+    "title": "Sales Representative",
+    "updatedAt": {
+      "$date": "2024-12-21T14:42:43.617Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6766d34ebb097558d0f020ef"
+    },
+    "createdAt": {
+      "$date": "2024-12-21T14:40:14.115Z"
+    },
+    "icon": "Laptop ",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1734792011/vodcast/m84t2lu32i8owwnzcdhh.png",
+    "slug": "web-developer",
+    "title": "Web Developer",
+    "updatedAt": {
+      "$date": "2024-12-21T14:40:14.115Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6766d394bb097558d0f020f2"
+    },
+    "createdAt": {
+      "$date": "2024-12-21T14:41:24.739Z"
+    },
+    "icon": "Megaphone ",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1734792082/vodcast/uh2qfbjz0nuey7lconey.png",
+    "slug": "marketing-specialist",
+    "title": "Marketing Specialist",
+    "updatedAt": {
+      "$date": "2024-12-21T14:41:24.739Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6766d2f8bb097558d0f020ec"
+    },
+    "createdAt": {
+      "$date": "2024-12-21T14:38:48.518Z"
+    },
+    "icon": "Code ",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1734791926/vodcast/bqgefnl445pkszgpe9d0.png",
+    "slug": "software-engineer",
+    "title": "Software Engineer",
+    "updatedAt": {
+      "$date": "2024-12-23T12:25:14.743Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6766d3abbb097558d0f020f3"
+    },
+    "createdAt": {
+      "$date": "2024-12-21T14:41:47.090Z"
+    },
+    "icon": "DollarSign ",
+    "image": "https://res.cloudinary.com/imsaifun/image/upload/v1734792105/vodcast/c0q6mjiybhi111g7src6.png",
+    "slug": "financial-analyst",
+    "title": "Financial Analyst",
+    "updatedAt": {
+      "$date": "2024-12-21T14:41:47.090Z"
+    }
+  }
+]
