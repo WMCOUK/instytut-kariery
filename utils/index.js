@@ -5,7 +5,7 @@ export function cn(...inputs) {
 	return twMerge(clsx(inputs))
 }
 
-export const brandName = "Sminties"
+export const brandName = "Instytut Kariery"
 
 export const USER_PER_PAGE = 3
 export const JOB_PER_PAGE = 3
