@@ -9,7 +9,7 @@ export default function useCurrentUser() {
 		return {} // return empty object if not ready
 	}
 
-	const user = session.user
+	const user = session?.user
 
 	return {
 		...user,

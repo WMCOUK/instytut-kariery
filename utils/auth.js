@@ -20,19 +20,27 @@ export const authOptions = {
 		}),
 		CredentialsProvider({
 			name: "credentials",
-			credentials: { email: {}, password: {} },
+			credentials: {
+				email: { label: "Email", type: "text" },
+				password: { label: "Password", type: "password" },
+			},
 			async authorize(credentials) {
-				const { email, password } = credentials || {}
-				if (!email || !password) throw new Error("Missing email or password")
+				if (!credentials?.email || !credentials?.password) {
+					throw new Error("Please enter an email and password")
+				}
 
 				const user = await prisma.user.findUnique({
-					where: { email },
-					select: { id: true, email: true, hashedPassword: true, isRole: true, onboard: true },
+					where: { email: credentials.email },
 				})
-				if (!user || !user.hashedPassword) throw new Error("No user found")
 
-				const isValid = await bcrypt.compare(password, user.hashedPassword)
-				if (!isValid) throw new Error("Incorrect password")
+				if (!user || !user.hashedPassword) {
+					throw new Error("No user found")
+				}
+
+				const isValid = await bcrypt.compare(credentials.password, user.hashedPassword)
+				if (!isValid) {
+					throw new Error("Incorrect password")
+				}
 
 				return user
 			},
@@ -42,49 +50,48 @@ export const authOptions = {
 		async jwt({ token, user }) {
 			if (user) {
 				token.id = user.id
-				token.role = user.isRole
-				token.onboard = user.onboard
-
-				// Optional fields if present
-				token.userName = user.userName || null
-				token.email = user.email || null
-				token.image = user.image || null
-				token.stripeCustomerId = user.stripeCustomerId || null
-				token.isSubscription = user.isSubscription || false
-				token.subscriptionID = user.subscriptionID || null
-				token.subPriceId = user.subPriceId || null
+				token.email = user.email
 			}
 			return token
 		},
-
 		async session({ session, token }) {
-			session.user = {
-				id: token.id,
-				role: token.role,
-				onboard: token.onboard,
-				userName: token.userName,
-				email: token.email,
-				picture: token.image,
-				stripeCustomerId: token.stripeCustomerId,
-				isSubscription: token.isSubscription,
-				subscriptionID: token.subscriptionID,
-				subPriceId: token.subPriceId,
+			if (!token?.email) return session
 
-				// Computed flags
-				isAdmin: token.role === "ADMIN",
-				isModerator: token.role === "MODERATOR",
-				isRoleUser: token.role === "USER",
-				isOnboardUser: token.onboard === "USER",
-				isRecruiter: token.onboard === "RECRUITER",
-				isCandidate: token.onboard === "CANDIDATE",
+			const user = await prisma.user.findUnique({
+				where: { email: token.email },
+			})
+
+			if (!user) return session
+
+			return {
+				...session,
+				user: {
+					...session.user,
+					id: user.id,
+					email: user.email,
+					isRole: user.isRole,
+					onboard: user.onboard,
+					userName: user.userName,
+					picture: user.image,
+					stripeCustomerId: user.stripeCustomerId,
+					isSubscription: user.isSubscription,
+					subscriptionID: user.subscriptionID,
+					subPriceId: user.subPriceId,
+					isAdmin: user.isRole === "ADMIN",
+					isModerator: user.isRole === "MODERATOR",
+					isRoleUser: user.isRole === "USER",
+					isOnboardUser: user.onboard === "USER",
+					isRecruiter: user.onboard === "RECRUITER",
+					isCandidate: user.onboard === "CANDIDATE",
+				},
 			}
-			return session
 		},
 	},
-
 	secret: process.env.NEXTAUTH_SECRET,
 	debug: process.env.NODE_ENV === "development",
-	pages: { signIn: "/signin" },
+	pages: {
+		signIn: "/signin",
+	},
 }
 
 export const getAuthSession = () => getServerSession(authOptions)
