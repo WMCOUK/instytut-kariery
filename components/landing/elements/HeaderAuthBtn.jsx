@@ -16,24 +16,14 @@ import { signOut } from "next-auth/react"
 import Link from "next/link"
 
 export default function HeaderAuthBtn() {
-	const currentUser = currentUserClient()
-	if (!currentUser) {
-		return (
-			<Link href="/signin">
-				<Button className="px-4 block">Sign in</Button>
-			</Link>
-		)
-	}
-
-	const { id, email, isAdmin, isRecruiter, isCandidate } = currentUser
-
-	console.log(currentUser);
-	
+	const { id, email, isAdmin, isRecruiter, isCandidate } = currentUserClient()
 	const { user, isLoading } = fetchHeaderAuthUser(id)
 
-	if (isLoading) return null // or a small skeleton loader
+	if (isLoading) return null
 
-	return (
+	const role = isAdmin ? "admin" : isRecruiter ? "recruiter" : isCandidate ? "candidate" : null
+
+	return user ? (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
 				<Button
@@ -67,35 +57,19 @@ export default function HeaderAuthBtn() {
 
 				<DropdownMenuSeparator />
 
-				{isAdmin && (
-					<DropdownMenuItem asChild>
-						<Link href="/admin/overview">Dashboard</Link>
+				{role && ["overview", "profile", "settings"].map((page) => (
+					<DropdownMenuItem key={page} asChild>
+						<Link href={`/${role}/${page}`}>{page[0].toUpperCase() + page.slice(1)}</Link>
 					</DropdownMenuItem>
-				)}
-
-				{isRecruiter && (
-					<DropdownMenuItem asChild>
-						<Link href="/recruiter/overview">Dashboard</Link>
-					</DropdownMenuItem>
-				)}
-
-				{isCandidate && (
-					<DropdownMenuItem asChild>
-						<Link href="/candidate/overview">Dashboard</Link>
-					</DropdownMenuItem>
-				)}
-
-				<DropdownMenuItem asChild>
-					<Link href="/profile">Profile</Link>
-				</DropdownMenuItem>
-				<DropdownMenuItem asChild>
-					<Link href="/settings">Settings</Link>
-				</DropdownMenuItem>
+				))}
 
 				<DropdownMenuSeparator />
-
 				<DropdownMenuItem onClick={() => signOut()}>Log out</DropdownMenuItem>
 			</DropdownMenuContent>
 		</DropdownMenu>
+	) : (
+		<Link href="/signin">
+			<Button className="px-4 block">Sign in</Button>
+		</Link>
 	)
 }
