@@ -15,6 +15,7 @@ const flags = {
 	fr: "FR",
 	es: "ES",
 	de: "DE",
+	pl: "PL",
 }
 
 export default function LanguageDropdown() {

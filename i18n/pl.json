@@ -1,0 +1,52 @@
+{
+    "landing": {
+        "hero1": {
+            "handIconAlt": "Ikona dłoni",
+            "jobOffers": "Oferty pracy",
+            "greeting": "Cześć! Witamy w Nubi",
+            "title": "Proste i ekonomiczne",
+            "titleHighlight": "Rozwiązania kariery",
+            "description": "Co miesiąc ponad 3,5 miliona osób poszukujących pracy odwiedza naszą platformę, składając ponad 150 000 aplikacji dziennie w poszukiwaniu idealnych stanowisk.",
+            "popularSearches": "Popularne wyszukiwania",
+            "searchTerms": "UX Designer,Full-Stack Developer,Cloud,Android,Python,Lead,Architect",
+            "backgroundPatternAlt": "Wzór tła",
+            "heroImageAlt": "Obraz główny",
+            "avatarAlt": "Awatar {number}"
+        },
+        "hero2": {
+            "handIconAlt": "Ikona dłoni",
+            "greeting": "Cześć! Jesteśmy Nubi",
+            "title": "Wydajne i przystępne cenowo",
+            "titleHighlight": "Oferty pracy",
+            "description": "Ponad 3,5 miliona osób poszukujących pracy ufa naszej stronie każdego miesiąca, generując ponad 150 000 aplikacji dziennie, aby znaleźć kolejny krok w karierze.",
+            "popularSearches": "Popularne wyszukiwania",
+            "searchTerms": "UX Designer,Full-Stack Developer,Cloud,Android,Python,Lead,Architect",
+            "backgroundPatternAlt": "Wzór tła",
+            "heroImageAlt": "Obraz główny",
+            "avatarAlt": "Awatar {number}"
+        },
+        "hero3": {
+            "backgroundAlt": "Tło",
+            "title": "Odkryj czołowych",
+            "titleContinued": "innowatorów technologii",
+            "description": "Odkryj swoją idealną ścieżkę kariery i zdobądź doskonałą ofertę pracy",
+            "popularSearches": "Popularne wyszukiwania",
+            "searchTerms": "UX Designer,Full-Stack Developer,Cloud,Android,Python,Lead,Architect"
+        },
+        "hero4": {
+            "backgroundPatternAlt": "Wzór tła",
+            "title": "Uruchom platformę nr 1 do",
+            "titleContinued": "rekrutacji lub znalezienia kolejnej roli",
+            "description": "Odkryj swoją idealną ścieżkę kariery i zdobądź doskonałą ofertę pracy",
+            "popularSearches": "Popularne wyszukiwania",
+            "searchTerms": "UX Designer,Full-Stack Developer,Cloud,Android,Python,Lead,Architect"
+        },
+        "hero5": {
+            "title": "Rozpocznij rekrutację nr 1 do",
+            "titleContinued": "zatrudnienia lub kolejnego kroku w karierze",
+            "description": "Odkryj swoją idealną ścieżkę kariery i zdobądź doskonałą ofertę pracy",
+            "popularSearches": "Popularne wyszukiwania",
+            "searchTerms": "UX Designer,Full-Stack Developer,Cloud,Android,Python,Lead,Architect"
+        }
+    }
+}
