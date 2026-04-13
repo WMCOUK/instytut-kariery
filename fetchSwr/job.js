@@ -137,7 +137,7 @@ export function fetchQueryJob2(
 
 // ------------------ FETCH ALL JOBS ------------------ //
 
-export function fetchAllJob(page = 1, search = "", status, moderation) {
+export function fetchAllJob(page = 1, search = "", status, moderation, fallbackData) {
 	const params = new URLSearchParams()
 	params.set("page", page)
 	if (search) params.set("search", search)
@@ -148,8 +148,8 @@ export function fetchAllJob(page = 1, search = "", status, moderation) {
 		`${baseUrl}/api/v1/job?${params.toString()}`,
 		fetcher,
 		{
-			fallbackData,           // <- use server-side data first
-			revalidateOnMount: false, // <- prevent re-fetch on mount
+			...(fallbackData && { fallbackData }),
+			revalidateOnMount: !fallbackData,
 		}
 	)
 
@@ -163,14 +163,18 @@ export function fetchAllJob(page = 1, search = "", status, moderation) {
 		isLoading,
 	}
 }
-export function fetchMyJob(page = 1, search = "") {
+export function fetchMyJob(page = 1, search = "", fallbackData) {
 	const params = new URLSearchParams()
 	params.set("page", page)
 	if (search) params.set("search", search)
 
 	const { data, error, mutate, isLoading } = useSWR(
 		`${baseUrl}/api/v1/job/my-job?${params.toString()}`,
-		fetcher
+		fetcher,
+		{
+			...(fallbackData && { fallbackData }),
+			revalidateOnMount: !fallbackData,
+		}
 	)
 
 	return {
@@ -199,9 +203,12 @@ export const fetchAllJobCount = (page) => {
 
 // ------------------ STATUS & MODERATION ------------------ //
 
-export const fetchStatusJob = (status, page = 1, search = "") => {
+export const fetchStatusJob = (status, page = 1, search = "", fallbackData) => {
 	const url = `${baseUrl}/api/v1/job/${status}?page=${page}&search=${encodeURIComponent(search)}`
-	const { data, error, mutate, isLoading } = useSWR(url, fetcher)
+	const { data, error, mutate, isLoading } = useSWR(url, fetcher, {
+		...(fallbackData && { fallbackData }),
+		revalidateOnMount: !fallbackData,
+	})
 
 	return {
 		jobs: data?.jobs || [],
@@ -214,9 +221,12 @@ export const fetchStatusJob = (status, page = 1, search = "") => {
 	}
 }
 
-export const fetchModerationJob = (moderation, page = 1, search = "") => {
+export const fetchModerationJob = (moderation, page = 1, search = "", fallbackData) => {
 	const url = `${baseUrl}/api/v1/job/${moderation}?page=${page}&search=${encodeURIComponent(search)}`
-	const { data, error, mutate, isLoading } = useSWR(url, fetcher)
+	const { data, error, mutate, isLoading } = useSWR(url, fetcher, {
+		...(fallbackData && { fallbackData }),
+		revalidateOnMount: !fallbackData,
+	})
 
 	return {
 		jobs: data?.jobs || [],
