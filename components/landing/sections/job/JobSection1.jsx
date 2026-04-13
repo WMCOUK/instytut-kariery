@@ -76,8 +76,7 @@ export default function JobSection1() {
 		filters.maxDistance
 	)
 
-	// Updates the URL query parameters
-	const updateQueryParams = () => {
+	useEffect(() => {
 		const query = new URLSearchParams()
 
 		query.set("page", currentPage.toString())
@@ -92,11 +91,7 @@ export default function JobSection1() {
 		}
 
 		router.push(`/jobs?${query.toString()}`, { scroll: false })
-	}
-
-	useEffect(() => {
-		updateQueryParams()
-	}, [filters, sortOptions, currentPage, itemsPerPage])
+	}, [filters, sortOptions, currentPage, itemsPerPage, router])
 
 	const handleSortChange = ({ sortBy, sortOrder }) => {
 		setSortOptions({ sortBy, sortOrder })

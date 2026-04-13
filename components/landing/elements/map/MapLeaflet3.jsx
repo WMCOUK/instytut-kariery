@@ -140,11 +140,12 @@ function ZoomHandler({ jobs, userPosition, center }) {
 	)
 }
 
+const DEFAULT_POSITION = [51.505, -0.09] // Fallback center (London)
+
 export default function MapLeaflet3({ jobs = [] }) {
 	const [isMounted, setIsMounted] = useState(false)
 	const [userPosition, setUserPosition] = useState(null)
 	const [geoError, setGeoError] = useState(null)
-	const defaultPosition = [51.505, -0.09] // Fallback center (London)
 
 	useEffect(() => {
 		setIsMounted(true)
@@ -157,12 +158,12 @@ export default function MapLeaflet3({ jobs = [] }) {
 				},
 				(error) => {
 					setGeoError("Unable to retrieve your location. Using default map center.")
-					setUserPosition(defaultPosition)
+					setUserPosition(DEFAULT_POSITION)
 				}
 			)
 		} else {
 			setGeoError("Geolocation is not supported by this browser.")
-			setUserPosition(defaultPosition)
+			setUserPosition(DEFAULT_POSITION)
 		}
 	}, [])
 

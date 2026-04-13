@@ -175,7 +175,10 @@ export default function JobCreateForm() {
 
 	const handleImageChange = useCallback((image) => setValue("image", image, { shouldValidate: true }), [setValue])
 	const handleSkillChange = useCallback((skills) => setValue("skills", skills, { shouldValidate: true }), [setValue])
-	const handleBenefitChange = useCallback((title, checked) => setValue("benefit", checked ? [...benefitValue, title] : benefitValue.filter((b) => b !== title), { shouldValidate: true }), [setValue, benefitValue])
+	const handleBenefitChange = useCallback((title, checked) => {
+		const current = watch("benefit") || []
+		setValue("benefit", checked ? [...current, title] : current.filter((b) => b !== title), { shouldValidate: true })
+	}, [setValue, watch])
 	const handleTiptapChange = useCallback((value) => setValue("content", value, { shouldValidate: true }), [setValue])
 
 	const validateStep = useCallback(async () => {
@@ -191,7 +194,7 @@ export default function JobCreateForm() {
 		return isValid
 	}, [step, trigger])
 
-	const nextStep = useCallback(async () => step < steps.length && (await validateStep()) && setStep(step + 1), [step, validateStep])
+	const nextStep = useCallback(async () => step < steps.length && (await validateStep()) && setStep(step + 1), [step, steps.length, validateStep])
 	const prevStep = useCallback(() => step > 1 && setStep(step - 1), [step])
 
 	const onSubmit = useCallback(async (data) => {

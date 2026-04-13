@@ -48,7 +48,7 @@ export const fetchLatestPost = () => {
 
 // ------------------ PAGINATED QUERY (BLOG) ------------------ //
 
-export function fetchQueryBlog(currentPage, itemsPerPage, sortBy, sortOrder, search, catSlug) {
+export function fetchQueryBlog(currentPage, itemsPerPage, sortBy, sortOrder, search, catSlug, fallbackData) {
 	const queryParams = new URLSearchParams({
 		page: currentPage.toString(),
 		pageSize: itemsPerPage.toString(),
@@ -58,7 +58,11 @@ export function fetchQueryBlog(currentPage, itemsPerPage, sortBy, sortOrder, sea
 		...(catSlug && { catSlug }),
 	})
 
-	const { data, error } = useSWR(`/api/v1/post/all?${queryParams.toString()}`, fetcher)
+	const { data, error } = useSWR(
+		`/api/v1/post/all?${queryParams.toString()}`,
+		fetcher,
+		fallbackData ? { fallbackData } : undefined,
+	)
 
 	return {
 		posts: data?.posts || [],

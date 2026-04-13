@@ -207,8 +207,11 @@ export default function JobEditForm({ job }) {
 	const handleImageChange = useCallback((image) => setValue("image", image, { shouldValidate: true }), [setValue])
 	const handleSkillChange = useCallback((skills) => setValue("skills", skills, { shouldValidate: true }), [setValue])
 	const handleBenefitChange = useCallback(
-		(title, checked) => setValue("benefit", checked ? [...benefitValue, title] : benefitValue.filter((b) => b !== title), { shouldValidate: true }),
-		[setValue, benefitValue]
+		(title, checked) => {
+			const current = watch("benefit") || []
+			setValue("benefit", checked ? [...current, title] : current.filter((b) => b !== title), { shouldValidate: true })
+		},
+		[setValue, watch]
 	)
 	const handleTiptapChange = useCallback(
 		(value) => {
@@ -236,7 +239,7 @@ export default function JobEditForm({ job }) {
 
 	const nextStep = useCallback(
 		async () => step < steps.length && (await validateStep()) && setStep(step + 1),
-		[step, validateStep]
+		[step, steps.length, validateStep]
 	)
 	const prevStep = useCallback(() => step > 1 && setStep(step - 1), [step])
 

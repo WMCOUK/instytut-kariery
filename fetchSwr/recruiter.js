@@ -4,7 +4,7 @@ import { fetcher } from './common'
 
 // ------------------ QUERY RECRUITER (with filters) ------------------ //
 
-export function fetchQueryRecruiter(currentPage, itemsPerPage, sortBy, sortOrder, search, jobIndustrySlug) {
+export function fetchQueryRecruiter(currentPage, itemsPerPage, sortBy, sortOrder, search, jobIndustrySlug, fallbackData) {
 	const queryParams = new URLSearchParams({
 		page: currentPage.toString(),
 		pageSize: itemsPerPage.toString(),
@@ -14,7 +14,11 @@ export function fetchQueryRecruiter(currentPage, itemsPerPage, sortBy, sortOrder
 		...(jobIndustrySlug && { jobIndustrySlug }),
 	})
 
-	const { data, error } = useSWR(`/api/v1/recruiter/all?${queryParams.toString()}`, fetcher)
+	const { data, error } = useSWR(
+		`/api/v1/recruiter/all?${queryParams.toString()}`,
+		fetcher,
+		fallbackData ? { fallbackData } : undefined,
+	)
 
 	return {
 		recruiters: data?.recruiters || [],

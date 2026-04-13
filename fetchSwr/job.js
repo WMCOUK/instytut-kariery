@@ -75,7 +75,8 @@ export function fetchQueryJob2(
   latitude,
   longitude,
   minDistance,
-  maxDistance
+  maxDistance,
+  fallbackData
 ) {
   const jobTypeArray = Array.isArray(jobType) ? jobType : (jobType || '').split(',').filter(Boolean)
   const workModeArray = Array.isArray(workMode) ? workMode : (workMode || '').split(',').filter(Boolean)
@@ -122,9 +123,8 @@ export function fetchQueryJob2(
   const { data, error } = useSWR(`/api/v1/job/filter?${queryParams.toString()}`, fetcher, {
     revalidateOnFocus: false,
     dedupingInterval: 2000,
+    ...(fallbackData && { fallbackData }),
   })
-
-  console.log('SWR Data:', data, 'Error:', error)
 
   return {
     jobs: data?.jobs || [],

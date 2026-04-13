@@ -12,10 +12,12 @@ import { Button } from "@/components/ui/button"
 import { Skeleton } from "@/components/ui/skeleton"
 import { fetchQueryCandidate } from "@/fetchSwr"
 import { LayoutGrid, List, SearchX } from "lucide-react"
+import { useTranslations } from "next-intl"
 import { useRouter, useSearchParams } from "next/navigation"
 import { useCallback, useEffect, useState } from "react"
 
-export default function CandidateSection1() {
+export default function CandidateSection1({ initialData }) {
+	const t = useTranslations()
 	const router = useRouter()
 	const searchParams = useSearchParams()
 
@@ -47,13 +49,22 @@ export default function CandidateSection1() {
 	const [currentPage, setCurrentPage] = useState(Number.parseInt(searchParams.get("page") || "1", 10))
 	const [viewMode, setViewMode] = useState("grid")
 
+	// Only pass fallbackData when we're on the default view (page 1, default sort, no search)
+	// so that SSR-fetched data hydrates correctly without being used for filtered/paginated views
+	const isDefaultView =
+		currentPage === 1 &&
+		itemsPerPage === 10 &&
+		sortOptions.sortBy === defaultSortOptions.sortBy &&
+		sortOptions.sortOrder === defaultSortOptions.sortOrder &&
+		!filters.search
+
 	const { candidates, totalPage, isLoading, error } = fetchQueryCandidate(
 		currentPage,
 		itemsPerPage,
 		sortOptions.sortBy,
 		sortOptions.sortOrder,
 		filters.search,
-		// filters.jobIndustrySlug,
+		isDefaultView ? initialData : undefined,
 	)
 
 	const updateQueryParams = useCallback(() => {
@@ -166,12 +177,9 @@ export default function CandidateSection1() {
 								<div className="w-full max-w-md">
 									<div className="flex flex-col items-center p-6 text-center">
 										<SearchX className="w-16 h-16 text-primary mb-4" />
-										<h2 className="text-2xl font-semibold mb-2">No candidates found</h2>
-										<p className="text-gray-500">
-											No candidates match the selected filters. Try adjusting your search criteria.
-										</p>
+										<h2 className="text-2xl font-semibold mb-2">{t('empty.candidates')}</h2>
 										<Button onClick={handleReset} className="mt-4">
-											Reset All Filters
+											{t('common.resetFilters')}
 										</Button>
 									</div>
 								</div>

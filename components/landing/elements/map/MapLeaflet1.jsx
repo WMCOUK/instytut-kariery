@@ -42,7 +42,7 @@ const MarkerComponent = forwardRef(({ position }, ref) => {
 				})
 			})
 		}
-	}, [map, position])
+	}, [map, position, markerRef])
 
 	return (
 		<Marker position={position} icon={createCustomIcon()} ref={markerRef}>

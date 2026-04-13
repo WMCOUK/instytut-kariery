@@ -27,7 +27,7 @@ export default function RecruiterStats() {
 				<div className="flex justify-between items-start">
 					<div>
 						<div className="text-3xl font-semibold text-green-900 dark:text-green-100 mb-2">574</div>
-						<div className="text-green-600 dark:text-green-400 text-sm">Applicantion</div>
+						<div className="text-green-600 dark:text-green-400 text-sm">Applications</div>
 					</div>
 					<Bell className="text-green-500 dark:text-green-400 w-6 h-6" />
 				</div>

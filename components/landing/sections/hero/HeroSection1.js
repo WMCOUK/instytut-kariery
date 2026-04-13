@@ -2,18 +2,22 @@
 
 import { Badge } from "@/components/ui/badge"
 import { Star } from "lucide-react"
+import { useTranslations } from "next-intl"
 import Image from "next/image"
 import Link from "next/link"
 import HeroSearch from "../../elements/search/HeroSearch"
 
 export default function HeroSection1() {
+	const t = useTranslations('landing.hero1')
+	const searchTerms = t('searchTerms').split(',').map(s => s.trim()).filter(Boolean)
+
 	return (
 		<div>
 			<section className="relative py-24 sm:py-30 md:py-36 lg:py-40 overflow-hidden bg-gradient-to-b from-background to-background/80">
 				<div className="absolute inset-0 -z-10 opacity-100">
 					<Image
 						src="/images/bg/5.jpg?height=1080&width=1920"
-						alt="Background pattern"
+						alt={t('backgroundPatternAlt')}
 						fill
 						className="object-cover"
 					/>
@@ -24,8 +28,8 @@ export default function HeroSection1() {
 						<div className="lg:col-span-3 flex flex-col justify-center space-y-4 sm:space-y-6  lg:mx-0">
 							<div className="flex items-center space-x-2 animate-fade-up" style={{ animationDelay: "0.1s" }}>
 								<Badge variant="outline" className="px-2 sm:px-3 py-1 border-primary/30 bg-primary/10 text-primary">
-									<Image src="/images/icons/hand.svg" width={16} height={16} alt="Hand icon" className="mr-1.5" />
-									Welcome to our platform
+									<Image src="/images/icons/hand.svg" width={16} height={16} alt={t('handIconAlt')} className="mr-1.5" />
+									{t('greeting')}
 								</Badge>
 							</div>
 
@@ -33,9 +37,9 @@ export default function HeroSection1() {
 								className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tight animate-fade-up"
 								style={{ animationDelay: "0.2s" }}
 							>
-								Find the perfect talent for your <br className="hidden lg:inline" />
+								{t('title')} <br className="hidden lg:inline" />
 								<span className="text-primary relative">
-									next project
+									{t('titleHighlight')}
 									<span className="absolute -z-10 bottom-1 sm:bottom-2 left-0 right-0 h-2 sm:h-3 bg-primary/20 rounded-full"></span>
 								</span>
 							</h1>
@@ -44,8 +48,7 @@ export default function HeroSection1() {
 								className="text-base sm:text-lg leading-relaxed text-muted-foreground animate-fade-up"
 								style={{ animationDelay: "0.3s" }}
 							>
-								Connect with top freelancers and agencies from around the world. Find the right skills for your project
-								and build your business with confidence.
+								{t('description')}
 							</p>
 
 							<div className="pt-2 sm:pt-4 animate-fade-up w-full" style={{ animationDelay: "0.4s" }}>
@@ -56,19 +59,17 @@ export default function HeroSection1() {
 								className="text-xs sm:text-sm md:text-base text-muted-foreground animate-fade-up"
 								style={{ animationDelay: "0.5s" }}
 							>
-								<span className="font-medium text-foreground mr-2">Popular searches:</span>
+								<span className="font-medium text-foreground mr-2">{t('popularSearches')}:</span>
 								<div className="flex flex-wrap gap-2 mt-2">
-									{["Web Developer", "UX Designer", "Content Writer", "Marketing Expert", "Mobile Developer"].map(
-										(term, index) => (
-											<Link
-												key={index}
-												href={`/jobs?search=${term.trim().toLowerCase()}`}
-												className="px-2 sm:px-3 py-1 text-xs sm:text-sm bg-background rounded-full border hover:border-primary hover:bg-primary hover:text-white transition-colors duration-200"
-											>
-												{term.trim()}
-											</Link>
-										),
-									)}
+									{searchTerms.map((term, index) => (
+										<Link
+											key={index}
+											href={`/jobs?search=${term.toLowerCase()}`}
+											className="px-2 sm:px-3 py-1 text-xs sm:text-sm bg-background rounded-full border hover:border-primary hover:bg-primary hover:text-white transition-colors duration-200"
+										>
+											{term}
+										</Link>
+									))}
 								</div>
 							</div>
 						</div>

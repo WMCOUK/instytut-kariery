@@ -54,6 +54,7 @@ export default function VerticalFilter2({ onApplyFilters, itemsPerPage, setItems
 	const { setValue, watch, reset } = useForm({ defaultValues })
 	const formValues = watch()
 
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	const fetchCounts = useCallback(
 		debounce(async () => {
 			try {
@@ -168,7 +169,7 @@ export default function VerticalFilter2({ onApplyFilters, itemsPerPage, setItems
 				})
 			}
 		}
-	}, [formValues.minDistance, formValues.maxDistance, formValues.latitude, formValues.longitude, setValue, onApplyFilters])
+	}, [formValues, setValue, onApplyFilters])
 
 	const handleFilterChange = (field, value, checked) => {
 		if (['minDistance', 'maxDistance'].includes(field)) {

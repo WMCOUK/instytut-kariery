@@ -7,7 +7,7 @@ import {
 	Layers,
 	LayoutDashboard,
 	Server,
-	Toolbox,
+	Wrench,
 } from 'lucide-react'
 
 const techStackData = [
@@ -64,7 +64,7 @@ const techStackData = [
 	},
 	{
 		title: 'Dev Tools',
-		icon: Toolbox,
+		icon: Wrench,
 		items: [
 			<>
 				<strong>ESLint 9</strong>: Code linting for consistent code quality.

@@ -137,3 +137,10 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Local tools and artifacts
+.DS_Store
+.claude/
+.agents/
+Cloudinary-skill/
+skills-lock.json

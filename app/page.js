@@ -1,4 +1,10 @@
+import { brandName } from "@/utils"
 import LayoutLanding1 from "@/components/landing/layout/landing/LayoutLanding1"
+
+export const metadata = {
+	title: `${brandName} — Portal pracy i rekrutacji`,
+	description: "Znajdź oferty pracy, najlepszych rekruterów i możliwości kariery. Instytut Kariery łączy pracodawców z utalentowanymi kandydatami.",
+}
 import Banner1 from "@/components/landing/sections/banner/BannerSection1"
 import BlogFeatured1 from "@/components/landing/sections/blog/BlogFeatured1"
 import BrandSection1 from "@/components/landing/sections/brand/BrandSection1"

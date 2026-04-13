@@ -1,52 +1,248 @@
 {
-    "landing": {
-        "hero1": {
-            "handIconAlt": "Hand icon",
-            "jobOffers": "Job Opportunities",
-            "greeting": "Hello! Welcome to Nubi",
-            "title": "Simple and cost-effective",
-            "titleHighlight": "Career solutions",
-            "description": "Every month, over 3.5 million job seekers visit our platform, submitting more than 150,000 applications daily in pursuit of their ideal roles.",
-            "popularSearches": "Trending Searches",
-            "searchTerms": "UX Designer,Full-Stack Developer,Cloud,Android,Python,Lead,Architect",
-            "backgroundPatternAlt": "Background pattern",
-            "heroImageAlt": "Hero image",
-            "avatarAlt": "Avatar {number}"
-        },
-        "hero2": {
-            "handIconAlt": "Hand icon",
-            "greeting": "Hi there! We’re Nubi",
-            "title": "Powerful and budget-friendly",
-            "titleHighlight": "Job opportunities",
-            "description": "More than 3.5 million job seekers trust our site each month, generating over 150,000 applications every day to connect with their next career move.",
-            "popularSearches": "Trending Searches",
-            "searchTerms": "UX Designer,Full-Stack Developer,Cloud,Android,Python,Lead,Architect",
-            "backgroundPatternAlt": "Background pattern",
-            "heroImageAlt": "Hero image",
-            "avatarAlt": "Avatar {number}"
-        },
-        "hero3": {
-            "backgroundAlt": "Background",
-            "title": "Explore top-tier",
-            "titleContinued": "tech innovators",
-            "description": "Uncover Your Ideal Career Path and Secure the Perfect Job Opportunity",
-            "popularSearches": "Trending Searches",
-            "searchTerms": "UX Designer,Full-Stack Developer,Cloud,Android,Python,Lead,Architect"
-        },
-        "hero4": {
-            "backgroundPatternAlt": "Background pattern",
-            "title": "Launch the #1 Platform for",
-            "titleContinued": "Hiring or Landing Your Next Role",
-            "description": "Uncover Your Ideal Career Path and Secure the Perfect Job Opportunity",
-            "popularSearches": "Trending Searches",
-            "searchTerms": "UX Designer,Full-Stack Developer,Cloud,Android,Python,Lead,Architect"
-        },
-        "hero5": {
-            "title": "Kickstart the #1 Recruitment for",
-            "titleContinued": "Hiring or Your Next Career Step",
-            "description": "Uncover Your Ideal Career Path and Secure the Perfect Job Opportunity",
-            "popularSearches": "Trending Searches",
-            "searchTerms": "UX Designer,Full-Stack Developer,Cloud,Android,Python,Lead,Architect"
-        }
-    }
+	"common": {
+		"home": "Home",
+		"back": "Back",
+		"search": "Search",
+		"loading": "Loading...",
+		"noResults": "No results",
+		"readMore": "Read more",
+		"viewAll": "View all",
+		"apply": "Apply",
+		"subscribe": "Subscribe",
+		"submit": "Submit",
+		"resetFilters": "Reset filters",
+		"clearAll": "Clear all"
+	},
+	"nav": {
+		"jobs": "Jobs",
+		"recruiters": "Recruiters",
+		"candidates": "Candidates",
+		"blog": "Blog",
+		"pages": "Pages",
+		"faqs": "FAQs",
+		"about": "About",
+		"contact": "Contact",
+		"docs": "Docs",
+		"openMenu": "Open main menu"
+	},
+	"breadcrumb": {
+		"home": "Home",
+		"pages": {
+			"jobs": {
+				"title": "Find Jobs",
+				"subtitle": "Search thousands of job opportunities across various industries"
+			},
+			"recruiters": {
+				"title": "Recruiters",
+				"subtitle": "Work for the best companies in the world"
+			},
+			"candidates": {
+				"title": "Candidates",
+				"subtitle": "Work with the most talented candidates in the world"
+			},
+			"blog": {
+				"title": "Our Blog",
+				"subtitle": "Career tips and industry news"
+			},
+			"about": {
+				"title": "About Us",
+				"subtitle": "We help employers and candidates find the right fit"
+			},
+			"contact": {
+				"title": "Contact Us",
+				"subtitle": "We will be glad to hear from you"
+			},
+			"faqs": {
+				"title": "Frequently Asked Questions",
+				"subtitle": "Find answers to the most common questions"
+			},
+			"tag": {
+				"title": "Tag",
+				"subtitle": "Articles by tag"
+			}
+		}
+	},
+	"footer": {
+		"brandDescription": "Instytut Kariery is a modern job portal connecting employers with the best candidates. Find your dream job today.",
+		"quickLinks": {
+			"heading": "Quick Links",
+			"home": "Home",
+			"about": "About Us",
+			"findJobs": "Find Jobs",
+			"forEmployers": "For Employers",
+			"pricing": "Pricing"
+		},
+		"company": {
+			"heading": "Company",
+			"contact": "Contact Us",
+			"careers": "Careers at Instytut Kariery",
+			"privacy": "Privacy Policy",
+			"terms": "Terms of Service",
+			"faq": "FAQ"
+		},
+		"newsletter": {
+			"heading": "Stay Connected",
+			"description": "Subscribe to our newsletter to receive the latest job offers and career tips.",
+			"placeholder": "Enter your email",
+			"submit": "Subscribe",
+			"consent": "By subscribing, you agree to our privacy policy."
+		},
+		"contact": {
+			"heading": "Contact Us",
+			"email": "info@instytutkariery.pl",
+			"phone": "+48 123 456 789",
+			"address": "ul. Przykładowa 1, 00-000 Warszawa"
+		},
+		"copyright": "All rights reserved.",
+		"legal": {
+			"privacy": "Privacy",
+			"terms": "Terms",
+			"cookies": "Cookies"
+		},
+		"socials": {
+			"facebook": "Facebook",
+			"linkedin": "LinkedIn",
+			"twitter": "Twitter",
+			"instagram": "Instagram",
+			"youtube": "YouTube"
+		}
+	},
+	"auth": {
+		"signin": {
+			"title": "Sign in to your account",
+			"subtitle": "Enter your email below to sign in",
+			"emailLabel": "Email",
+			"emailPlaceholder": "name@example.com",
+			"emailHint": "Enter your valid email.",
+			"passwordLabel": "Password",
+			"passwordPlaceholder": "Enter password",
+			"passwordHint": "Enter your password to sign in.",
+			"forgot": "Forgot password?",
+			"submit": "Sign in to your account",
+			"google": "Sign in with Google",
+			"noAccount": "Don't have an account?",
+			"signupLink": "Signup",
+			"errors": {
+				"emailInvalid": "Invalid email format",
+				"emailRequired": "Email is required.",
+				"passwordMin": "Password must be at least 6 characters."
+			},
+			"toast": {
+				"success": "Logged in successfully!"
+			}
+		},
+		"signup": {
+			"title": "Create an account",
+			"subtitle": "Enter your email below to create your account",
+			"emailLabel": "Email",
+			"emailPlaceholder": "name@example.com",
+			"passwordLabel": "Password",
+			"passwordPlaceholder": "Create password",
+			"onboardLabel": "I am a",
+			"candidate": "Candidate",
+			"recruiter": "Recruiter",
+			"submit": "Create account",
+			"google": "Sign up with Google",
+			"haveAccount": "Already have an account?",
+			"signinLink": "Login",
+			"errors": {
+				"emailRequired": "Email is required",
+				"emailInvalid": "Invalid email format",
+				"passwordRequired": "Password is required",
+				"passwordMin": "Password must be at least 6 characters",
+				"onboardInvalid": "Invalid onboard status",
+				"onboardRequired": "Onboard status is required"
+			},
+			"toast": {
+				"success": "Registration successful!",
+				"error": "Something went wrong"
+			}
+		}
+	},
+	"filters": {
+		"title": "Filters",
+		"keyword": "Keyword",
+		"location": "Location",
+		"category": "Category",
+		"jobType": "Job type",
+		"experience": "Experience",
+		"workMode": "Work mode",
+		"salary": "Salary",
+		"datePosted": "Date posted",
+		"industry": "Industry",
+		"apply": "Apply filters"
+	},
+	"sort": {
+		"label": "Sort by",
+		"newest": "Newest",
+		"oldest": "Oldest",
+		"salaryHigh": "Salary: high to low",
+		"salaryLow": "Salary: low to high",
+		"relevance": "Relevance"
+	},
+	"empty": {
+		"jobs": "No jobs found",
+		"candidates": "No candidates found",
+		"recruiters": "No recruiters found",
+		"blog": "No posts found"
+	},
+	"view": {
+		"grid": "Grid view",
+		"list": "List view",
+		"perPage": "Per page"
+	},
+	"landing": {
+		"hero1": {
+			"handIconAlt": "Hand icon",
+			"jobOffers": "Job Opportunities",
+			"greeting": "Welcome to Instytut Kariery",
+			"title": "Simple and cost-effective",
+			"titleHighlight": "Career solutions",
+			"description": "Every month, over 3.5 million job seekers visit our platform, submitting more than 150,000 applications daily in pursuit of their ideal roles.",
+			"popularSearches": "Trending Searches",
+			"searchTerms": "UX Designer,Full-Stack Developer,Cloud,Android,Python,Lead,Architect",
+			"backgroundPatternAlt": "Background pattern",
+			"heroImageAlt": "Hero image",
+			"avatarAlt": "Avatar {number}"
+		},
+		"hero2": {
+			"handIconAlt": "Hand icon",
+			"greeting": "Hi there! We're Instytut Kariery",
+			"title": "Powerful and budget-friendly",
+			"titleHighlight": "Job opportunities",
+			"description": "More than 3.5 million job seekers trust our site each month, generating over 150,000 applications every day to connect with their next career move.",
+			"popularSearches": "Trending Searches",
+			"searchTerms": "UX Designer,Full-Stack Developer,Cloud,Android,Python,Lead,Architect",
+			"backgroundPatternAlt": "Background pattern",
+			"heroImageAlt": "Hero image",
+			"avatarAlt": "Avatar {number}"
+		},
+		"hero3": {
+			"backgroundAlt": "Background",
+			"title": "Explore top-tier",
+			"titleContinued": "tech innovators",
+			"description": "Uncover Your Ideal Career Path and Secure the Perfect Job Opportunity",
+			"popularSearches": "Trending Searches",
+			"searchTerms": "UX Designer,Full-Stack Developer,Cloud,Android,Python,Lead,Architect"
+		},
+		"hero4": {
+			"backgroundPatternAlt": "Background pattern",
+			"title": "Launch the #1 Platform for",
+			"titleContinued": "Hiring or Landing Your Next Role",
+			"description": "Uncover Your Ideal Career Path and Secure the Perfect Job Opportunity",
+			"popularSearches": "Trending Searches",
+			"searchTerms": "UX Designer,Full-Stack Developer,Cloud,Android,Python,Lead,Architect"
+		},
+		"hero5": {
+			"title": "Kickstart the #1 Recruitment for",
+			"titleContinued": "Hiring or Your Next Career Step",
+			"description": "Uncover Your Ideal Career Path and Secure the Perfect Job Opportunity",
+			"popularSearches": "Trending Searches",
+			"searchTerms": "UX Designer,Full-Stack Developer,Cloud,Android,Python,Lead,Architect"
+		},
+		"hero6": {
+			"title": "Unlock the Power of Data-Driven Insights",
+			"description": "Our advanced analytics platform turns data into actionable insights."
+		}
+	}
 }

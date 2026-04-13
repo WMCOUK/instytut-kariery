@@ -10,6 +10,7 @@ export function Rating({ initialRating, onChange, readonly, quiet, emptySymbol, 
     if (initialRating !== undefined && initialRating !== rating) {
       setRating(initialRating);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialRating]);
 
   const handleRatingChange = (newRating) => {

@@ -1,0 +1,248 @@
+{
+	"common": {
+		"home": "Strona główna",
+		"back": "Wstecz",
+		"search": "Szukaj",
+		"loading": "Ładowanie...",
+		"noResults": "Brak wyników",
+		"readMore": "Czytaj więcej",
+		"viewAll": "Zobacz wszystkie",
+		"apply": "Zastosuj",
+		"subscribe": "Zapisz się",
+		"submit": "Wyślij",
+		"resetFilters": "Wyczyść filtry",
+		"clearAll": "Wyczyść wszystko"
+	},
+	"nav": {
+		"jobs": "Oferty pracy",
+		"recruiters": "Rekruterzy",
+		"candidates": "Kandydaci",
+		"blog": "Blog",
+		"pages": "Strony",
+		"faqs": "FAQ",
+		"about": "O nas",
+		"contact": "Kontakt",
+		"docs": "Dokumentacja",
+		"openMenu": "Otwórz menu główne"
+	},
+	"breadcrumb": {
+		"home": "Strona główna",
+		"pages": {
+			"jobs": {
+				"title": "Znajdź pracę",
+				"subtitle": "Przeszukaj tysiące ofert pracy w różnych branżach"
+			},
+			"recruiters": {
+				"title": "Rekruterzy",
+				"subtitle": "Pracuj dla najlepszych firm na świecie"
+			},
+			"candidates": {
+				"title": "Kandydaci",
+				"subtitle": "Współpracuj z najbardziej utalentowanymi kandydatami"
+			},
+			"blog": {
+				"title": "Nasz Blog",
+				"subtitle": "Porady kariery i aktualności z rynku pracy"
+			},
+			"about": {
+				"title": "O nas",
+				"subtitle": "Pomagamy pracodawcom i kandydatom znaleźć idealne dopasowanie"
+			},
+			"contact": {
+				"title": "Kontakt",
+				"subtitle": "Z przyjemnością odpowiemy na Twoje pytania"
+			},
+			"faqs": {
+				"title": "Często zadawane pytania",
+				"subtitle": "Znajdź odpowiedzi na najczęściej zadawane pytania"
+			},
+			"tag": {
+				"title": "Tag",
+				"subtitle": "Artykuły według tagów"
+			}
+		}
+	},
+	"footer": {
+		"brandDescription": "Instytut Kariery to nowoczesny portal pracy łączący pracodawców z najlepszymi kandydatami. Znajdź swoją wymarzoną pracę już dziś.",
+		"quickLinks": {
+			"heading": "Szybkie linki",
+			"home": "Strona główna",
+			"about": "O nas",
+			"findJobs": "Znajdź pracę",
+			"forEmployers": "Dla pracodawców",
+			"pricing": "Cennik"
+		},
+		"company": {
+			"heading": "Firma",
+			"contact": "Kontakt",
+			"careers": "Kariera w Instytut Kariery",
+			"privacy": "Polityka prywatności",
+			"terms": "Regulamin",
+			"faq": "FAQ"
+		},
+		"newsletter": {
+			"heading": "Bądź w kontakcie",
+			"description": "Zapisz się do newslettera, aby otrzymywać najnowsze oferty pracy i porady kariery.",
+			"placeholder": "Wpisz swój adres e-mail",
+			"submit": "Zapisz się",
+			"consent": "Zapisując się, akceptujesz naszą politykę prywatności."
+		},
+		"contact": {
+			"heading": "Kontakt",
+			"email": "info@instytutkariery.pl",
+			"phone": "+48 123 456 789",
+			"address": "ul. Przykładowa 1, 00-000 Warszawa"
+		},
+		"copyright": "Wszelkie prawa zastrzeżone.",
+		"legal": {
+			"privacy": "Prywatność",
+			"terms": "Regulamin",
+			"cookies": "Pliki cookies"
+		},
+		"socials": {
+			"facebook": "Facebook",
+			"linkedin": "LinkedIn",
+			"twitter": "Twitter",
+			"instagram": "Instagram",
+			"youtube": "YouTube"
+		}
+	},
+	"auth": {
+		"signin": {
+			"title": "Zaloguj się do swojego konta",
+			"subtitle": "Wpisz swój adres e-mail poniżej, aby się zalogować",
+			"emailLabel": "E-mail",
+			"emailPlaceholder": "nazwa@example.com",
+			"emailHint": "Podaj prawidłowy adres e-mail.",
+			"passwordLabel": "Hasło",
+			"passwordPlaceholder": "Wpisz hasło",
+			"passwordHint": "Wpisz hasło, aby się zalogować.",
+			"forgot": "Zapomniałeś hasła?",
+			"submit": "Zaloguj się",
+			"google": "Zaloguj się przez Google",
+			"noAccount": "Nie masz konta?",
+			"signupLink": "Zarejestruj się",
+			"errors": {
+				"emailInvalid": "Nieprawidłowy format adresu e-mail",
+				"emailRequired": "Adres e-mail jest wymagany.",
+				"passwordMin": "Hasło musi mieć co najmniej 6 znaków."
+			},
+			"toast": {
+				"success": "Zalogowano pomyślnie!"
+			}
+		},
+		"signup": {
+			"title": "Utwórz konto",
+			"subtitle": "Wpisz swój adres e-mail poniżej, aby utworzyć konto",
+			"emailLabel": "E-mail",
+			"emailPlaceholder": "nazwa@example.com",
+			"passwordLabel": "Hasło",
+			"passwordPlaceholder": "Utwórz hasło",
+			"onboardLabel": "Jestem",
+			"candidate": "Kandydat",
+			"recruiter": "Rekruter",
+			"submit": "Utwórz konto",
+			"google": "Zarejestruj się przez Google",
+			"haveAccount": "Masz już konto?",
+			"signinLink": "Zaloguj się",
+			"errors": {
+				"emailRequired": "Adres e-mail jest wymagany",
+				"emailInvalid": "Nieprawidłowy format adresu e-mail",
+				"passwordRequired": "Hasło jest wymagane",
+				"passwordMin": "Hasło musi mieć co najmniej 6 znaków",
+				"onboardInvalid": "Nieprawidłowy status",
+				"onboardRequired": "Wybierz typ konta"
+			},
+			"toast": {
+				"success": "Rejestracja zakończona pomyślnie!",
+				"error": "Coś poszło nie tak"
+			}
+		}
+	},
+	"filters": {
+		"title": "Filtry",
+		"keyword": "Słowo kluczowe",
+		"location": "Lokalizacja",
+		"category": "Kategoria",
+		"jobType": "Typ pracy",
+		"experience": "Doświadczenie",
+		"workMode": "Tryb pracy",
+		"salary": "Wynagrodzenie",
+		"datePosted": "Data publikacji",
+		"industry": "Branża",
+		"apply": "Zastosuj filtry"
+	},
+	"sort": {
+		"label": "Sortuj według",
+		"newest": "Najnowsze",
+		"oldest": "Najstarsze",
+		"salaryHigh": "Wynagrodzenie: od najwyższego",
+		"salaryLow": "Wynagrodzenie: od najniższego",
+		"relevance": "Trafność"
+	},
+	"empty": {
+		"jobs": "Nie znaleziono ofert pracy",
+		"candidates": "Nie znaleziono kandydatów",
+		"recruiters": "Nie znaleziono rekruterów",
+		"blog": "Nie znaleziono artykułów"
+	},
+	"view": {
+		"grid": "Widok siatki",
+		"list": "Widok listy",
+		"perPage": "Na stronę"
+	},
+	"landing": {
+		"hero1": {
+			"handIconAlt": "Ikona dłoni",
+			"jobOffers": "Oferty pracy",
+			"greeting": "Witaj w Instytut Kariery",
+			"title": "Proste i efektywne",
+			"titleHighlight": "rozwiązania kariery",
+			"description": "Co miesiąc ponad 3,5 miliona osób poszukujących pracy odwiedza naszą platformę, składając ponad 150 000 aplikacji dziennie w poszukiwaniu idealnych stanowisk.",
+			"popularSearches": "Popularne wyszukiwania",
+			"searchTerms": "UX Designer,Full-Stack Developer,Cloud,Android,Python,Lead,Architekt",
+			"backgroundPatternAlt": "Wzór tła",
+			"heroImageAlt": "Obraz hero",
+			"avatarAlt": "Awatar {number}"
+		},
+		"hero2": {
+			"handIconAlt": "Ikona dłoni",
+			"greeting": "Cześć! Jesteśmy Instytut Kariery",
+			"title": "Potężne i przyjazne budżetowi",
+			"titleHighlight": "Możliwości pracy",
+			"description": "Ponad 3,5 miliona osób poszukujących pracy ufa naszej stronie każdego miesiąca, generując ponad 150 000 aplikacji dziennie.",
+			"popularSearches": "Popularne wyszukiwania",
+			"searchTerms": "UX Designer,Full-Stack Developer,Cloud,Android,Python,Lead,Architekt",
+			"backgroundPatternAlt": "Wzór tła",
+			"heroImageAlt": "Obraz hero",
+			"avatarAlt": "Awatar {number}"
+		},
+		"hero3": {
+			"backgroundAlt": "Tło",
+			"title": "Odkryj najlepszych",
+			"titleContinued": "innowatorów technologii",
+			"description": "Odkryj swoją idealną ścieżkę kariery i znajdź doskonałą ofertę pracy",
+			"popularSearches": "Popularne wyszukiwania",
+			"searchTerms": "UX Designer,Full-Stack Developer,Cloud,Android,Python,Lead,Architekt"
+		},
+		"hero4": {
+			"backgroundPatternAlt": "Wzór tła",
+			"title": "Uruchom platformę #1 do",
+			"titleContinued": "Rekrutacji lub kolejnego etapu kariery",
+			"description": "Odkryj swoją idealną ścieżkę kariery i znajdź doskonałą ofertę pracy",
+			"popularSearches": "Popularne wyszukiwania",
+			"searchTerms": "UX Designer,Full-Stack Developer,Cloud,Android,Python,Lead,Architekt"
+		},
+		"hero5": {
+			"title": "Rozpocznij rekrutację #1 do",
+			"titleContinued": "Zatrudniania lub kolejnego etapu kariery",
+			"description": "Odkryj swoją idealną ścieżkę kariery i znajdź doskonałą ofertę pracy",
+			"popularSearches": "Popularne wyszukiwania",
+			"searchTerms": "UX Designer,Full-Stack Developer,Cloud,Android,Python,Lead,Architekt"
+		},
+		"hero6": {
+			"title": "Odblokuj moc analityki",
+			"description": "Nasza zaawansowana platforma analityczna przekształca dane w actionable insights."
+		}
+	}
+}

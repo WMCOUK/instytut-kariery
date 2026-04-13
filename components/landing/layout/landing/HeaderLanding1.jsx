@@ -1,8 +1,7 @@
 'use client'
 
 import HeaderAuthBtn from '@/components/landing/elements/HeaderAuthBtn'
-// import HeaderAuthBtn from '@/components/elements/HeaderAuthBtn'
-// import LanguageDropdown from '@/components/admin/elements/LanguageDropdown'
+import LanguageDropdown from '@/components/admin/elements/LanguageDropdown'
 import { ThemeSwitcherBtn } from '@/components/admin/elements/ThemeSwitcherBtn'
 import Logo from '@/components/logo'
 import {
@@ -21,39 +20,30 @@ import {
 } from '@/components/ui/sheet'
 import { brandName } from '@/utils'
 import { ChevronDown, ChevronRight, Menu } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 const navItems = [
-	// {
-	// 	name: 'Home',
-	// 	href: '/',
-	// 	subItems: [
-	// 		{ name: 'Home 1', href: '/' },
-	// 		{ name: 'Home 2', href: '/index-2' },
-	// 		{ name: 'Home 3', href: '/index-3' },
-	// 		{ name: 'Home 4', href: '/index-4' },
-	// 		{ name: 'Home 5', href: '/index-5' },
-	// 	],
-	// },
-	{ name: 'Jobs', href: '/jobs' },
-	{ name: 'Recruiters', href: '/recruiters' },
-	{ name: 'Candidates', href: '/candidates' },
-	{ name: 'Blog', href: '/blog' },
+	{ key: 'jobs', href: '/jobs' },
+	{ key: 'recruiters', href: '/recruiters' },
+	{ key: 'candidates', href: '/candidates' },
+	{ key: 'blog', href: '/blog' },
 	{
-		name: 'Pages',
+		key: 'pages',
 		href: '#',
 		subItems: [
-			{ name: 'FAQs', href: '/faqs' },
-			{ name: 'About', href: '/about' },
-			{ name: 'Contact', href: '/contact' },
+			{ key: 'faqs', href: '/faqs' },
+			{ key: 'about', href: '/about' },
+			{ key: 'contact', href: '/contact' },
 		],
 	},
-	{ name: 'Docs', href: '/docs' },
+	{ key: 'docs', href: '/docs' },
 ]
 
 export default function HeaderLanding1({ isTransparentHeader, colorTransparent }) {
+	const t = useTranslations('nav')
 	const [isOpen, setIsOpen] = useState(false)
 	const [isSticky, setIsSticky] = useState(false)
 	const [activeAccordion, setActiveAccordion] = useState(null)
@@ -126,7 +116,7 @@ export default function HeaderLanding1({ isTransparentHeader, colorTransparent }
 					<div className="flex items-center space-x-4">
 						<nav className="hidden md:flex">
 							{navItems.map((item) => (
-								<div key={item.name} className="relative group flex items-center">
+								<div key={item.key} className="relative group flex items-center">
 									{item.subItems ? (
 										<div>
 											<Button
@@ -136,20 +126,20 @@ export default function HeaderLanding1({ isTransparentHeader, colorTransparent }
 													: headerTextColor
 													}`}
 											>
-												{item.name}
+												{t(item.key)}
 												<ChevronDown className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180" />
 											</Button>
 											<div className="absolute left-0 mt-2 w-48 bg-background rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-in-out z-50">
 												<div className="py-1" role="menu" aria-orientation="vertical">
 													{item.subItems.map((subItem) => (
 														<Link
-															key={subItem.name}
+															key={subItem.key}
 															href={subItem.href}
 															className={`block px-4 py-2 text-sm text-foreground hover:text-foreground ${pathname === subItem.href ? 'font-semibold text-primary' : ''
 																}`}
 															role="menuitem"
 														>
-															{subItem.name}
+															{t(subItem.key)}
 														</Link>
 													))}
 												</div>
@@ -161,16 +151,16 @@ export default function HeaderLanding1({ isTransparentHeader, colorTransparent }
 											className={`${headerTextColor} hover:text-foreground px-3 py-2 text-sm font-medium ${isActiveOrHasActiveChild(item) ? 'font-semibold text-primary' : ''
 												}`}
 										>
-											{item.name}
+											{t(item.key)}
 										</Link>
 									)}
 								</div>
 							))}
 						</nav>
 						<div className="flex items-center space-x-2">
-							{/* <div>
+							<div>
 								<LanguageDropdown />
-							</div> */}
+							</div>
 							<div>
 								<ThemeSwitcherBtn />
 							</div>
@@ -186,7 +176,7 @@ export default function HeaderLanding1({ isTransparentHeader, colorTransparent }
 											className={`${headerTextColor} hover:bg-transparent`}
 										>
 											<Menu className="h-6 w-6" />
-											<span className="sr-only">Open main menu</span>
+											<span className="sr-only">{t('openMenu')}</span>
 										</Button>
 									</SheetTrigger>
 									<SheetContent
@@ -203,7 +193,7 @@ export default function HeaderLanding1({ isTransparentHeader, colorTransparent }
 										<nav className="mt-6">
 											<Accordion type="single" collapsible className="w-full" value={activeAccordion}>
 												{navItems.map((item, index) => (
-													<AccordionItem key={item.name} value={`item-${index}`}>
+													<AccordionItem key={item.key} value={`item-${index}`}>
 														{item.subItems ? (
 															<>
 																<AccordionTrigger
@@ -213,19 +203,19 @@ export default function HeaderLanding1({ isTransparentHeader, colorTransparent }
 																		}`}
 																	onClick={() => handleAccordionToggle(`item-${index}`)}
 																>
-																	{item.name}
+																	{t(item.key)}
 																</AccordionTrigger>
 																<AccordionContent>
 																	<div className="pl-4">
 																		{item.subItems.map((subItem) => (
 																			<Link
-																				key={subItem.name}
+																				key={subItem.key}
 																				href={subItem.href}
 																				className={`block py-2 text-foreground hover:text-foreground ${pathname === subItem.href ? 'font-semibold text-primary' : ''
 																					}`}
 																				onClick={() => toggleMenu()}
 																			>
-																				{subItem.name}
+																				{t(subItem.key)}
 																			</Link>
 																		))}
 																	</div>
@@ -240,7 +230,7 @@ export default function HeaderLanding1({ isTransparentHeader, colorTransparent }
 																	}`}
 																onClick={() => toggleMenu()}
 															>
-																{item.name}
+																{t(item.key)}
 																{item.subItems && <ChevronRight className="w-4 h-4" />}
 															</Link>
 														)}

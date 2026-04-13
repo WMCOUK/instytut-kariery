@@ -9,6 +9,7 @@ import {
 	BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
 import { ChevronRight } from "lucide-react"
+import { useTranslations } from "next-intl"
 import { useEffect, useState } from "react"
 
 export default function BreadcrumbLanding({
@@ -18,6 +19,7 @@ export default function BreadcrumbLanding({
 	backgroundImage,
 	isTransparentHeader,
 }) {
+	const t = useTranslations('breadcrumb')
 	const hasBackgroundImage = Boolean(backgroundImage)
 	const [isVisible, setIsVisible] = useState(false)
 
@@ -91,7 +93,7 @@ export default function BreadcrumbLanding({
 										href="/"
 										className="text-muted-foreground hover:text-primary transition-colors duration-200"
 									>
-										Home
+										{t('home')}
 									</BreadcrumbLink>
 								</BreadcrumbItem>
 								<BreadcrumbSeparator>

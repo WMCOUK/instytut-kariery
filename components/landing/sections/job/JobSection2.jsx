@@ -4,6 +4,7 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { useEffect, useState, useCallback } from 'react'
 import { debounce } from 'lodash'
 import { LayoutGrid, List, SearchX } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import { Button } from '@/components/ui/button'
 import { Skeleton } from '@/components/ui/skeleton'
 import Pagination from '@/components/landing/elements/filter/Pagination'
@@ -15,7 +16,8 @@ import JobList2 from '@/components/landing/elements/job/JobList2'
 import MapLeaflet3 from '@/components/landing/elements/map/MapLeaflet3'
 import { fetchQueryJob2 } from '@/fetchSwr'
 
-export default function JobSection2() {
+export default function JobSection2({ initialData }) {
+	const t = useTranslations()
 	const router = useRouter()
 	const searchParams = useSearchParams()
 
@@ -54,6 +56,26 @@ export default function JobSection2() {
 	)
 	const [viewMode, setViewMode] = useState('grid')
 
+	const hasNoFilters =
+		currentPage === 1 &&
+		itemsPerPage === 10 &&
+		sortOptions.sortBy === 'createdAt' &&
+		sortOptions.sortOrder === 'desc' &&
+		!filters.search &&
+		!filters.jobPosition &&
+		!filters.jobExperience &&
+		!filters.jobLocation &&
+		!filters.jobIndustrySlug &&
+		!filters.isFreelance &&
+		!filters.isFeatured &&
+		!filters.latitude &&
+		!filters.longitude &&
+		!filters.minDistance &&
+		!filters.maxDistance &&
+		(!filters.jobType || filters.jobType.length === 0) &&
+		(!filters.workMode || filters.workMode.length === 0) &&
+		(!filters.createdAtRange || filters.createdAtRange.length === 0)
+
 	const { jobs, totalPage, isLoading, error } = fetchQueryJob2(
 		currentPage,
 		itemsPerPage,
@@ -78,9 +100,11 @@ export default function JobSection2() {
 		filters.latitude || '',
 		filters.longitude || '',
 		filters.minDistance ? parseInt(filters.minDistance.replace(' KM', '')) || '' : '',
-		filters.maxDistance ? parseInt(filters.maxDistance.replace(' KM', '')) || '' : ''
+		filters.maxDistance ? parseInt(filters.maxDistance.replace(' KM', '')) || '' : '',
+		hasNoFilters ? initialData : undefined,
 	)
 
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	const updateQueryParams = useCallback(
 		debounce(() => {
 			const query = new URLSearchParams()
@@ -219,10 +243,7 @@ export default function JobSection2() {
 								<div className="w-full max-w-md">
 									<div className="flex flex-col items-center p-6 text-center">
 										<SearchX className="w-16 h-16 text-primary mb-4" />
-										<h2 className="text-2xl font-semibold mb-2">No jobs found</h2>
-										<p className="text-gray-500">
-											No jobs match the selected filters. Try adjusting your search criteria.
-										</p>
+										<h2 className="text-2xl font-semibold mb-2">{t('empty.jobs')}</h2>
 									</div>
 								</div>
 							</div>

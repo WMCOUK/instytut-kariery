@@ -258,6 +258,7 @@ export const DateRangePicker = ({
 
 	useEffect(() => {
 		checkPreset()
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [range])
 
 	const PresetButton = ({
@@ -295,6 +296,7 @@ export const DateRangePicker = ({
 			openedRangeRef.current = range
 			openedRangeCompareRef.current = rangeCompare
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [isOpen])
 
 	return (

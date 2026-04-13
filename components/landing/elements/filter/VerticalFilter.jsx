@@ -109,7 +109,7 @@ export default function VerticalFilter({
 				onApplyFilters({ ...formValues, latitude: "", longitude: "" })
 			}
 		}
-	}, [formValues.minDistance, formValues.maxDistance, formValues.latitude, formValues.longitude, setValue, onApplyFilters])
+	}, [formValues, setValue, onApplyFilters])
 
 	const handleFilterChange = (field, value) => {
 		setValue(field, value)

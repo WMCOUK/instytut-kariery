@@ -1,18 +1,24 @@
 import SectionTitle from '@/components/landing/elements/SectionTitle/SectionTitle1'
 import LayoutLanding1 from '@/components/landing/layout/landing/LayoutLanding1'
 import NewsletterSection1 from '@/components/landing/sections/newsletter/NewsletterSection1'
-// import NewsletterSection1 from '@/components/sections/landing/newsletter/NewsletterSection1'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Mail, MapPin, Phone } from 'lucide-react'
+import { getTranslations } from 'next-intl/server'
 
-const ContactPage = () => {
+export const metadata = {
+	title: "Kontakt | Instytut Kariery",
+	description: "Skontaktuj się z nami. Chętnie odpowiemy na Twoje pytania dotyczące rekrutacji i ofert pracy.",
+}
+
+export default async function ContactPage() {
+	const t = await getTranslations('breadcrumb.pages.contact')
 	return (
 		<LayoutLanding1
-			breadcrumbTitle="Contact Us"
-			breadcrumbSubTitle="We will be glad to hear from you"
+			breadcrumbTitle={t('title')}
+			breadcrumbSubTitle={t('subtitle')}
 		>
 			<section className="py-20">
 				<div className="container">
@@ -90,6 +96,4 @@ const ContactPage = () => {
 		</LayoutLanding1>
 	)
 }
-
-export default ContactPage
 

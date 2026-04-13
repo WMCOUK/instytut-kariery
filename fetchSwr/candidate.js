@@ -4,7 +4,7 @@ import { fetcher } from './common'
 
 // ------------------ CANDIDATE LIST & PAGINATION ------------------ //
 
-export function fetchQueryCandidate(currentPage, itemsPerPage, sortBy, sortOrder, search) {
+export function fetchQueryCandidate(currentPage, itemsPerPage, sortBy, sortOrder, search, fallbackData) {
 	const queryParams = new URLSearchParams({
 		page: currentPage.toString(),
 		pageSize: itemsPerPage.toString(),
@@ -13,7 +13,11 @@ export function fetchQueryCandidate(currentPage, itemsPerPage, sortBy, sortOrder
 		...(search && { search }),
 	})
 
-	const { data, error } = useSWR(`/api/v1/candidate/all?${queryParams.toString()}`, fetcher)
+	const { data, error } = useSWR(
+		`/api/v1/candidate/all?${queryParams.toString()}`,
+		fetcher,
+		fallbackData ? { fallbackData } : undefined,
+	)
 
 	return {
 		candidates: data?.candidates || [],

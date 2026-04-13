@@ -2,14 +2,12 @@ import prisma from "@/utils/prismadb"
 import { NextResponse } from "next/server"
 import Stripe from "stripe"
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-	apiVersion: "2024-06-20",
-})
-
-const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET
-
 export async function POST(req) {
 	try {
+		const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+			apiVersion: "2024-06-20",
+		})
+		const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET
 		const buf = await req.text()
 		const sig = req.headers.get("stripe-signature")
 

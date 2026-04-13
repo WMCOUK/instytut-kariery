@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 import createNextIntlPlugin from 'next-intl/plugin'
 
-const withNextIntl = createNextIntlPlugin() // Do not pass an object here
+const withNextIntl = createNextIntlPlugin('./i18n/request.js')
 
 const nextConfig = {
 	images: {
@@ -9,9 +9,6 @@ const nextConfig = {
 			"lh3.googleusercontent.com",
 			"firebasestorage.googleapis.com",
 			"res.cloudinary.com",
-			"via.placeholder.com",
-			"fakeimg.pl",
-			"picsum.photos"
 		]
 	}
 }
