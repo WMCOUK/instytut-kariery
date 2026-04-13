@@ -3,8 +3,10 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { fetchAllJobCount, fetchAllLocation, fetchAllRecruiter, fetchAllUser } from "@/fetchSwr"
 import { ArrowDown, ArrowUp, Briefcase, MapPin, UserPlus, Users } from "lucide-react"
+import { useTranslations } from "next-intl"
 
 export default function DashboardStats() {
+	const t = useTranslations('dashboard.stats')
 	const { allJobCount } = fetchAllJobCount()
 	const { allRecruiterCount } = fetchAllRecruiter(1)
 	const { totalLocation } = fetchAllLocation()
@@ -23,25 +25,25 @@ export default function DashboardStats() {
 
 	const stats = [
 		{
-			title: "Total Jobs",
+			title: t('totalJobs'),
 			value: allJobCount?.toString() || "0",
 			change: getPercentageChange(allJobCount || 0, allJobCount ? allJobCount - 1 : 0),
 			icon: Briefcase,
 		},
 		{
-			title: "Total Recruiters",
+			title: t('totalRecruiters'),
 			value: allRecruiterCount?.toString() || "0",
 			change: getPercentageChange(allRecruiterCount || 0, allRecruiterCount ? allRecruiterCount - 1 : 0),
 			icon: UserPlus,
 		},
 		{
-			title: "Total Locations",
+			title: t('totalLocations'),
 			value: totalLocation?.toString() || "0",
 			change: getPercentageChange(totalLocation || 0, totalLocation ? totalLocation - 1 : 0),
 			icon: MapPin,
 		},
 		{
-			title: "Total Users",
+			title: t('totalUsers'),
 			value: totalUser?.toString() || "0",
 			change: getPercentageChange(totalUser || 0, totalUser ? totalUser - 1 : 0),
 			icon: Users,
@@ -64,8 +66,8 @@ export default function DashboardStats() {
 						>
 							{stat.change.isPositive ? <ArrowUp className="h-3 w-3" /> : <ArrowDown className="h-3 w-3" />}
 							{stat.change.value}
-							<span className="hidden sm:inline"> from last month</span>
-							<span className="inline sm:hidden"> last month</span>
+							<span className="hidden sm:inline"> {t('fromLastMonth')}</span>
+							<span className="inline sm:hidden"> {t('lastMonthShort')}</span>
 						</p>
 					</CardContent>
 				</Card>
@@ -73,4 +75,3 @@ export default function DashboardStats() {
 		</div>
 	)
 }
-

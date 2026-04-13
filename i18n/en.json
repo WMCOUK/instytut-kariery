@@ -242,7 +242,28 @@
 		},
 		"hero6": {
 			"title": "Unlock the Power of Data-Driven Insights",
-			"description": "Our advanced analytics platform turns data into actionable insights."
+			"description": "Our advanced analytics platform empowers you to make informed decisions and drive business growth. Uncover hidden trends, optimize your strategies, and stay ahead of the competition.",
+			"emailPlaceholder": "Enter your email",
+			"getStarted": "Get Started",
+			"signupNote": "Sign up to unlock the full potential of your data.",
+			"terms": "Terms & Conditions",
+			"heroAlt": "Hero"
+		}
+	},
+	"dashboard": {
+		"stats": {
+			"totalJobs": "Total Jobs",
+			"totalRecruiters": "Total Recruiters",
+			"totalLocations": "Total Locations",
+			"totalUsers": "Total Users",
+			"fromLastMonth": "from last month",
+			"lastMonthShort": "last month",
+			"appliedJobs": "Applied jobs",
+			"favoriteJobs": "Favorite jobs",
+			"jobAlerts": "Job Alerts",
+			"openJobs": "Open jobs",
+			"savedJobs": "Saved jobs",
+			"applications": "Applications"
 		}
 	}
 }

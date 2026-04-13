@@ -3,8 +3,10 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { fetchAllJobCount, fetchAllLocation, fetchAllUser, fetchCountRecruiter } from "@/fetchSwr"
 import { ArrowDown, ArrowUp, Briefcase, MapPin, UserPlus, Users } from "lucide-react"
+import { useTranslations } from "next-intl"
 
 export default function DashboardStats() {
+	const t = useTranslations('dashboard.stats')
 	const { allJobCount } = fetchAllJobCount()
 	const { totalRecruiter } = fetchCountRecruiter(1)
 	const { totalLocation } = fetchAllLocation()
@@ -23,7 +25,7 @@ export default function DashboardStats() {
 
 	const stats = [
 		{
-			title: "Total Jobs",
+			title: t('totalJobs'),
 			value: allJobCount?.toString() || "0",
 			change: getPercentageChange(allJobCount || 0, allJobCount ? allJobCount - 1 : 0),
 			icon: Briefcase,
@@ -31,7 +33,7 @@ export default function DashboardStats() {
 			iconColor: "text-blue-600 dark:text-blue-400",
 		},
 		{
-			title: "Total Recruiters",
+			title: t('totalRecruiters'),
 			value: totalRecruiter?.toString() || "0",
 			change: getPercentageChange(totalRecruiter || 0, totalRecruiter ? totalRecruiter - 1 : 0),
 			icon: UserPlus,
@@ -39,7 +41,7 @@ export default function DashboardStats() {
 			iconColor: "text-green-600 dark:text-green-400",
 		},
 		{
-			title: "Total Locations",
+			title: t('totalLocations'),
 			value: totalLocation?.toString() || "0",
 			change: getPercentageChange(totalLocation || 0, totalLocation ? totalLocation - 1 : 0),
 			icon: MapPin,
@@ -47,7 +49,7 @@ export default function DashboardStats() {
 			iconColor: "text-yellow-600 dark:text-yellow-400",
 		},
 		{
-			title: "Total Users",
+			title: t('totalUsers'),
 			value: totalUser?.toString() || "0",
 			change: getPercentageChange(totalUser || 0, totalUser ? totalUser - 1 : 0),
 			icon: Users,
@@ -83,8 +85,8 @@ export default function DashboardStats() {
 								<ArrowDown className="h-3 w-3" />
 							)}
 							{stat.change.value}
-							<span className="hidden sm:inline"> from last month</span>
-							<span className="inline sm:hidden"> last month</span>
+							<span className="hidden sm:inline"> {t('fromLastMonth')}</span>
+							<span className="inline sm:hidden"> {t('lastMonthShort')}</span>
 						</p>
 					</CardContent>
 				</Card>

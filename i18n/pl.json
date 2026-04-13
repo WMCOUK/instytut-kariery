@@ -241,8 +241,29 @@
 			"searchTerms": "UX Designer,Full-Stack Developer,Cloud,Android,Python,Lead,Architekt"
 		},
 		"hero6": {
-			"title": "Odblokuj moc analityki",
-			"description": "Nasza zaawansowana platforma analityczna przekształca dane w actionable insights."
+			"title": "Odblokuj moc analityki opartej na danych",
+			"description": "Nasza zaawansowana platforma analityczna pomaga podejmować świadome decyzje i napędzać rozwój biznesu. Odkryj ukryte trendy, zoptymalizuj strategie i wyprzedzaj konkurencję.",
+			"emailPlaceholder": "Wpisz swój e-mail",
+			"getStarted": "Rozpocznij",
+			"signupNote": "Zarejestruj się, aby w pełni wykorzystać potencjał swoich danych.",
+			"terms": "Regulamin",
+			"heroAlt": "Hero"
+		}
+	},
+	"dashboard": {
+		"stats": {
+			"totalJobs": "Wszystkie oferty",
+			"totalRecruiters": "Wszyscy rekruterzy",
+			"totalLocations": "Wszystkie lokalizacje",
+			"totalUsers": "Wszyscy użytkownicy",
+			"fromLastMonth": "od zeszłego miesiąca",
+			"lastMonthShort": "ostatni miesiąc",
+			"appliedJobs": "Złożone aplikacje",
+			"favoriteJobs": "Ulubione oferty",
+			"jobAlerts": "Powiadomienia",
+			"openJobs": "Otwarte oferty",
+			"savedJobs": "Zapisane oferty",
+			"applications": "Aplikacje"
 		}
 	}
 }
