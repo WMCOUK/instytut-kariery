@@ -1,37 +1,21 @@
-"use client"
-
+import MyJobListClient from "@/components/admin/dashboard/MyJobListClient"
 import LayoutAdmin from "@/components/admin/layout/admin/LayoutAdmin"
-import JobTable from "@/components/admin/table/JobTable"
 import { Button } from "@/components/ui/button"
-import { fetchAllJob, fetchMyJob } from "@/fetchSwr"
+import currentUserServer from "@/utils/currentUserServer"
+import { getMyJobs } from "@/utils/fetchJobs"
 import Link from "next/link"
-import { useSearchParams } from "next/navigation"
-import { useEffect, useState } from "react"
+import { redirect } from "next/navigation"
 
-export default function JobPage() {
-	const searchParams = useSearchParams()
-	const page = Number.parseInt(searchParams.get("page") || "1")
-	const initialSearch = searchParams.get("search") || ""
-	const [search, setSearch] = useState(initialSearch)
+export const dynamic = 'force-dynamic'
 
-	const { jobs, totalPage, totalJob, allJobCount, currentPage, error, mutate, isLoading } = fetchMyJob(
-		page,
-		search
-	)
+export default async function RecruiterJobPage({ searchParams }) {
+	const user = await currentUserServer()
+	if (!user) redirect('/signin')
 
-	// useEffect(() => {
-	// 	const newUrl = `/recruiter/job?page=${currentPage}&search=${search}`
-	// 	window.history.pushState({ path: newUrl }, '', newUrl)
-	// 	mutate()
-	// }, [search, currentPage, mutate])
-
-	const handleSearch = (value) => {
-		setSearch(value)
-	}
-
-	if (error) {
-		return <div>Error loading jobs: {error.message}</div>
-	}
+	const params = await searchParams
+	const page = Number.parseInt(params?.page || "1")
+	const search = params?.search || ""
+	const initialData = await getMyJobs({ userId: user.id, page, search })
 
 	return (
 		<LayoutAdmin>
@@ -40,18 +24,11 @@ export default function JobPage() {
 					<Link href="/recruiter/job/create">Create Job</Link>
 				</Button>
 			</div>
-			<JobTable
-				jobs={jobs}
-				totalPage={totalPage}
-				page={currentPage.toString()}
-				isLoading={isLoading}
-				totalJob={totalJob}
-				onSearch={handleSearch}
+			<MyJobListClient
+				initialData={initialData}
+				initialPage={page}
+				initialSearch={search}
 			/>
-
-			{!isLoading && (!jobs || jobs.length === 0) && (
-				<h3 className="flex justify-center items-center py-8">No jobs found</h3>
-			)}
 		</LayoutAdmin>
 	)
 }
