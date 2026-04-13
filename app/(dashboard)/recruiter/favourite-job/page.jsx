@@ -1,34 +1,51 @@
-"use client"
-// import JobGrid1 from "@/components/admin/elements/job/JobGrid1"
 import LayoutAdmin from "@/components/admin/layout/admin/LayoutAdmin"
-import { fetchFavouriteJob } from "@/fetchSwr"
-import { useSearchParams } from "next/navigation"
+import { ATTRIBUTE_PER_PAGE } from "@/utils"
+import { getAuthSession } from "@/utils/auth"
+import prisma from "@/utils/prismadb"
+import { redirect } from "next/navigation"
 
-export default function FavouriteJobPage() {
-	const searchParams = useSearchParams()
-	const page = Number.parseInt(searchParams.get("page") || "1")
-	const { favouriteJobs, totalPage, totalFavouriteJob, error, mutate, isLoading } = fetchFavouriteJob(page)
+export const dynamic = 'force-dynamic'
 
-	console.log(favouriteJobs)
+async function getFavourites(userId, page) {
+	const take = ATTRIBUTE_PER_PAGE
+	const skip = ATTRIBUTE_PER_PAGE * (page - 1)
+	try {
+		const [favouriteJobs] = await Promise.all([
+			prisma.favouriteJob.findMany({
+				where: { userId },
+				skip,
+				take,
+				include: { job: true },
+			}),
+		])
+		return { favouriteJobs }
+	} catch (error) {
+		console.error("Error fetching favourite jobs:", error)
+		return { favouriteJobs: [] }
+	}
+}
+
+export default async function FavouriteJobPage({ searchParams }) {
+	const session = await getAuthSession()
+	if (!session?.user) redirect('/signin')
+
+	const params = await searchParams
+	const page = Number.parseInt(params?.page || "1")
+	const { favouriteJobs } = await getFavourites(session.user.id, page)
 
 	return (
 		<LayoutAdmin>
-
 			<div className="container">
 				<div className="grid md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-2 gap-5 mt-5">
-					{favouriteJobs?.map((item, i) =>
-						// <JobGrid1 item={item?.job} key={i} />
-						<>
-							{item?.job?.title}
-						</>
-					)}
+					{favouriteJobs?.map((item, i) => (
+						<div key={i}>{item?.job?.title}</div>
+					))}
 				</div>
 			</div>
 
-			{!isLoading && (!favouriteJobs || favouriteJobs.length === 0) && (
+			{(!favouriteJobs || favouriteJobs.length === 0) && (
 				<h3 className="flex justify-center items-center py-8">No favourite jobs found</h3>
 			)}
 		</LayoutAdmin>
 	)
 }
-

@@ -7,8 +7,12 @@ import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 
-export default function AppliedJob() {
-	const { applications, isLoading } = fetchAppliedJob()
+export default function AppliedJob({ initialApplications }) {
+	// If page pre-fetched applications, use them directly and skip SWR;
+	// else fall back to client-side SWR (for non-SSR usage).
+	const swr = initialApplications ? null : fetchAppliedJob()
+	const applications = initialApplications ?? swr?.applications
+	const isLoading = initialApplications ? false : swr?.isLoading
 
 	return (
 		<div className="w-full">
@@ -106,7 +110,7 @@ export default function AppliedJob() {
 					{/* Empty State */}
 					{!isLoading && (!applications || applications.length === 0) && (
 						<div className="text-center text-sm text-muted-foreground py-10">
-							You haven’t applied to any jobs yet.
+							You haven&apos;t applied to any jobs yet.
 						</div>
 					)}
 				</div>
