@@ -12,7 +12,7 @@ import Image from "next/image"
 import Link from "next/link"
 
 export async function generateMetadata({ params }) {
-	const { slug } = params
+	const { slug } = await params
 	const post = await getPostDetails(slug)
 
 	return {

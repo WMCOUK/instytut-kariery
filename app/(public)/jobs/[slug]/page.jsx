@@ -7,13 +7,13 @@ export const revalidate = 60
 
 // Server-side metadata
 export async function generateMetadata({ params }) {
-	const { slug } = params  // no await needed
+	const { slug } = await params
 	const job = await getJobDetails(slug)
 	return { title: job?.title || "Job Details" }
 }
 
 export default async function JobDetailsPage({ params }) {
-	const { slug } = params
+	const { slug } = await params
 	const job = await getJobDetails(slug) // server fetch for fast LCP
 
 	return (

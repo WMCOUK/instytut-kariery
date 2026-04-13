@@ -4,7 +4,7 @@ import { NextResponse } from "next/server"
 // GET user by id
 export const GET = async (request, { params }) => {
 	try {
-		const { id } = params
+		const { id } = await params
 
 		const user = await prisma.user.findUnique({
 			where: { id },
