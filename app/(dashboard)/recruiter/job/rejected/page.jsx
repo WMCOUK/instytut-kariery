@@ -1,53 +1,28 @@
-"use client"
-
+import JobModerationClient from "@/components/admin/dashboard/JobModerationClient"
 import LayoutAdmin from "@/components/admin/layout/admin/LayoutAdmin"
-import JobModerationTable from "@/components/admin/table/JobModerationTable"
-import { fetchModerationJob } from "@/fetchSwr"
-import { useSearchParams } from "next/navigation"
-import { useEffect, useState } from "react"
+import currentUserServer from "@/utils/currentUserServer"
+import { getJobsByModeration } from "@/utils/fetchJobs"
+import { redirect } from "next/navigation"
 
-export default function JobRejectedPage() {
-	const moderation = "rejected" // ✅ moderation defined here
+export const dynamic = 'force-dynamic'
 
-	const searchParams = useSearchParams()
-	const page = Number.parseInt(searchParams.get("page") || "1")
-	const initialSearch = searchParams.get("search") || ""
-	const [search, setSearch] = useState(initialSearch)
+export default async function JobRejectedPage({ searchParams }) {
+	const user = await currentUserServer()
+	if (!user) redirect('/signin')
 
-	const {
-		jobs,
-		totalPage,
-		totalJob,
-		currentPage,
-		error,
-		mutate,
-		isLoading,
-	} = fetchModerationJob(moderation, page, search) // ✅ used in fetch call
-
-	// useEffect(() => {
-	// 	const newUrl = `/recruiter/job/${moderation}?page=${currentPage}&search=${search}` // ✅ used in URL
-	// 	window.history.pushState({ path: newUrl }, "", newUrl)
-	// 	mutate()
-	// }, [search, currentPage])
-
-	const handleSearch = (value) => setSearch(value)
-
-	if (error) return <div>Error loading jobs: {error.message}</div>
+	const params = await searchParams
+	const page = Number.parseInt(params?.page || "1")
+	const search = params?.search || ""
+	const initialData = await getJobsByModeration({ moderation: "rejected", userId: user.id, page, search })
 
 	return (
 		<LayoutAdmin>
-			<JobModerationTable
-				jobs={jobs}
-				totalPage={totalPage}
-				page={currentPage.toString()}
-				isLoading={isLoading}
-				totalJob={totalJob}
-				onSearch={handleSearch}
-				moderation={moderation} // ✅ passed as prop
+			<JobModerationClient
+				initialData={initialData}
+				moderation="rejected"
+				initialPage={page}
+				initialSearch={search}
 			/>
-			{!isLoading && (!jobs || jobs.length === 0) && (
-				<h3 className="flex justify-center items-center py-8">No jobs found</h3>
-			)}
 		</LayoutAdmin>
 	)
 }
