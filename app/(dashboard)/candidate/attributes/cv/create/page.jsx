@@ -1,5 +1,3 @@
-'use client'
-
 import CandidateCvCreateForm from "@/components/admin/form/CandidateCvCreateForm"
 import LayoutAdmin from "@/components/admin/layout/admin/LayoutAdmin"
 import { Card, CardHeader, CardTitle } from "@/components/ui/card"

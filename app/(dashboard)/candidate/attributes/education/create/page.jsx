@@ -1,5 +1,3 @@
-'use client'
-
 import CandidateEducationCreateForm from "@/components/admin/form/CandidateEducationCreateForm"
 import LayoutAdmin from "@/components/admin/layout/admin/LayoutAdmin"
 import { Card, CardHeader, CardTitle } from "@/components/ui/card"

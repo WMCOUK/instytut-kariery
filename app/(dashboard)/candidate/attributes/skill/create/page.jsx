@@ -1,5 +1,3 @@
-'use client'
-
 import CandidateSkillCreateForm from "@/components/admin/form/CandidateSkillCreateForm"
 import LayoutAdmin from "@/components/admin/layout/admin/LayoutAdmin"
 import { Card, CardHeader, CardTitle } from "@/components/ui/card"
