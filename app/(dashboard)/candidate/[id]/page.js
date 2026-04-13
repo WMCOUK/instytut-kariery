@@ -16,7 +16,7 @@ import Image from "next/image"
 import { Suspense } from "react"
 
 export async function generateMetadata({ params }) {
-	const { id } = params
+	const { id } = await params
 	const candidate = await getCandidateDetails(id)
 	return {
 		title: candidate?.personal?.name || "Candidate Profile",
@@ -215,7 +215,7 @@ function CandidateDetailContent({ candidate }) {
 }
 
 export default async function CandidateDetails({ params }) {
-	const { id } = params
+	const { id } = await params
 
 	if (!id) {
 		return (

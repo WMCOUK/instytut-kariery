@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card"
 import { getJobAttributeDetails } from "@/utils/fetchServer"
 
 export async function generateMetadata({ params }) {
-	const { slug } = params
+	const { slug } = await params
 	const attribute = await getJobAttributeDetails(slug, "experience")
 	return {
 		title: attribute?.title,
@@ -11,7 +11,7 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function ExperienceDetails({ params }) {
-	const { slug } = params
+	const { slug } = await params
 	const attribute = await getJobAttributeDetails(slug, "experience")
 	// console.log(experience)
 

@@ -24,7 +24,7 @@ export async function generateMetadata({ params }) {
 
 
 export default async function RecruiterDetails({ params }) {
-	const slug = params?.slug
+	const { slug } = await params
 	const recruiter = await getRecruiterDetails(slug)
 	const formattedDate = formatDate(recruiter?.createdAt)
 	// console.log(recruiter);
