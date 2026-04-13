@@ -1,14 +1,16 @@
-'use client'
 import UserProfile from '@/components/admin/elements/UserProfile'
 import LayoutAdmin from '@/components/admin/layout/admin/LayoutAdmin'
-import CurrentUserClient from '@/utils/currentUserClient'
-export default function RecruiterProfile() {
-	const currentUser = CurrentUserClient()
+import currentUserServer from '@/utils/currentUserServer'
+import { redirect } from 'next/navigation'
+
+export const dynamic = 'force-dynamic'
+
+export default async function RecruiterProfile() {
+	const currentUser = await currentUserServer()
+	if (!currentUser) redirect('/signin')
 	return (
-		<>
-			<LayoutAdmin breadcrumbTitle="Profile">
-				<UserProfile user={currentUser} />
-			</LayoutAdmin>
-		</>
+		<LayoutAdmin breadcrumbTitle="Profile">
+			<UserProfile user={currentUser} />
+		</LayoutAdmin>
 	)
 }
