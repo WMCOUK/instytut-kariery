@@ -1,5 +1,3 @@
-// "use client"
-
 import LayoutAdmin from "@/components/admin/layout/admin/LayoutAdmin"
 import JobDetails1 from "@/components/landing/sections/job/JobDetails1"
 import { getJobDetails } from "@/utils/fetchServer"

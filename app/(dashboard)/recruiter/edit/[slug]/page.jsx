@@ -1,5 +1,3 @@
-// 'use client'
-
 import RecruiterEditForm from "@/components/admin/form/RecruiterEditForm"
 import LayoutAdmin from "@/components/admin/layout/admin/LayoutAdmin"
 import { getRecruiterDetails } from "@/utils/fetchServer"

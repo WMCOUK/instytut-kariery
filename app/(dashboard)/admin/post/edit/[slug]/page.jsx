@@ -1,5 +1,3 @@
-// 'use client'
-
 import PostEditForm from "@/components/admin/form/PostEditForm"
 import LayoutAdmin from "@/components/admin/layout/admin/LayoutAdmin"
 import { getPostDetails } from "@/utils/fetchServer"
