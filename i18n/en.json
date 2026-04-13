@@ -265,5 +265,17 @@
 			"savedJobs": "Saved jobs",
 			"applications": "Applications"
 		}
+	},
+	"contact": {
+		"sectionTitle": "Get in touch!",
+		"sectionSubtitle": "We will be glad to hear from you",
+		"emailHeading": "E-mail",
+		"formHeading": "Write to us",
+		"formSubtitle": "We will be glad to hear from you",
+		"subjectPlaceholder": "Subject",
+		"namePlaceholder": "Name",
+		"emailPlaceholder": "you@email.com",
+		"messagePlaceholder": "Message...",
+		"submit": "Submit"
 	}
 }

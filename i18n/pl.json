@@ -265,5 +265,17 @@
 			"savedJobs": "Zapisane oferty",
 			"applications": "Aplikacje"
 		}
+	},
+	"contact": {
+		"sectionTitle": "Skontaktuj się z nami!",
+		"sectionSubtitle": "Z przyjemnością odpowiemy na Twoje pytania",
+		"emailHeading": "E-mail",
+		"formHeading": "Napisz do nas",
+		"formSubtitle": "Z przyjemnością odpowiemy na Twoje pytania",
+		"subjectPlaceholder": "Temat",
+		"namePlaceholder": "Imię i nazwisko",
+		"emailPlaceholder": "twoj@email.pl",
+		"messagePlaceholder": "Wiadomość...",
+		"submit": "Wyślij"
 	}
 }
