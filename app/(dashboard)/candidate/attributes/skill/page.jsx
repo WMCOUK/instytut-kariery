@@ -1,24 +1,36 @@
-'use client'
 import LayoutAdmin from "@/components/admin/layout/admin/LayoutAdmin"
 import CandidateSkillTable from "@/components/admin/table/CandidateSkillTable"
 import { Button } from "@/components/ui/button"
-import { Skeleton } from "@/components/ui/skeleton"
-import {
-	Table,
-	TableBody,
-	TableCell,
-	TableHead,
-	TableHeader,
-	TableRow,
-} from "@/components/ui/table"
-import { fetchCandidateSkill } from "@/fetchSwr"
+import { ATTRIBUTE_PER_PAGE } from "@/utils"
+import currentUserServer from "@/utils/currentUserServer"
+import prisma from "@/utils/prismadb"
 import Link from "next/link"
-import { useSearchParams } from "next/navigation"
-export default function SkillAttributes() {
-	const searchParams = useSearchParams()
-	const page = parseInt(searchParams.page) || 1
-	const { skills, totalPage, mutate, isLoading } = fetchCandidateSkill(page)
-	console.log(skills)
+import { redirect } from "next/navigation"
+
+export const dynamic = 'force-dynamic'
+
+async function getSkills(userId, page) {
+	const take = ATTRIBUTE_PER_PAGE
+	const skip = take * (page - 1)
+	try {
+		const [skills, total] = await Promise.all([
+			prisma.candidateSkill.findMany({ skip, take, where: { userId } }),
+			prisma.candidateSkill.count({ where: { userId } }),
+		])
+		return { skills, totalPage: Math.ceil(total / take) }
+	} catch (error) {
+		console.error("Error fetching skills:", error)
+		return { skills: [], totalPage: 0 }
+	}
+}
+
+export default async function SkillAttributes({ searchParams }) {
+	const currentUser = await currentUserServer()
+	if (!currentUser) redirect('/signin')
+
+	const params = await searchParams
+	const page = Number.parseInt(params?.page || "1")
+	const { skills, totalPage } = await getSkills(currentUser.id, page)
 
 	return (
 		<LayoutAdmin>
@@ -28,49 +40,6 @@ export default function SkillAttributes() {
 					<Link href="/candidate/attributes/skill/create">Create Skill</Link>
 				</Button>
 			</div>
-			{isLoading &&
-				<div className="rounded-md border">
-					<Table>
-						<TableHeader>
-							<TableRow>
-								<TableHead className="w-[80px]">Image</TableHead>
-								<TableHead>Name</TableHead>
-								<TableHead>Slug</TableHead>
-								<TableHead>Icon</TableHead>
-								<TableHead className="text-right">Action</TableHead>
-							</TableRow>
-						</TableHeader>
-						<TableBody>
-							{Array.from({ length: 10 }).map((_, index) => (
-								<TableRow key={index}>
-									<TableCell>
-										<Skeleton className="h-10 w-10 rounded-full" />
-									</TableCell>
-									<TableCell>
-										<Skeleton className="h-4 w-[140px]" />
-									</TableCell>
-									<TableCell>
-										<Skeleton className="h-4 w-[180px]" />
-									</TableCell>
-									<TableCell>
-										<Skeleton className="h-4 w-[100px]" />
-									</TableCell>
-									<TableCell className="text-right">
-										<Skeleton className="h-8 w-8 rounded-full ml-auto" />
-									</TableCell>
-								</TableRow>
-							))}
-						</TableBody>
-					</Table>
-					<div className="flex items-center justify-between px-4 py-4 border-t">
-						<Skeleton className="h-4 w-[180px]" />
-						<div className="flex gap-2">
-							<Skeleton className="h-8 w-20" />
-							<Skeleton className="h-8 w-20" />
-						</div>
-					</div>
-				</div>
-			}
 			<CandidateSkillTable data={skills} totalPage={totalPage} page={page} />
 		</LayoutAdmin>
 	)

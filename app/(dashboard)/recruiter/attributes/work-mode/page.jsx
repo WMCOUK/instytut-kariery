@@ -1,27 +1,25 @@
-
-'use client'
 import LayoutAdmin from "@/components/admin/layout/admin/LayoutAdmin"
 import JobAttributeTable from "@/components/admin/table/JobAttributeTable"
 import { Button } from "@/components/ui/button"
-import { fetchWorkmode } from "@/fetchSwr"
+import { getAttributeList } from "@/utils/fetchAttributes"
 import Link from "next/link"
-import { useSearchParams } from "next/navigation"
 
-export default function WorkModeAttributes() {
-	const searchParams = useSearchParams()
-	const page = parseInt(searchParams.page) || 1
-	const { workmodes, totalPage, mutate, isLoading } = fetchWorkmode(page)
-	console.log(workmodes)
+export const dynamic = 'force-dynamic'
+
+export default async function WorkModeAttributes({ searchParams }) {
+	const params = await searchParams
+	const page = Number.parseInt(params?.page || "1")
+	const { items: workmodes, totalPage } = await getAttributeList('jobWorkMode', page)
 
 	return (
 		<LayoutAdmin>
 			<div className="flex justify-between items-center">
-				<div>Industry</div>
+				<div>Work Mode</div>
 				<Button asChild>
-					<Link href="/recruiter/attributes/industry/create">Create Industry</Link>
+					<Link href="/recruiter/attributes/work-mode/create">Create Work Mode</Link>
 				</Button>
 			</div>
-			<JobAttributeTable data={workmodes} totalPage={totalPage} page={page} attributePath="industry" />
+			<JobAttributeTable data={workmodes} totalPage={totalPage} page={page} attributePath="work-mode" />
 		</LayoutAdmin>
 	)
 }

@@ -1,24 +1,36 @@
-'use client'
 import LayoutAdmin from "@/components/admin/layout/admin/LayoutAdmin"
 import CandidateExperienceTable from "@/components/admin/table/CandidateExperienceTable"
 import { Button } from "@/components/ui/button"
-import { Skeleton } from "@/components/ui/skeleton"
-import {
-	Table,
-	TableBody,
-	TableCell,
-	TableHead,
-	TableHeader,
-	TableRow,
-} from "@/components/ui/table"
-import { fetchCandidateExperience } from "@/fetchSwr"
+import { ATTRIBUTE_PER_PAGE } from "@/utils"
+import currentUserServer from "@/utils/currentUserServer"
+import prisma from "@/utils/prismadb"
 import Link from "next/link"
-import { useSearchParams } from "next/navigation"
-export default function ExperienceAttributes() {
-	const searchParams = useSearchParams()
-	const page = parseInt(searchParams.page) || 1
-	const { experiences, totalPage, mutate, isLoading } = fetchCandidateExperience(page)
-	// console.log(experiences)
+import { redirect } from "next/navigation"
+
+export const dynamic = 'force-dynamic'
+
+async function getExperiences(userId, page) {
+	const take = ATTRIBUTE_PER_PAGE
+	const skip = take * (page - 1)
+	try {
+		const [experiences, total] = await Promise.all([
+			prisma.candidateExperience.findMany({ skip, take, where: { userId } }),
+			prisma.candidateExperience.count({ where: { userId } }),
+		])
+		return { experiences, totalPage: Math.ceil(total / take) }
+	} catch (error) {
+		console.error("Error fetching experiences:", error)
+		return { experiences: [], totalPage: 0 }
+	}
+}
+
+export default async function ExperienceAttributes({ searchParams }) {
+	const currentUser = await currentUserServer()
+	if (!currentUser) redirect('/signin')
+
+	const params = await searchParams
+	const page = Number.parseInt(params?.page || "1")
+	const { experiences, totalPage } = await getExperiences(currentUser.id, page)
 
 	return (
 		<LayoutAdmin>
@@ -28,49 +40,6 @@ export default function ExperienceAttributes() {
 					<Link href="/candidate/attributes/experience/create">Create Experience</Link>
 				</Button>
 			</div>
-			{isLoading &&
-				<div className="rounded-md border">
-					<Table>
-						<TableHeader>
-							<TableRow>
-								<TableHead className="w-[80px]">Image</TableHead>
-								<TableHead>Name</TableHead>
-								<TableHead>Slug</TableHead>
-								<TableHead>Icon</TableHead>
-								<TableHead className="text-right">Action</TableHead>
-							</TableRow>
-						</TableHeader>
-						<TableBody>
-							{Array.from({ length: 10 }).map((_, index) => (
-								<TableRow key={index}>
-									<TableCell>
-										<Skeleton className="h-10 w-10 rounded-full" />
-									</TableCell>
-									<TableCell>
-										<Skeleton className="h-4 w-[140px]" />
-									</TableCell>
-									<TableCell>
-										<Skeleton className="h-4 w-[180px]" />
-									</TableCell>
-									<TableCell>
-										<Skeleton className="h-4 w-[100px]" />
-									</TableCell>
-									<TableCell className="text-right">
-										<Skeleton className="h-8 w-8 rounded-full ml-auto" />
-									</TableCell>
-								</TableRow>
-							))}
-						</TableBody>
-					</Table>
-					<div className="flex items-center justify-between px-4 py-4 border-t">
-						<Skeleton className="h-4 w-[180px]" />
-						<div className="flex gap-2">
-							<Skeleton className="h-8 w-20" />
-							<Skeleton className="h-8 w-20" />
-						</div>
-					</div>
-				</div>
-			}
 			<CandidateExperienceTable data={experiences} totalPage={totalPage} page={page} />
 		</LayoutAdmin>
 	)
