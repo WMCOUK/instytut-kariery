@@ -1,16 +1,13 @@
 "use client"
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { fetchAllJobCount, fetchAllLocation, fetchAllRecruiter, fetchAllUser } from "@/fetchSwr"
+import { fetchDashboardStats } from "@/fetchSwr"
 import { ArrowDown, ArrowUp, Briefcase, MapPin, UserPlus, Users } from "lucide-react"
 import { useTranslations } from "next-intl"
 
 export default function DashboardStats() {
 	const t = useTranslations('dashboard.stats')
-	const { allJobCount } = fetchAllJobCount()
-	const { allRecruiterCount } = fetchAllRecruiter(1)
-	const { totalLocation } = fetchAllLocation()
-	const { totalUser } = fetchAllUser(1)
+	const { jobs: allJobCount, recruiters: allRecruiterCount, locations: totalLocation, users: totalUser } = fetchDashboardStats()
 
 	const getPercentageChange = (current, previous) => {
 		if (current === 0 && previous === 0) return { value: "0%", isPositive: true }
