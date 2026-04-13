@@ -206,8 +206,6 @@ export default async function CandidateDetails({ params }) {
 
 	const candidate = await getCandidateDetails(id)
 
-	console.log(candidate);
-	
 	return (
 		<LayoutLanding1 headerStyle={2}>
 			<Suspense fallback={<CandidateInfoSkeleton />}>

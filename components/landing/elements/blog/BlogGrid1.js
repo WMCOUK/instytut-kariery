@@ -7,8 +7,6 @@ import Link from "next/link"
 
 const BlogGrid1 = ({ item }) => {
 	// Safely extract data with fallbacks
-	console.log(item);
-	
 	const {
 		slug = "",
 		title = "Untitled Blog Post",

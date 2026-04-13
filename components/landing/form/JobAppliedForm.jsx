@@ -73,7 +73,6 @@ export function JobAppliedForm({ jobSlug, recruiterSlug, className }) {
 			{
 				loading: "Submitting application...",
 				success: (data) => {
-					console.log("Application submitted successfully:", data)
 					setIsOpen(false)
 					setCoverLetter("")
 					setSelectedCvSlug("")

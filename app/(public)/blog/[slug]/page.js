@@ -30,8 +30,6 @@ export default async function PostDetails({ params }) {
 	const { slug } = await params
 	const post = await getPostDetails(slug)
 	const formattedDate = formatDate(post?.createdAt)
-	console.log(post);
-	
 
 	// Get first letter of author name for avatar fallback
 	const authorInitial = post?.user?.personal?.name ? post?.user?.personal?.name.charAt(0) : "U"
