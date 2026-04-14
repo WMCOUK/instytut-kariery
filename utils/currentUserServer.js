@@ -1,10 +1,17 @@
-// 'use client'
 import { getAuthSession } from "@/utils/auth"
 import prisma from "@/utils/prismadb"
+
+/**
+ * Returns the current authenticated user with small 1:1 relations (personal,
+ * preference, candidate) plus computed role flags.
+ *
+ * Note: does NOT eagerly include heavy one-to-many relations (jobs, posts,
+ * ratings, taxonomies, recruiters). Callers that need those should query
+ * them explicitly with their own Prisma call. Including them here previously
+ * caused multi-second loads on settings pages for users with lots of data.
+ */
 export default async function currentUserServer() {
 	const session = await getAuthSession()
-
-	// console.log('***************************',session);
 
 	if (!session?.user?.email) {
 		return null
@@ -15,16 +22,6 @@ export default async function currentUserServer() {
 			email: session?.user?.email
 		},
 		include: {
-			post: true,
-			recruiter: true,
-			jobLocation: true,
-			jobIndustry: true,
-			jobPosition: true,
-			jobExperience: true,
-			jobWorkMode: true,
-			jobType: true,
-			job: true,
-			rating: true,
 			personal: true,
 			preference: true,
 			candidate: true,
@@ -33,10 +30,6 @@ export default async function currentUserServer() {
 	if (!currentUser) {
 		return null
 	}
-
-
-	// return currentUser
-
 
 	return {
 		...currentUser,
@@ -47,5 +40,4 @@ export default async function currentUserServer() {
 		isRecruiter: currentUser?.onboard === "RECRUITER",
 		isCandidate: currentUser?.onboard === "CANDIDATE",
 	}
-
 }
