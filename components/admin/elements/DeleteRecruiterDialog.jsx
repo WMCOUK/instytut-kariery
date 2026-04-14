@@ -23,8 +23,7 @@ export default function DeleteRecruiterDialog({ open, setOpen, slug }) {
 			if (!response.ok) {
 				throw new Error('Network response was not ok')
 			}
-			const data = await response.json()
-			console.log(data)
+			await response.json()
 			toast.success('Job deleted successfully!')
 		} catch (error) {
 			console.error('There was a problem with your fetch operation:', error)

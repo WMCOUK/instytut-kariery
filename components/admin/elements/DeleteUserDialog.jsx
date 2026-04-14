@@ -21,8 +21,7 @@ export default function DeleteUserDialog({ open, setOpen, id, mutate }) {
 			if (!response.ok) {
 				throw new Error('Network response was not ok')
 			}
-			const data = await response.json()
-			console.log(data)
+			await response.json()
 			toast.success('User deleted successfully!')
 			if (typeof mutate === "function") {
 				mutate()

@@ -118,8 +118,6 @@ export default function RecruiterCreateForm() {
 			}
 		} catch (error) {
 			toast.error(error.message)
-			console.log("Error creating recruiter:", error);
-			
 		} finally {
 			setLoading(false)
 		}

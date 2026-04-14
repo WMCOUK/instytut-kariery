@@ -41,9 +41,8 @@ export default function Page() {
 			if (!response.ok) {
 				throw new Error(`Error: ${response.status}`)
 			}
-			console.log(await response.json())
+			await response.json()
 		} catch (error) {
-			console.log(error)
 			toast.error(error.message)
 		} finally {
 			setCategory({})

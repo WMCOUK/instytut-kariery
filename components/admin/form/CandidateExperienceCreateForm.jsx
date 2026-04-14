@@ -32,8 +32,6 @@ export default function CandidateExperienceCreateForm() {
 		}
 		setIsSubmitting(true)
 
-		console.log("Submitting Data:", formData)
-
 		try {
 			const response = await fetch(`/api/v1/candidate/experience`, {
 				method: "POST",
@@ -49,10 +47,7 @@ export default function CandidateExperienceCreateForm() {
 				}),
 			})
 
-			console.log("Response Status:", response.status)
-
 			const data = await response.json()
-			console.log("Response Data:", data)
 
 			if (!response.ok) {
 				throw new Error(data.message || `Error: ${response.status}`)

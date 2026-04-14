@@ -21,7 +21,6 @@ const schema = yup.object({
 
 export default function PreferenceSettingForm({ user }) {
 	const [loading, setLoading] = useState(false)
-	console.log(user)
 	const form = useForm({
 		resolver: yupResolver(schema),
 		defaultValues: {

@@ -20,8 +20,7 @@ export default function DeletePostDialog({ open, setOpen, slug, mutate }) {
       if (!response.ok) {
         throw new Error("Network response was not ok")
       }
-      const data = await response.json()
-      console.log(data)
+      await response.json()
       toast.success("Post deleted successfully!")
       if (typeof mutate === "function") {
         mutate()

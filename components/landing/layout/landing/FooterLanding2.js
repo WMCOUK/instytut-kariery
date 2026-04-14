@@ -9,8 +9,7 @@ export default function FooterLanding2() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
-		// Handle newsletter subscription
-		console.log('Subscribed with email:', email)
+		// TODO: wire newsletter subscription API
 		setEmail('')
 	}
 

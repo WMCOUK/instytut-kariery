@@ -32,7 +32,6 @@ export default function CancelSubscription() {
 			if (!res.ok || !subscription) {
 				throw new Error("Failed to cancel subscription")
 			}
-			console.log(subscription)
 
 			// Step 2: Remove the user's subPriceId (or reset subscription) on the backend
 			const updateRes = await fetch(`/api/v1/user/${id}`, {

@@ -11,9 +11,6 @@ export default async function InvoiceDownload({ isBillingInfo }) {
 
 	const filteredInvoices = isBillingInfo?.invoices?.data?.filter(invoice => invoice.lines.data.length) || []
 
-	console.log(isBillingInfo);
-	
-
 	return (
 		<>
 			<div>

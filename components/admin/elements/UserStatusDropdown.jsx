@@ -8,8 +8,6 @@ import { useState } from "react"
 import { toast } from 'sonner'
 
 export default function UserStatusDropdown({ id, isRole }) {
-	console.log(isRole)
-
 	const { mutate } = fetchUser(id)
 	const [loading, setLoading] = useState(false)
 	const [selectedRole, setSelectedRole] = useState(isRole)
