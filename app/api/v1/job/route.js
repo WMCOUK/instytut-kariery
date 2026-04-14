@@ -7,7 +7,6 @@ export async function POST(request) {
 	// const { subPriceId } = user || {}
 
 	const body = await request.json()
-	console.log(body)
 
 
 

@@ -41,7 +41,6 @@ export const POST = async (request) => {
 		}
 
 		const body = await request.json()
-		console.log("Received Body:", body)
 
 		// Ensure `startDate` and `endDate` are converted to Date format if present
 		const newcandidateEducation = await prisma.candidateEducation.create({
@@ -57,7 +56,6 @@ export const POST = async (request) => {
 			},
 		})
 
-		console.log("New Experience Created:", newcandidateEducation)
 		return NextResponse.json(newcandidateEducation)
 	} catch (error) {
 		console.error("Server Error:", error)

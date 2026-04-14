@@ -73,7 +73,6 @@ export async function GET(request) {
 				counts[key] = await prisma.job.count({ where: whereClause })
 			}
 
-			console.log('Returning counts:', counts) // Debug: Log counts response
 			return NextResponse.json({ counts }, { status: 200 })
 		} catch (error) {
 			console.error('Error fetching counts:', error)
@@ -183,7 +182,6 @@ export async function GET(request) {
 			totalJobs = jobs.length
 		}
 
-		console.log('Returning jobs:', { totalJobs, jobs: jobs.length }) // Debug: Log response
 		return NextResponse.json(
 			{
 				jobs,

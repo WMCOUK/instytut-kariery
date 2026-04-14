@@ -55,7 +55,6 @@ export const POST = async (request) => {
 			},
 		});
 
-		console.log("New Experience Created:", newExperience);
 		return NextResponse.json(newExperience);
 	} catch (error) {
 		console.error("Server Error:", error);

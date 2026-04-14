@@ -15,7 +15,6 @@ export async function POST(req) {
 
 		try {
 			event = stripe.webhooks.constructEvent(buf, sig, webhookSecret)
-			console.log(`Received webhook with event: ${event}`)
 		} catch (err) {
 			const errorMessage = err ? err.message : "Unknown error"
 			console.error(`Webhook Error: ${errorMessage}`)

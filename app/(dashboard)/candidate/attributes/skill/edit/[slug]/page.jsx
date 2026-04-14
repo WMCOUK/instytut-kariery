@@ -13,8 +13,6 @@ export async function generateMetadata({ params }) {
 export default async function AttributeEditDetails({ params }) {
 	const { slug } = await params
 	const skill = await getCandidateSkillDetails(slug)
-	console.log(skill)
-
 
 	return (
 		<LayoutAdmin>

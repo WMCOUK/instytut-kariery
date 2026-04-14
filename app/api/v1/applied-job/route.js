@@ -63,7 +63,6 @@ export async function POST(request) {
 			}
 		})
 
-		console.log("Created application:", application)
 		return NextResponse.json(application)
 	} catch (error) {
 		console.error("Application submission error:", error)

@@ -15,7 +15,6 @@ export async function POST(req) {
 		})
 
 		const session = await getAuthSession()
-		console.log(session)
 
 		if (!session?.user) {
 			return NextResponse.json(
