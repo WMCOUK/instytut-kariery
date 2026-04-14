@@ -39,7 +39,6 @@ const navItems = [
 			{ key: 'contact', href: '/contact' },
 		],
 	},
-	{ key: 'docs', href: '/docs' },
 ]
 
 export default function HeaderLanding1({ isTransparentHeader, colorTransparent }) {
