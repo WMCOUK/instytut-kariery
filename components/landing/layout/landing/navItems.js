@@ -23,5 +23,4 @@ export const navItems = [
 			{ name: 'Contact', href: '/contact' },
 		],
 	},
-	{ name: 'Docs', href: '/docs' },
 ]
