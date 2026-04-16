@@ -1,6 +1,7 @@
 import { VerifyEmailEmailTemplate } from "@/components/admin/email-templates/verify-email-email"
 import { isAuthFailure, requireRole } from "@/utils/apiAuth"
 import { rateLimit } from "@/utils/rateLimit"
+import { validateEmail } from "@/utils/validateEmail"
 import prisma from "@/utils/prismadb"
 import bcrypt from "bcrypt"
 import crypto from "crypto"
@@ -19,7 +20,14 @@ export async function POST(request) {
 		return new NextResponse("Missing Fields", { status: 400 })
 	}
 
-	const exist = await prisma.user.findUnique({ where: { email } })
+	const emailCheck = validateEmail(email)
+	if (!emailCheck.ok) {
+		return new NextResponse(emailCheck.reason, { status: 400 })
+	}
+
+	const exist = await prisma.user.findUnique({
+		where: { email: email.trim().toLowerCase() },
+	})
 
 	if (exist) {
 		throw new Error("Email already Exist")
