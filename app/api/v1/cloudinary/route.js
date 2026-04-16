@@ -53,6 +53,13 @@ export async function GET(request) {
 }
 
 
+// Cloudinary public IDs are returned by the Cloudinary upload API.
+// We restrict deletes to assets whose ID starts with our project prefix
+// so even an admin mistake can't accidentally delete assets in other
+// folders (or in another tenant if Cloudinary keys ever get reused).
+const PROJECT_PREFIX = "instytut-kariery/"
+const MAX_DELETE_BATCH = 100
+
 export async function DELETE(request) {
   const session = await requireRole(["ADMIN"])
   if (isAuthFailure(session)) return session
@@ -62,6 +69,24 @@ export async function DELETE(request) {
 
     if (!Array.isArray(publicIds) || publicIds.length === 0) {
       return NextResponse.json({ error: "No public IDs provided" }, { status: 400 })
+    }
+
+    if (publicIds.length > MAX_DELETE_BATCH) {
+      return NextResponse.json(
+        { error: `Too many IDs (max ${MAX_DELETE_BATCH} per request)` },
+        { status: 400 }
+      )
+    }
+
+    // Validate every ID: must be a non-empty string, scoped to our project.
+    const invalid = publicIds.find(
+      (id) => typeof id !== "string" || id.length === 0 || !id.startsWith(PROJECT_PREFIX)
+    )
+    if (invalid !== undefined) {
+      return NextResponse.json(
+        { error: "Invalid public ID — must be a string scoped to project prefix" },
+        { status: 400 }
+      )
     }
 
     const cloudName = process.env.CLOUDINARY_CLOUD_NAME
