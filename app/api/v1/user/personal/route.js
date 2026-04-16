@@ -1,10 +1,13 @@
-import { getAuthSession } from "@/utils/auth"
+import { isAuthFailure, requireAuth, requireRole } from "@/utils/apiAuth"
 import prisma from "@/utils/prismadb"
 import { NextResponse } from "next/server"
 
 const ATTRIBUTE_PER_PAGE = 10
 
 export const GET = async (request) => {
+	const session = await requireRole(["ADMIN"])
+	if (isAuthFailure(session)) return session
+
 	const { searchParams } = new URL(request.url)
 	const page = Number.parseInt(searchParams.get("page") || "1")
 	const take = ATTRIBUTE_PER_PAGE
@@ -29,10 +32,8 @@ export const GET = async (request) => {
 }
 
 export async function PATCH(request) {
-	const session = await getAuthSession()
-	if (!session?.user) {
-		return NextResponse.json({ message: "Not authenticated" }, { status: 401 })
-	}
+	const session = await requireAuth()
+	if (isAuthFailure(session)) return session
 
 	const { name, image, coverPhoto, designation, description, bio, address, phone, state, city, country, postalCode, website, latitude, longitude, seoMeta, gender, dateOfBirth } = await request.json()
 	const userId = session.user.id

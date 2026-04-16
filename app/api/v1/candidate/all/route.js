@@ -1,7 +1,11 @@
+import { isAuthFailure, requireRole } from "@/utils/apiAuth"
 import prisma from "@/utils/prismadb"
 import { NextResponse } from "next/server"
 
 export const GET = async (request) => {
+	const session = await requireRole(["ADMIN"])
+	if (isAuthFailure(session)) return session
+
 	const { searchParams } = new URL(request.url)
 
 	// Pagination and sorting

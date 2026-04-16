@@ -1,6 +1,10 @@
+import { isAuthFailure, requireRole } from "@/utils/apiAuth"
 import { NextResponse } from "next/server"
 
 export async function GET(request) {
+	const session = await requireRole(["ADMIN"])
+	if (isAuthFailure(session)) return session
+
 	try {
 		const cloudName = process.env.CLOUDINARY_CLOUD_NAME
 		const apiKey = process.env.CLOUDINARY_API_KEY
@@ -50,6 +54,9 @@ export async function GET(request) {
 
 
 export async function DELETE(request) {
+  const session = await requireRole(["ADMIN"])
+  if (isAuthFailure(session)) return session
+
   try {
     const { publicIds } = await request.json()
 
