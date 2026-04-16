@@ -92,6 +92,24 @@ export const authOptions = {
 	pages: {
 		signIn: "/signin",
 	},
+	// CSRF protection: SameSite=Lax blocks cross-site POST/PATCH/DELETE to our
+	// API from attacker.com forms — all our mutation endpoints depend on this
+	// cookie, so the browser enforcement is sufficient without per-request
+	// CSRF tokens. Pinned explicitly so future changes don't silently widen it.
+	cookies: {
+		sessionToken: {
+			name:
+				process.env.NODE_ENV === "production"
+					? "__Secure-next-auth.session-token"
+					: "next-auth.session-token",
+			options: {
+				httpOnly: true,
+				sameSite: "lax",
+				path: "/",
+				secure: process.env.NODE_ENV === "production",
+			},
+		},
+	},
 }
 
 export const getAuthSession = () => getServerSession(authOptions)
