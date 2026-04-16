@@ -1,4 +1,5 @@
 import { getAuthSession } from "@/utils/auth"
+import { rateLimit } from "@/utils/rateLimit"
 import prisma from "@/utils/prismadb"
 import { NextResponse } from "next/server"
 
@@ -20,6 +21,9 @@ export const GET = async (request) => {
 }
 
 export const POST = async (request) => {
+  const limited = rateLimit(request, { id: "comment", max: 10, windowMs: 60_000 })
+  if (limited) return limited
+
   const session = await getAuthSession()
   
   if (!session) {

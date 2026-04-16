@@ -1,4 +1,5 @@
 import { isAuthFailure, requireAuth } from "@/utils/apiAuth"
+import { rateLimit } from "@/utils/rateLimit"
 import prisma from "@/utils/prismadb"
 import { NextResponse } from "next/server"
 
@@ -23,6 +24,9 @@ export const GET = async (request) => {
 }
 
 export async function POST(request) {
+	const limited = rateLimit(request, { id: "applied-job", max: 10, windowMs: 60_000 })
+	if (limited) return limited
+
 	const session = await requireAuth()
 	if (isAuthFailure(session)) return session
 

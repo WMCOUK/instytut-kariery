@@ -1,5 +1,6 @@
 import { ATTRIBUTE_PER_PAGE } from "@/utils"
 import { isAuthFailure, requireRole } from "@/utils/apiAuth"
+import { rateLimit } from "@/utils/rateLimit"
 import prisma from "@/utils/prismadb"
 import { NextResponse } from "next/server"
 
@@ -43,6 +44,9 @@ export const GET = async (request) => {
 
 
 export const POST = async (request) => {
+	const limited = rateLimit(request, { id: "newsletter", max: 5, windowMs: 60_000 })
+	if (limited) return limited
+
 	try {
 		const body = await request.json()
 		const { email } = body
