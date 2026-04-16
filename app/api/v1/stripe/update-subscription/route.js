@@ -1,22 +1,27 @@
+import { isAuthFailure, requireAuth } from "@/utils/apiAuth"
+import { NextResponse } from "next/server"
 import Stripe from "stripe"
 
-
 export async function POST(request) {
+	const session = await requireAuth()
+	if (isAuthFailure(session)) return session
 
-	// const body = await request.json()
-	// const { stripeCustomerId, subscriptionID } = body
+	const subscriptionID = session.user.subscriptionID
 
-	const stripeCustomerId = 'cus_QxDrsxCfSSS07L'
-	const subscriptionID = 'sub_1Q5JQbRqE9xgf3eDl1aIzvRT'
-	const newPriceId = 'price_1PW3EgRqE9xgf3eD8TWH88tu'
+	if (!subscriptionID) {
+		return NextResponse.json({ message: "User not subscribed" }, { status: 400 })
+	}
+
+	const body = await request.json()
+	const { newPriceId } = body
+
+	if (!newPriceId) {
+		return NextResponse.json({ message: "Missing newPriceId" }, { status: 400 })
+	}
 
 	const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
 		apiVersion: "2024-06-20",
 	})
-
-	if (!stripeCustomerId || !subscriptionID) {
-		throw new Error("User not subscribed!")
-	}
 
 	const subscription = await stripe.subscriptions.retrieve(subscriptionID)
 
@@ -28,12 +33,9 @@ export async function POST(request) {
 				id: item.id,
 				deleted: true,
 			})),
-			{
-				price: newPriceId,
-			}
-		]
+			{ price: newPriceId },
+		],
 	})
 
-	return Response.json({ subscription }, { status: 200 })
-
+	return NextResponse.json({ subscription }, { status: 200 })
 }
