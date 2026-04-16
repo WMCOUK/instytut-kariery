@@ -1,81 +1,65 @@
-// import { getAuthSession } from "@/utils/auth"
+import { isAuthFailure, requireOwnership } from "@/utils/apiAuth"
 import prisma from "@/utils/prismadb"
 import { NextResponse } from "next/server"
 
 export const GET = async (request, { params }) => {
 	try {
-
 		const { id } = await params
-
-		const comment = await prisma.comment.findUnique({
-			where: { id }
-		})
+		const comment = await prisma.comment.findUnique({ where: { id } })
 
 		if (!comment) {
-			return NextResponse.json(
-				{ message: "comment not found" },
-				{ status: 404 }
-			)
+			return NextResponse.json({ message: "comment not found" }, { status: 404 })
 		}
 		return NextResponse.json(comment)
-
 	} catch (error) {
-		return NextResponse.json({ message: "Get Error", error }, { status: 500 })
+		return NextResponse.json({ message: "Get Error", error: error.message }, { status: 500 })
 	}
 }
 
-
-
-export const PATCH = async (requsest, { params }) => {
-	// const session = await getAuthSession()
-	// console.log(session)
-	// if (!session) {
-	//     return new NextResponse(JSON.stringify({ message: "Not Authenticated" }, { status: 401 }))
-	// }
+export const PATCH = async (request, { params }) => {
 	try {
-		const body = await requsest.json()
 		const { id } = await params
-
-		const updateComment = await prisma.comment.update({
-			where: {
-				id
-			},
-			data: {
-				...body,
-				// userEmail: session?.user?.email,
-				// userId: session?.user?.id,
-				// userName: session?.user?.name,
-				// userImage: session?.user?.image
-			}
+		const existing = await prisma.comment.findUnique({
+			where: { id },
+			select: { userId: true },
 		})
-
-		if (!updateComment) {
-			return NextResponse.json(
-				{ message: "comment not found" },
-				{ status: 404 }
-			)
+		if (!existing) {
+			return NextResponse.json({ message: "comment not found" }, { status: 404 })
 		}
 
-		return NextResponse.json(updateComment)
+		const session = await requireOwnership(existing.userId)
+		if (isAuthFailure(session)) return session
 
+		const body = await request.json()
+
+		const updated = await prisma.comment.update({
+			where: { id },
+			data: { ...body },
+		})
+
+		return NextResponse.json(updated)
 	} catch (error) {
-		return NextResponse.json({ message: "Update Error", error }, { status: 500 })
+		return NextResponse.json({ message: "Update Error", error: error.message }, { status: 500 })
 	}
 }
-
 
 export const DELETE = async (request, { params }) => {
 	try {
-
 		const { id } = await params
-
-		await prisma.comment.delete({
-			where: { id }
+		const existing = await prisma.comment.findUnique({
+			where: { id },
+			select: { userId: true },
 		})
+		if (!existing) {
+			return NextResponse.json({ message: "comment not found" }, { status: 404 })
+		}
 
+		const session = await requireOwnership(existing.userId)
+		if (isAuthFailure(session)) return session
+
+		await prisma.comment.delete({ where: { id } })
 		return NextResponse.json("comment has been deleted")
-
 	} catch (error) {
-		return NextResponse.json({ message: "Delete Error", error }, { status: 500 })
+		return NextResponse.json({ message: "Delete Error", error: error.message }, { status: 500 })
 	}
 }
