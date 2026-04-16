@@ -3,6 +3,7 @@ import RecruiterJobGrid1 from "@/components/landing/elements/recruiter/Recruiter
 import { Card, CardContent } from "@/components/ui/card"
 import { formatDate } from "@/utils"
 import { getRecruiterDetails } from "@/utils/fetchServer"
+import { sanitizeHtml } from "@/utils/sanitizeHtml"
 import { Facebook, Instagram, Linkedin, MapPin, Twitter } from 'lucide-react'
 import Image from "next/image"
 import Link from "next/link"
@@ -45,7 +46,7 @@ export default async function RecruiterDetails({ params }) {
 
 						<div className="mb-12">
 							<h4 className='mb-3 text-xl font-semibold text-foreground'>Details</h4>
-							<div dangerouslySetInnerHTML={{ __html: recruiter?.content || "" }} className="text-muted-foreground" />
+							<div dangerouslySetInnerHTML={{ __html: sanitizeHtml(recruiter?.content) }} className="text-muted-foreground" />
 						</div>
 						{
 							recruiter?.job?.map((item, i) => (

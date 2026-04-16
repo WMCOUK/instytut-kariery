@@ -3,6 +3,7 @@ import LayoutAdmin from "@/components/admin/layout/admin/LayoutAdmin"
 import { Button } from "@/components/ui/button"
 import { formatDate, formatTime } from "@/utils"
 import { getJobDetails } from "@/utils/fetchServer"
+import { sanitizeHtml } from "@/utils/sanitizeHtml"
 import { Circle, Facebook, Heart, Instagram, Linkedin, MapPin, Share, Twitter } from 'lucide-react'
 import Image from "next/image"
 import Link from "next/link"
@@ -67,7 +68,7 @@ export default async function JobDetails({ params }) {
 							<p className='text-muted-foreground leading-relaxed'>{job?.description}</p>
 						</div>
 						<div
-							dangerouslySetInnerHTML={{ __html: job?.content || '' }}
+							dangerouslySetInnerHTML={{ __html: sanitizeHtml(job?.content) }}
 							className="text-muted-foreground leading-relaxed mb-10"
 						/>
 						<div className="mb-10">

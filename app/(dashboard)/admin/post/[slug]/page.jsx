@@ -8,6 +8,7 @@ import { Card } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { calculateReadTime, formatDate } from "@/utils"
 import { getPostDetails } from "@/utils/fetchServer"
+import { sanitizeHtml } from "@/utils/sanitizeHtml"
 import Link from "next/link"
 
 export async function generateMetadata({ params }) {
@@ -74,7 +75,7 @@ export default async function PostDetails({ params }) {
 						{/* Post Content */}
 						<Card className="p-6 md:p-10 mb-12 prose dark:prose-invert max-w-none">
 							{post?.description ? (
-								<div dangerouslySetInnerHTML={{ __html: post.description }} />
+								<div dangerouslySetInnerHTML={{ __html: sanitizeHtml(post.description) }} />
 							) : (
 								<p className="text-gray-500 dark:text-gray-400">
 									No description available.

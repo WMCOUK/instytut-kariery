@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
 import { formatDate } from "@/utils"
 import { getRecruiterDetails } from "@/utils/fetchServer"
+import { sanitizeHtml } from "@/utils/sanitizeHtml"
 import { ArrowLeft, Facebook, Instagram, Linkedin, MapPin, Twitter } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -96,7 +97,7 @@ export default async function RecruiterDetails({ params }) {
 							<div className="mb-10">
 								<h2 className="mb-4 text-xl font-semibold text-foreground">Details</h2>
 								<div
-									dangerouslySetInnerHTML={{ __html: recruiter?.content }}
+									dangerouslySetInnerHTML={{ __html: sanitizeHtml(recruiter?.content) }}
 									className="text-muted-foreground prose prose-sm max-w-none prose-headings:text-foreground prose-a:text-primary"
 								/>
 							</div>

@@ -7,6 +7,7 @@ import { Card } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { formatDate } from "@/utils"
 import { getPostDetails } from "@/utils/fetchServer"
+import { sanitizeHtml } from "@/utils/sanitizeHtml"
 import { CalendarIcon, Tag, User } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -91,7 +92,7 @@ export default async function PostDetails({ params }) {
 						<div className="p-6 sm:p-8 mb-12">
 							<div className="prose prose-sm sm:prose-base lg:prose-lg dark:prose-invert max-w-none prose-headings:font-bold prose-a:text-primary prose-img:rounded-lg">
 								{post?.description ? (
-									<div dangerouslySetInnerHTML={{ __html: post.description }} />
+									<div dangerouslySetInnerHTML={{ __html: sanitizeHtml(post.description) }} />
 								) : (
 									<p className="text-muted-foreground">No description available.</p>
 								)}

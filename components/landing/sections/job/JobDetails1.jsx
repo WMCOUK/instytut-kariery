@@ -3,6 +3,7 @@
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { fetcher } from "@/fetchSwr/common"
+import { sanitizeHtml } from "@/utils/sanitizeHtml"
 import { Circle, Facebook, Instagram, Linkedin, MapPin, Twitter } from "lucide-react"
 import dynamic from "next/dynamic"
 import Image from "next/image"
@@ -82,7 +83,7 @@ export default function JobDetails1({ job }) {
 					</div>
 
 					{/* Content */}
-					<div dangerouslySetInnerHTML={{ __html: data?.content || "" }} className="text-muted-foreground leading-relaxed mb-10" />
+					<div dangerouslySetInnerHTML={{ __html: sanitizeHtml(data?.content) }} className="text-muted-foreground leading-relaxed mb-10" />
 
 					{/* Benefits */}
 					<div className="mb-10">
