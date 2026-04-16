@@ -1,87 +1,66 @@
-import { getAuthSession } from "@/utils/auth"
+import { isAuthFailure, requireOwnership } from "@/utils/apiAuth"
 import prisma from "@/utils/prismadb"
 import { NextResponse } from "next/server"
 
 export const GET = async (request, { params }) => {
 	try {
-
 		const { slug } = await params
+		const education = await prisma.candidateEducation.findUnique({ where: { slug } })
 
-		const Education = await prisma.candidateEducation.findUnique({
-			where: { slug },
-			// include: {
-			// 	posts: true
-			// }
-		})
-
-		if (!Education) {
-			return NextResponse.json(
-				{ message: "Education not found" },
-				{ status: 404 }
-			)
+		if (!education) {
+			return NextResponse.json({ message: "Education not found" }, { status: 404 })
 		}
-		return NextResponse.json(Education)
-
+		return NextResponse.json(education)
 	} catch (error) {
-		return NextResponse.json({ message: "Get Error", error }, { status: 500 })
+		return NextResponse.json({ message: "Get Error", error: error.message }, { status: 500 })
 	}
 }
 
-
-
-export const PATCH = async (requsest, { params }) => {
-	const { slug } = await params
-	const session = await getAuthSession()
+export const PATCH = async (request, { params }) => {
 	try {
-		// if (session.user.isAdmin) {
-		const body = await requsest.json()
-		const { title,
-			instituteName,
-			description,
-			startDate,
-			endDate, isCurrentStudy } = body
+		const { slug } = await params
+		const existing = await prisma.candidateEducation.findUnique({
+			where: { slug },
+			select: { userId: true },
+		})
+		if (!existing) {
+			return NextResponse.json({ message: "Education not found" }, { status: 404 })
+		}
 
-		const updateEducation = await prisma.candidateEducation.update({
-			where: {
-				slug
-			},
-			data: {
-				title,
-				instituteName,
-				description,
-				startDate,
-				endDate,
-				isCurrentStudy
-			}
+		const session = await requireOwnership(existing.userId)
+		if (isAuthFailure(session)) return session
+
+		const body = await request.json()
+		const { title, instituteName, description, startDate, endDate, isCurrentStudy } = body
+
+		const updated = await prisma.candidateEducation.update({
+			where: { slug },
+			data: { title, instituteName, description, startDate, endDate, isCurrentStudy },
 		})
 
-		if (!updateEducation) {
-			return NextResponse.json(
-				{ message: "Education not found" },
-				{ status: 404 }
-			)
-		}
-		// }
-		return NextResponse.json(updateEducation)
-
+		return NextResponse.json(updated)
 	} catch (error) {
-		return NextResponse.json({ message: "Update Error", error }, { status: 500 })
+		return NextResponse.json({ message: "Update Error", error: error.message }, { status: 500 })
 	}
 }
-
 
 export const DELETE = async (request, { params }) => {
-	const { slug } = await params
-	const session = await getAuthSession()
 	try {
-
-		// if (session.user.isAdmin) {
-		await prisma.candidateEducation.delete({
-			where: { slug }
+		const { slug } = await params
+		const existing = await prisma.candidateEducation.findUnique({
+			where: { slug },
+			select: { userId: true },
 		})
-		// }
+		if (!existing) {
+			return NextResponse.json({ message: "Education not found" }, { status: 404 })
+		}
+
+		const session = await requireOwnership(existing.userId)
+		if (isAuthFailure(session)) return session
+
+		await prisma.candidateEducation.delete({ where: { slug } })
 		return NextResponse.json("Education has been deleted")
 	} catch (error) {
-		return NextResponse.json({ message: "Delete Error", error }, { status: 500 })
+		return NextResponse.json({ message: "Delete Error", error: error.message }, { status: 500 })
 	}
 }
