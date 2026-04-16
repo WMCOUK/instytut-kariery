@@ -12,23 +12,31 @@ export async function POST(req) {
 		const sig = req.headers.get("stripe-signature")
 
 		let event
-
 		try {
 			event = stripe.webhooks.constructEvent(buf, sig, webhookSecret)
 		} catch (err) {
 			const errorMessage = err ? err.message : "Unknown error"
 			console.error(`Webhook Error: ${errorMessage}`)
 			return NextResponse.json(
-				{
-					error: {
-						message: `Webhook Error: ${errorMessage}`,
-					},
-				},
+				{ error: { message: `Webhook Error: ${errorMessage}` } },
 				{ status: 400 }
 			)
 		}
 
-		// console.log("✅ Success:", event.id)
+		// Idempotency: insert eventId BEFORE processing.
+		// On duplicate (Stripe retried an already-processed event), the create
+		// throws P2002 — we catch it and ack with 200 so Stripe stops retrying
+		// without re-running side effects.
+		try {
+			await prisma.stripeWebhookEvent.create({
+				data: { eventId: event.id, type: event.type },
+			})
+		} catch (e) {
+			if (e?.code === "P2002") {
+				return NextResponse.json({ received: true, deduplicated: true })
+			}
+			throw e
+		}
 
 		const subscription = event.data.object
 		const subscriptionId = subscription.id
@@ -36,9 +44,7 @@ export async function POST(req) {
 		switch (event.type) {
 			case "customer.subscription.created":
 				await prisma.user.update({
-					where: {
-						stripeCustomerId: subscription.customer,
-					},
+					where: { stripeCustomerId: subscription.customer },
 					data: {
 						isSubscription: true,
 						subscriptionID: subscriptionId,
@@ -48,24 +54,14 @@ export async function POST(req) {
 				break
 			case "customer.subscription.deleted":
 				await prisma.user.update({
-					where: {
-						stripeCustomerId: subscription.customer,
-					},
-					data: {
-						isSubscription: false,
-					},
+					where: { stripeCustomerId: subscription.customer },
+					data: { isSubscription: false },
 				})
 				break
 			case "checkout.session.completed":
 				await prisma.user.update({
-					where: {
-						stripeCustomerId: subscription.customer,
-					},
-					data: {
-						// isSubscription: true,
-						// subscriptionID: subscriptionId,
-						sponPriceId: subscription.metadata.sponPriceId,
-					},
+					where: { stripeCustomerId: subscription.customer },
+					data: { sponPriceId: subscription.metadata.sponPriceId },
 				})
 				break
 			default:
@@ -77,11 +73,7 @@ export async function POST(req) {
 	} catch (error) {
 		console.error(`Unhandled Error: ${error.message}`)
 		return NextResponse.json(
-			{
-				error: {
-					message: `Method Not Allowed`,
-				},
-			},
+			{ error: { message: `Method Not Allowed` } },
 			{ status: 405 }
 		)
 	}

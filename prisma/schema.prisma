@@ -507,3 +507,15 @@ model Rating {
     user      User       @relation(fields: [userId], references: [id])
     recruiter Recruiter? @relation(fields: [recruiterSlug], references: [slug])
 }
+
+// Tracks processed Stripe webhook event IDs to prevent replay attacks.
+// Stripe retries failed webhooks for up to 3 days; if we successfully
+// process an event but Stripe doesn't get our 200 response, the retry
+// would re-execute side effects (double subscriptions, double charges).
+// We insert the eventId BEFORE processing — INSERT ... ON CONFLICT DO
+// NOTHING returns 0 rows on duplicate, telling us to skip.
+model StripeWebhookEvent {
+    eventId   String   @id
+    type      String
+    createdAt DateTime @default(now())
+}
