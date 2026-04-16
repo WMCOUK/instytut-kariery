@@ -1,4 +1,5 @@
 import { ATTRIBUTE_PER_PAGE } from "@/utils"
+import { isAuthFailure, requireRole } from "@/utils/apiAuth"
 import prisma from "@/utils/prismadb"
 import { NextResponse } from "next/server"
 
@@ -39,6 +40,9 @@ export const GET = async (request) => {
 
 
 export const POST = async (request) => {
+	const session = await requireRole(["ADMIN"])
+	if (isAuthFailure(session)) return session
+
 	try {
 		const body = await request.json()
 
