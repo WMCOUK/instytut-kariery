@@ -5,7 +5,17 @@ import LayoutLanding1 from '@/components/landing/layout/landing/LayoutLanding1'
 import NewsletterSection1 from '@/components/landing/sections/newsletter/NewsletterSection1'
 // import NewsletterSection1 from '@/components/landing/sections/newsletter/Newsletter1'
 import { Skeleton } from '@/components/ui/skeleton'
+import { brandName } from "@/utils"
 import { getTagDetails } from "@/utils/fetchServer"
+
+export async function generateMetadata({ params }) {
+	const { slug } = await params
+	const tag = decodeURIComponent(slug)
+	return {
+		title: `#${tag} — ${brandName}`,
+		description: `Artykuły oznaczone tagiem "${tag}" na blogu ${brandName}.`,
+	}
+}
 
 export default async function TagsPage({ params }) {
 	const { slug } = await params

@@ -9,8 +9,6 @@ export const metadata = {
 	description: "Artykuły, porady kariery i aktualności ze świata rekrutacji. Bądź na bieżąco z trendami na rynku pracy.",
 }
 
-export const dynamic = 'force-dynamic'
-
 async function getInitialPosts() {
 	const pageSize = 10
 	try {
