@@ -1,22 +1,20 @@
+import { isAuthFailure, requireAuth } from "@/utils/apiAuth"
 import { baseUrl } from "@/utils/baseUrl"
 import Stripe from "stripe"
 
 export const POST = async (request) => {
+	const authResult = await requireAuth()
+	if (isAuthFailure(authResult)) return authResult
 
-	// const body = await request.json()
-	// const { stripeCustomerId, subscriptionID } = body
-
-	const stripeCustomerId = 'cus_QxDrsxCfSSS07L'
-	const subscriptionID = 'sub_1Q5JQbRqE9xgf3eDl1aIzvRT'
-
-
-	const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-		apiVersion: "2024-06-20",
-	})
+	const stripeCustomerId = authResult.user.stripeCustomerId
 
 	if (!stripeCustomerId) {
 		return Response.json({ message: "No Stripe Customer ID" }, { status: 400 })
 	}
+
+	const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+		apiVersion: "2024-06-20",
+	})
 
 	const session = await stripe.billingPortal.sessions.create({
 		customer: stripeCustomerId,
