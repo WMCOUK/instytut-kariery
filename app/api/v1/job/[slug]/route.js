@@ -1,3 +1,4 @@
+import { isAuthFailure, requireOwnership } from "@/utils/apiAuth"
 import prisma from "@/utils/prismadb"
 import { NextResponse } from "next/server"
 
@@ -52,6 +53,18 @@ export const GET = async (request, { params }) => {
 
 export const PATCH = async (request, { params }) => {
 	try {
+		const { slug } = await params
+		const existing = await prisma.job.findUnique({
+			where: { slug },
+			select: { userId: true },
+		})
+		if (!existing) {
+			return NextResponse.json({ message: "Job not found" }, { status: 404 })
+		}
+
+		const session = await requireOwnership(existing.userId)
+		if (isAuthFailure(session)) return session
+
 		const body = await request.json()
 		const {
 			title,
@@ -86,8 +99,6 @@ export const PATCH = async (request, { params }) => {
 			startDate,
 			closingDate,
 		} = body
-
-		const { slug } = await params
 
 		const updateJob = await prisma.job.update({
 			where: {
@@ -149,16 +160,23 @@ export const PATCH = async (request, { params }) => {
 
 export const DELETE = async (request, { params }) => {
 	try {
-
 		const { slug } = await params
-
-		await prisma.job.delete({
-			where: { slug }
+		const existing = await prisma.job.findUnique({
+			where: { slug },
+			select: { userId: true },
 		})
+		if (!existing) {
+			return NextResponse.json({ message: "Job not found" }, { status: 404 })
+		}
 
-		return NextResponse.json("order has been deleted")
+		const session = await requireOwnership(existing.userId)
+		if (isAuthFailure(session)) return session
+
+		await prisma.job.delete({ where: { slug } })
+
+		return NextResponse.json("Job has been deleted")
 
 	} catch (error) {
-		return NextResponse.json({ message: "Delete Error", error }, { status: 500 })
+		return NextResponse.json({ message: "Delete Error", error: error.message }, { status: 500 })
 	}
 }
