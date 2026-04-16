@@ -16,10 +16,17 @@ import { signOut } from "next-auth/react"
 import Link from "next/link"
 
 export default function HeaderAuthBtn() {
-	const { id, email, isAdmin, isRecruiter, isCandidate } = currentUserClient()
+	const { id, email, isAdmin, isRecruiter, isCandidate, isLoading: sessionLoading } = currentUserClient()
 	const { user, isLoading } = fetchHeaderAuthUser(id)
 
-	if (isLoading) return null
+	if (sessionLoading || (id && isLoading)) return null
+	if (!id) {
+		return (
+			<Link href="/signin">
+				<Button className="px-4 block">Sign in</Button>
+			</Link>
+		)
+	}
 
 	const role = isAdmin ? "admin" : isRecruiter ? "recruiter" : isCandidate ? "candidate" : null
 

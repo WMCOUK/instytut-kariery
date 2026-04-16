@@ -5,14 +5,17 @@ import { useSession } from "next-auth/react"
 export default function useCurrentUser() {
 	const { data: session, status } = useSession()
 
-	if (status === "loading" || status === "unauthenticated" || !session?.user?.email) {
-		return {} // return empty object if not ready
+	const isLoading = status === "loading"
+
+	if (isLoading || status === "unauthenticated" || !session?.user?.email) {
+		return { isLoading }
 	}
 
 	const user = session?.user
 
 	return {
 		...user,
+		isLoading: false,
 		isAdmin: user.isRole === "ADMIN",
 		isModerator: user.isRole === "MODERATOR",
 		isRoleUser: user.isRole === "USER",
