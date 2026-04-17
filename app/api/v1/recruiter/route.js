@@ -23,7 +23,7 @@ export const GET = async (request) => {
 		const recruiters = await prisma.recruiter.findMany({
 			skip,
 			take,
-			include: { job: true, jobIndustry: true },
+			include: { _count: { select: { job: true } }, jobIndustry: true },
 			where,
 		})
 

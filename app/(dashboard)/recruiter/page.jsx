@@ -16,7 +16,7 @@ async function getRecruiters(userId, page) {
 			prisma.recruiter.findMany({
 				skip,
 				take,
-				include: { job: true, jobIndustry: true },
+				include: { _count: { select: { job: true } }, jobIndustry: true },
 				where,
 			}),
 			prisma.recruiter.count({ where }),

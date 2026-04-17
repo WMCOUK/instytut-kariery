@@ -31,7 +31,7 @@ export const POST = async (request) => {
 		const [customer, paymentMethods, invoices] = await Promise.all([
 			stripe.customers.retrieve(stripeCustomerId),
 			stripe.paymentMethods.list({ customer: stripeCustomerId }),
-			stripe.invoices.list({ customer: stripeCustomerId, limit: 100 }),
+			stripe.invoices.list({ customer: stripeCustomerId, limit: 10 }),
 		])
 
 		return NextResponse.json({ customer, paymentMethods, invoices, subscriptions }, { status: 200 })

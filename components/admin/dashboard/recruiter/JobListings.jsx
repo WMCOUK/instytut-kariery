@@ -63,7 +63,7 @@ export default function JobListings() {
 									<div className="text-muted-foreground mb-1">Applications</div>
 									<div className="flex items-center gap-2 text-muted-foreground">
 										<User className="w-4 h-4" />
-										<span>{job.application.length}</span>
+										<span>{job._count.application}</span>
 									</div>
 								</div>
 							</div>
@@ -125,7 +125,7 @@ export default function JobListings() {
 									<TableCell>
 										<div className="flex items-center gap-2 text-muted-foreground">
 											<User className="w-5 h-5" />
-											<span>{job.application.length} Applications</span>
+											<span>{job._count.application} Applications</span>
 										</div>
 									</TableCell>
 									<TableCell className="text-right">

@@ -27,7 +27,7 @@ export const GET = async (request) => {
 				jobLocation: true,
 				jobPosition: true,
 				jobWorkMode: true,
-				application: true
+				_count: { select: { application: true } },
 			},
 
 		})
