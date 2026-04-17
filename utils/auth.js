@@ -47,42 +47,67 @@ export const authOptions = {
 		}),
 	],
 	callbacks: {
-		async jwt({ token, user }) {
+		async jwt({ token, user, trigger }) {
 			if (user) {
 				token.id = user.id
 				token.email = user.email
+				token.isRole = user.isRole
+				token.onboard = user.onboard
+				token.userName = user.userName
+				token.picture = user.image
+				token.stripeCustomerId = user.stripeCustomerId
+				token.isSubscription = user.isSubscription
+				token.subscriptionID = user.subscriptionID
+				token.subPriceId = user.subPriceId
 			}
+
+			if (trigger === "update") {
+				const fresh = await prisma.user.findUnique({
+					where: { email: token.email },
+					select: {
+						id: true, email: true, isRole: true, onboard: true,
+						userName: true, image: true, stripeCustomerId: true,
+						isSubscription: true, subscriptionID: true, subPriceId: true,
+					},
+				})
+				if (fresh) {
+					token.id = fresh.id
+					token.isRole = fresh.isRole
+					token.onboard = fresh.onboard
+					token.userName = fresh.userName
+					token.picture = fresh.image
+					token.stripeCustomerId = fresh.stripeCustomerId
+					token.isSubscription = fresh.isSubscription
+					token.subscriptionID = fresh.subscriptionID
+					token.subPriceId = fresh.subPriceId
+				}
+			}
+
 			return token
 		},
 		async session({ session, token }) {
 			if (!token?.email) return session
 
-			const user = await prisma.user.findUnique({
-				where: { email: token.email },
-			})
-
-			if (!user) return session
-
 			return {
 				...session,
 				user: {
 					...session.user,
-					id: user.id,
-					email: user.email,
-					isRole: user.isRole,
-					onboard: user.onboard,
-					userName: user.userName,
-					picture: user.image,
-					stripeCustomerId: user.stripeCustomerId,
-					isSubscription: user.isSubscription,
-					subscriptionID: user.subscriptionID,
-					subPriceId: user.subPriceId,
-					isAdmin: user.isRole === "ADMIN",
-					isModerator: user.isRole === "MODERATOR",
-					isRoleUser: user.isRole === "USER",
-					isOnboardUser: user.onboard === "USER",
-					isRecruiter: user.onboard === "RECRUITER",
-					isCandidate: user.onboard === "CANDIDATE",
+					id: token.id,
+					email: token.email,
+					isRole: token.isRole,
+					onboard: token.onboard,
+					userName: token.userName,
+					picture: token.picture,
+					stripeCustomerId: token.stripeCustomerId,
+					isSubscription: token.isSubscription,
+					subscriptionID: token.subscriptionID,
+					subPriceId: token.subPriceId,
+					isAdmin: token.isRole === "ADMIN",
+					isModerator: token.isRole === "MODERATOR",
+					isRoleUser: token.isRole === "USER",
+					isOnboardUser: token.onboard === "USER",
+					isRecruiter: token.onboard === "RECRUITER",
+					isCandidate: token.onboard === "CANDIDATE",
 				},
 			}
 		},
