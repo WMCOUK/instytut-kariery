@@ -21,8 +21,6 @@
 - Every database query must be optimized (use indexes, avoid N+1)
 
 ## Known Issues
-- SSR not working properly (pages render client-side only — kills SEO and speed)
-- Performance issues on billing/dashboard pages
 - Placeholder content still in place (fake profiles, generic logos, English-only text)
 
 ## Performance Checklist
