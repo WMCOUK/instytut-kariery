@@ -1,8 +1,12 @@
 import { ATTRIBUTE_PER_PAGE } from "@/utils"
+import { isAuthFailure, requireRole } from "@/utils/apiAuth"
 import prisma from "@/utils/prismadb"
 import { NextResponse } from "next/server"
 
 export const GET = async (request) => {
+	const session = await requireRole(["ADMIN"])
+	if (isAuthFailure(session)) return session
+
 	const { searchParams } = new URL(request.url)
 	const page = Number.parseInt(searchParams.get("page") || "1")
 	const take = ATTRIBUTE_PER_PAGE
