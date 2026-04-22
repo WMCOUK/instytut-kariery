@@ -1,4 +1,4 @@
-import { getAuthSession } from "@/utils/auth"
+import { isAuthFailure, requireRole } from "@/utils/apiAuth"
 import prisma from "@/utils/prismadb"
 import { NextResponse } from "next/server"
 
@@ -31,9 +31,10 @@ export const GET = async (request, { params }) => {
 
 export const PATCH = async (requsest, { params }) => {
 	const { slug } = await params
-	const session = await getAuthSession()
+	const session = await requireRole(["ADMIN"])
+	if (isAuthFailure(session)) return session
 	try {
-		// if (session.user.isAdmin) {
+
 		const body = await requsest.json()
 		const { title, image, icon } = body
 
@@ -54,7 +55,7 @@ export const PATCH = async (requsest, { params }) => {
 				{ status: 404 }
 			)
 		}
-		// }
+
 		return NextResponse.json(updateDatePosted)
 
 	} catch (error) {
@@ -65,14 +66,15 @@ export const PATCH = async (requsest, { params }) => {
 
 export const DELETE = async (request, { params }) => {
 	const { slug } = await params
-	const session = await getAuthSession()
+	const session = await requireRole(["ADMIN"])
+	if (isAuthFailure(session)) return session
 	try {
 
-		// if (session.user.isAdmin) {
+
 		await prisma.jobDate.delete({
 			where: { slug }
 		})
-		// }
+
 		return NextResponse.json("Experience has been deleted")
 	} catch (error) {
 		return NextResponse.json({ message: "Delete Error", error: error.message }, { status: 500 })

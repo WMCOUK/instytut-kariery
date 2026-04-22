@@ -1,4 +1,5 @@
 import { TABLE_ROW_PAGE } from "@/utils"
+import { getAuthSession } from "@/utils/auth"
 import prisma from "@/utils/prismadb"
 import { NextResponse } from "next/server"
 
@@ -8,28 +9,31 @@ export const GET = async (request) => {
 	const take = TABLE_ROW_PAGE
 	const skip = TABLE_ROW_PAGE * (page - 1)
 
-	// const user = await currentUserServer()
-	// if (!user) {
-	// 	return NextResponse.json({ message: "User not authenticated" }, { status: 401 })
-	// }
-
-	// const isAdmin = user.isRole === "ADMIN"
-	// const where = isAdmin ? {} : { userId: user.id }
+	const session = await getAuthSession()
+	const isAdmin = session?.user?.isRole === "ADMIN"
 
 	try {
-		const candidates = await prisma.user.findMany({
-			skip,
-			take,
-			where: { onboard: "CANDIDATE" }, // Filter only candidates
-			include: {
-				candidate: true,
-				personal: true,
-			}
-		})
+		const where = isAdmin
+			? { onboard: "CANDIDATE" }
+			: { onboard: "CANDIDATE", candidate: { publicProfile: true } }
 
-		const totalCandidate = await prisma.user.count({
-			where: { onboard: "CANDIDATE" }, // Count only candidates
-		})
+		const [candidates, totalCandidate] = await Promise.all([
+			prisma.user.findMany({
+				skip,
+				take,
+				where,
+				select: {
+					id: true,
+					userName: true,
+					email: isAdmin,
+					onboard: true,
+					createdAt: true,
+					candidate: true,
+					personal: true,
+				},
+			}),
+			prisma.user.count({ where }),
+		])
 
 		return NextResponse.json({
 			candidates,
@@ -41,5 +45,3 @@ export const GET = async (request) => {
 		return NextResponse.json({ message: "Get Error", error: error.message }, { status: 500 })
 	}
 }
-
-
