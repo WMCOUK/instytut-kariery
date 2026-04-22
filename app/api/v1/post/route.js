@@ -1,5 +1,5 @@
 import { TABLE_ROW_PAGE } from "@/utils"
-import { getAuthSession } from "@/utils/auth"
+import { isAuthFailure, requireRole } from "@/utils/apiAuth"
 import prisma from "@/utils/prismadb"
 import { NextResponse } from "next/server"
 
@@ -41,21 +41,22 @@ export const GET = async (request) => {
 
 
 export const POST = async (request) => {
-	const session = await getAuthSession()
+	const session = await requireRole(["ADMIN"])
+	if (isAuthFailure(session)) return session
+
 	try {
 		const body = await request.json()
+		const { title, slug, catSlug, description, img, isFeatured, videoId, tags, subTitle } = body
 
 		const newPost = await prisma.post.create({
 			data: {
-				...body,
-				userId: session.user.id
-
-			}
+				title, slug, catSlug, description, img, isFeatured, videoId, tags, subTitle,
+				userId: session.user.id,
+			},
 		})
 
 		return NextResponse.json(newPost)
-
 	} catch (error) {
-		return NextResponse.json({ message: "Post Error", error }, { status: 500 })
+		return NextResponse.json({ message: "Post Error", error: error.message }, { status: 500 })
 	}
 }

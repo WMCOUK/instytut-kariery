@@ -1,4 +1,5 @@
 import { ATTRIBUTE_PER_PAGE } from "@/utils"
+import { isAuthFailure, requireAuth } from "@/utils/apiAuth"
 import prisma from "@/utils/prismadb"
 import { NextResponse } from "next/server"
 
@@ -39,18 +40,19 @@ export const GET = async (request) => {
 
 
 export const POST = async (request) => {
+	const session = await requireAuth()
+	if (isAuthFailure(session)) return session
+
 	try {
 		const body = await request.json()
+		const { title, slug, url } = body
 
-		const newType = await prisma.socialLink.create({
-			data: {
-				...body
-			}
+		const newLink = await prisma.socialLink.create({
+			data: { title, slug, url, userId: session.user.id },
 		})
 
-		return NextResponse.json(newType)
-
+		return NextResponse.json(newLink)
 	} catch (error) {
-		return NextResponse.json({ message: "Post Error", error }, { status: 500 })
+		return NextResponse.json({ message: "Post Error", error: error.message }, { status: 500 })
 	}
 }
