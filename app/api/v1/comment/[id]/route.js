@@ -31,10 +31,11 @@ export const PATCH = async (request, { params }) => {
 		if (isAuthFailure(session)) return session
 
 		const body = await request.json()
+		const { description } = body
 
 		const updated = await prisma.comment.update({
 			where: { id },
-			data: { ...body },
+			data: { description },
 		})
 
 		return NextResponse.json(updated)

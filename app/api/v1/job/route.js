@@ -1,65 +1,42 @@
-
-import currentUserServer from '@/utils/currentUserServer'
+import { isAuthFailure, requireAuth } from '@/utils/apiAuth'
 import prisma from '@/utils/prismadb'
+import { NextResponse } from 'next/server'
 
 export async function POST(request) {
-	const user = await currentUserServer()
-	// const { subPriceId } = user || {}
-
-	const body = await request.json()
-
-
-
-	// const subscriptionPlan = subscription.find((plan) => plan.subPriceId === subPriceId)
-
-	// if (!subscriptionPlan) {
-	// 	return new Response(
-	// 		JSON.stringify({
-	// 			error: "Invalid subscription plan. Please ensure you have an active plan.",
-	// 			redirect: "/subscription", // Include the redirect path
-	// 			toast: true,
-	// 		}),
-	// 		{ status: 400 }
-	// 	)
-	// }
-
-
-
-	// const planType = subscriptionPlan.planType
-
-	// const currentJobs = await prisma.job.count({
-	// 	where: { userId: user?.id },
-	// })
-
-	// if (currentJobs >= maxJobs[planType]) {
-	// 	return new Response(
-	// 		JSON.stringify({
-	// 			error: `You can only create up to ${maxJobs[planType]} job accounts with the ${planType} plan.`,
-	// 			redirect: "/subscription", // Include the redirect path
-	// 			toast: true,
-	// 		}),
-	// 		{ status: 403 }
-	// 	)
-	// }
+	const session = await requireAuth()
+	if (isAuthFailure(session)) return session
 
 	try {
+		const body = await request.json()
+		const {
+			title, slug, image, description, content,
+			numberOfPositions, minSalary, maxSalary, salaryRange, currency,
+			applyUrl, isFreelance, skills, benefit,
+			startDate, closingDate, maxApplicants,
+			latitude, longitude,
+			recruiterSlug, jobIndustrySlug, jobTypeSlug, jobExperienceSlug,
+			jobWorkModeSlug, jobLocationSlug, jobPositionSlug, jobBenefitSlug,
+		} = body
+
 		const job = await prisma.job.create({
 			data: {
-				...body,
-				userId: user?.id
+				title, slug, image, description, content,
+				numberOfPositions, minSalary, maxSalary, salaryRange, currency,
+				applyUrl, isFreelance, skills, benefit,
+				startDate, closingDate, maxApplicants,
+				latitude, longitude,
+				recruiterSlug, jobIndustrySlug, jobTypeSlug, jobExperienceSlug,
+				jobWorkModeSlug, jobLocationSlug, jobPositionSlug, jobBenefitSlug,
+				userId: session.user.id,
+				status: 'draft',
+				moderation: 'pending',
 			},
 		})
 
-		return Response.json({
-			message: "Job created successfully!",
-			job,
-		})
+		return NextResponse.json({ message: "Job created successfully!", job })
 	} catch (error) {
-		return new Response(
-			JSON.stringify({
-				error: "An error occurred while creating the job. Please try again.",
-				toast: true,
-			}),
+		return NextResponse.json(
+			{ error: "An error occurred while creating the job. Please try again." },
 			{ status: 500 }
 		)
 	}

@@ -42,21 +42,15 @@ export const GET = async (request) => {
 
 export async function POST(request) {
 	const user = await currentUserServer()
-	const { subPriceId } = user || {}
-
-	const body = await request.json()
-	// console.log(body);
+	if (!user) {
+		return NextResponse.json({ message: "Unauthorized" }, { status: 401 })
+	}
+	const { subPriceId } = user
 
 	const subscriptionPlan = subscription.find((plan) => plan.subPriceId === subPriceId)
-
 	if (!subscriptionPlan) {
-		return new Response(
-			JSON.stringify({ error: "Invalid subPriceId" }),
-			{ status: 400 }
-		)
+		return NextResponse.json({ error: "Invalid subPriceId" }, { status: 400 })
 	}
-
-
 
 	const planType = subscriptionPlan.planType
 	const currentRecruiters = await prisma.recruiter.count({
@@ -64,21 +58,36 @@ export async function POST(request) {
 	})
 
 	if (currentRecruiters >= maxRecruiters[planType]) {
-		return new Response(
-			JSON.stringify({
+		return NextResponse.json(
+			{
 				error: `You can only create up to ${maxRecruiters[planType]} recruiter accounts with the ${planType} plan. Please upgrade your plan to add more.`,
 				redirect: "/subscription",
-			}),
+			},
 			{ status: 403 }
 		)
 	}
 
-	const recruiter = await prisma.recruiter.create({
-		data: {
-			...body,
-			userId: user?.id,
-		},
-	})
+	try {
+		const body = await request.json()
+		const {
+			title, slug, email, image, coverPhoto, jobIndustrySlug,
+			description, content, taxId, phone, website,
+			yearFounded, numberOfEmployees, country, state, address, city,
+			latitude, longitude, postalCode, seoMeta,
+		} = body
 
-	return NextResponse.json(recruiter)
+		const recruiter = await prisma.recruiter.create({
+			data: {
+				title, slug, email, image, coverPhoto, jobIndustrySlug,
+				description, content, taxId, phone, website,
+				yearFounded, numberOfEmployees, country, state, address, city,
+				latitude, longitude, postalCode, seoMeta,
+				userId: user.id,
+			},
+		})
+
+		return NextResponse.json(recruiter)
+	} catch (error) {
+		return NextResponse.json({ message: "Post Error", error: error.message }, { status: 500 })
+	}
 }

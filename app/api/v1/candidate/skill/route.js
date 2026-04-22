@@ -13,26 +13,13 @@ export const GET = async (request) => {
 		if (!session?.user?.id) {
 			return NextResponse.json({ message: "Unauthorized" }, { status: 401 })
 		}
+		const where = { userId: session.user.id }
 		const skills = await prisma.candidateSkill.findMany({
 			skip,
 			take,
-			where: {
-				userId: session?.user?.id,
-			}
-			// orderBy: {
-			// 	posts: {
-			// 		_count: 'desc'
-			// 	}
-			// },
-			// include: {
-			// 	_count: {
-			// 		select: {
-			// 			posts: true
-			// 		}
-			// 	}
-			// }
+			where,
 		})
-		const totalSkill = await prisma.candidateSkill.count()
+		const totalSkill = await prisma.candidateSkill.count({ where })
 
 		return new NextResponse(JSON.stringify({
 			skills,
@@ -40,7 +27,7 @@ export const GET = async (request) => {
 		}))
 
 	} catch (error) {
-		return NextResponse.json({ message: "Get Error", error }, { status: 500 })
+		return NextResponse.json({ message: "Get Error", error: error.message }, { status: 500 })
 	}
 }
 
@@ -52,19 +39,17 @@ export const POST = async (request) => {
 	}
 	try {
 		const body = await request.json()
-		// console.log(body)
-
+		const { title, slug, percentage } = body
 
 		const newcandidateSkill = await prisma.candidateSkill.create({
 			data: {
-				...body,
-				userId: session?.user?.id,
-			}
+				title, slug, percentage,
+				userId: session.user.id,
+			},
 		})
 
 		return NextResponse.json(newcandidateSkill)
-
 	} catch (error) {
-		return NextResponse.json({ message: "Post Error", error }, { status: 500 })
+		return NextResponse.json({ message: "Post Error", error: error.message }, { status: 500 })
 	}
 }
