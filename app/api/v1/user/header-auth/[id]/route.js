@@ -1,15 +1,27 @@
+import { isAuthFailure, requireAuth } from "@/utils/apiAuth"
 import prisma from "@/utils/prismadb"
 import { NextResponse } from "next/server"
 
-// GET user by id
 export const GET = async (request, { params }) => {
-	try {
-		const { id } = await params
+	const session = await requireAuth()
+	if (isAuthFailure(session)) return session
 
+	const { id } = await params
+
+	if (id !== session.user.id && session.user.isRole !== "ADMIN") {
+		return NextResponse.json({ message: "Forbidden" }, { status: 403 })
+	}
+
+	try {
 		const user = await prisma.user.findUnique({
 			where: { id },
-			include: {
-				personal: true, // include personal info
+			select: {
+				id: true,
+				userName: true,
+				email: true,
+				isRole: true,
+				onboard: true,
+				personal: true,
 			},
 		})
 
@@ -19,6 +31,6 @@ export const GET = async (request, { params }) => {
 
 		return NextResponse.json({ user })
 	} catch (error) {
-		return NextResponse.json({ message: "Get Error", error }, { status: 500 })
+		return NextResponse.json({ message: "Get Error", error: error.message }, { status: 500 })
 	}
 }
