@@ -23,7 +23,7 @@ export const GET = async (request, { params }) => {
 		return NextResponse.json(workMode)
 
 	} catch (error) {
-		return NextResponse.json({ message: "Get Error", error }, { status: 500 })
+		return NextResponse.json({ message: "Get Error", error: error.message }, { status: 500 })
 	}
 }
 
@@ -58,7 +58,7 @@ export const PATCH = async (requsest, { params }) => {
 		return NextResponse.json(updateWorkMode)
 
 	} catch (error) {
-		return NextResponse.json({ message: "Update Error", error }, { status: 500 })
+		return NextResponse.json({ message: "Update Error", error: error.message }, { status: 500 })
 	}
 }
 
@@ -75,6 +75,6 @@ export const DELETE = async (request, { params }) => {
 		// }
 		return NextResponse.json("WorkMode has been deleted")
 	} catch (error) {
-		return NextResponse.json({ message: "Delete Error", error }, { status: 500 })
+		return NextResponse.json({ message: "Delete Error", error: error.message }, { status: 500 })
 	}
 }

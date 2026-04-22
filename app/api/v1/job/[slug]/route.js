@@ -45,7 +45,7 @@ export const GET = async (request, { params }) => {
 		return NextResponse.json(job)
 
 	} catch (error) {
-		return NextResponse.json({ message: "Get Error", error }, { status: 500 })
+		return NextResponse.json({ message: "Get Error", error: error.message }, { status: 500 })
 	}
 }
 

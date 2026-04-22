@@ -55,6 +55,6 @@ export const POST = async (request) => {
 		return NextResponse.json(newCategory)
 
 	} catch (error) {
-		return NextResponse.json({ message: "Post Error", error }, { status: 500 })
+		return NextResponse.json({ message: "Post Error", error: error.message }, { status: 500 })
 	}
 }

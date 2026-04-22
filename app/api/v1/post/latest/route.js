@@ -12,7 +12,7 @@ export async function GET() {
 		})
 		return NextResponse.json({ posts: latestPosts })
 	} catch (error) {
-		return NextResponse.json({ message: "Get Error", error }, { status: 500 })
+		return NextResponse.json({ message: "Get Error", error: error.message }, { status: 500 })
 	}
 }
 

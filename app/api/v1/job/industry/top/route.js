@@ -22,7 +22,7 @@ export const GET = async (requsest) => {
 		return new NextResponse(JSON.stringify(topCategories, { status: 200 }))
 
 	} catch (error) {
-		return NextResponse.json({ message: "Get Error", error }, { status: 500 })
+		return NextResponse.json({ message: "Get Error", error: error.message }, { status: 500 })
 	}
 }
 

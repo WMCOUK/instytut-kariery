@@ -30,7 +30,7 @@ export async function GET(request) {
 		})
 	} catch (error) {
 		console.error("Error fetching job locations:", error)
-		return NextResponse.json({ message: "Get Error", error }, { status: 500 })
+		return NextResponse.json({ message: "Get Error", error: error.message }, { status: 500 })
 	}
 }
 
@@ -50,7 +50,7 @@ export async function POST(request) {
 		return NextResponse.json(newLocation)
 	} catch (error) {
 		console.error("Error creating job location:", error)
-		return NextResponse.json({ message: "Post Error", error }, { status: 500 })
+		return NextResponse.json({ message: "Post Error", error: error.message }, { status: 500 })
 	}
 }
 
